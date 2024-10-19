@@ -2,15 +2,11 @@ package datos.Interfaces;
 
 import java.util.List;
 
+//Solo para la clase cliente
 public interface CrudSimpleInterface <T>{
     
     public List<T> listar(String Texto);
     public boolean insertar(T obj);
-    public boolean actualizar(T obj);
-    public boolean desactivar(int id);
-    public boolean activar(int id);
-    public int total();
     public boolean existencia(String existe);
-    
 }
 
