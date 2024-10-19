@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `tb_Pago` (
 CREATE TABLE IF NOT EXISTS `tb_Historial_Pedido` (
   `ID_Historial` INT NOT NULL AUTO_INCREMENT,
   `ID_Pedido` INT NOT NULL,
-  `ID_Usuario` INT NOT NULL,
+  /*`ID_Usuario` INT NOT NULL,*/
   `Estado_Anterior` ENUM('Pendiente', 'Confirmado', 'En Preparacion', 'Listo', 'Entregado', 'Cancelado') NOT NULL,
   `Estado_Nuevo` ENUM('Pendiente', 'Confirmado', 'En Preparacion', 'Listo', 'Entregado', 'Cancelado') NOT NULL,
   `Fecha_Cambio` DATETIME NOT NULL,
@@ -256,13 +256,15 @@ CREATE TABLE IF NOT EXISTS `tb_Historial_Pedido` (
     FOREIGN KEY (`ID_Pedido`)
     REFERENCES `tb_Pedido` (`ID_Pedido`)
     ON DELETE CASCADE
-    ON UPDATE NO ACTION,
-  CONSTRAINT `FK_Usuario_Historial`
+    ON UPDATE NO ACTION
+  /*CONSTRAINT `FK_Usuario_Historial`
     FOREIGN KEY (`ID_Usuario`)
     REFERENCES `tb_Usuario` (`ID_Usuario`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    ON UPDATE NO ACTION*/
 ) ENGINE = InnoDB;
+ALTER TABLE tb_Historial_Pedido 
+DROP FOREIGN KEY FK_Usuario_Historial;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
