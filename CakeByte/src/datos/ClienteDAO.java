@@ -1,13 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package datos;
 
-/**
- *
- * @author Yodver
- */
-public class ClienteDAO {
+import database.Conexion;
+import datos.Interfaces.CrudSimpleInterface;
+import entidades.cliente;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class ClienteDAO implements CrudSimpleInterface<cliente> {
+    
+    private final Conexion CON;
+    private PreparedStatement ps;
+    private ResultSet rs;
+    private boolean resp;
+
+    public ClienteDAO() {
+        CON = Conexion.getinstancia();
+    }
+
     
 }
