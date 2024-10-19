@@ -2,6 +2,6 @@
 package entidades;
 
 
-public class Categoria {
+public class cliente {
     
 }
