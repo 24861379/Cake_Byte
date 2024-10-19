@@ -4,23 +4,33 @@ import java.util.Date;
 
 public class pedido {
     Date fecha = new Date();
+    private int id;
     private Date fechaPedido;
     private Date fechaEntrega;
     private String estado;
     private String InstruccionesEspeciales;
-    private double toal;
+    private double total;
 
     public pedido() {
     }
     
-    public pedido(Date fechaPedido, Date fechaEntrega, String estado, String InstruccionesEspeciales, double toal) {
+    public pedido(int id,Date fechaPedido, Date fechaEntrega, String estado, String InstruccionesEspeciales, double total) {
+        this.id=id;
         this.fechaPedido = fechaPedido;
         this.fechaEntrega = fechaEntrega;
         this.estado = estado;
         this.InstruccionesEspeciales = InstruccionesEspeciales;
-        this.toal = toal;
+        this.total = total;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public Date getFecha() {
         return fecha;
     }
@@ -62,16 +72,16 @@ public class pedido {
     }
 
     public double getToal() {
-        return toal;
+        return total;
     }
 
     public void setToal(double toal) {
-        this.toal = toal;
+        this.total = toal;
     }
 
     @Override
     public String toString() {
-        return "Pedido\n" + "Fecha: " + fecha + "\nFecha pedido: " + fechaPedido + "\nFecha de entrega: " + fechaEntrega + "\nEstado: " + estado + "\nInstrucciones especiales:" + InstruccionesEspeciales + "\nTotal=" + toal;
+        return "Pedido\n" + "Fecha: " + fecha + "\nFecha pedido: " + fechaPedido + "\nFecha de entrega: " + fechaEntrega + "\nEstado: " + estado + "\nInstrucciones especiales:" + InstruccionesEspeciales + "\nTotal=" + total;
     }
     
     
