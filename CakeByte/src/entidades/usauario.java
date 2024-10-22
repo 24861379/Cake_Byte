@@ -53,7 +53,5 @@ public class usauario {
     @Override
     public String toString() {
         return "Usauario: \n"+ "Contraseña del usuario: " + contraseñaUsuario + "\nRol del usuario: " +Arrays.toString(rolUsuario);
-    }
-    
-    
+    }  
 }
