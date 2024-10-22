@@ -53,9 +53,9 @@ public class PedidoDAO implements crudPedido<pedido> {
             
             ps.setDate(1, new java.sql.Date(obj.getFechaPedido().getTime()));// Convertir a java.sql.Date
             ps.setDate(2, new java.sql.Date(obj.getFechaEntrega().getTime()));
-            ps.setString(3, obj.getEstado());
+            ps.setString(3, obj.getEstado()[0]);
             ps.setString(4, obj.getInstruccionesEspeciales());
-            ps.setDouble(5, obj.getToal());
+            ps.setDouble(5, obj.getTotal());
             
             if (ps.executeUpdate() > 0) {
                 resp= true;
@@ -78,7 +78,7 @@ public class PedidoDAO implements crudPedido<pedido> {
         try {
             ps = CON.conectar().prepareStatement("UPDATE pedido SET Fecha_Entrega=?, Estado=?, Instrucciones_Especiales=?  WHERE id=?");
             ps.setDate(1, new java.sql.Date(obj.getFechaEntrega().getTime()));
-            ps.setString(2, obj.getEstado());
+            ps.setString(2, obj.getEstado()[0]);
             ps.setInt(3, obj.getId());
             if (ps.executeUpdate() > 0) {
                 resp = true;

@@ -1,5 +1,6 @@
 package entidades;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class pedido {
@@ -7,20 +8,27 @@ public class pedido {
     private int id;
     private Date fechaPedido;
     private Date fechaEntrega;
-    private String estado;
+    private String[] estado = {"Pendiente", "Confirmado", "En Preparacion", "Listo", "Entregado'", "Cancelado"};
     private String InstruccionesEspeciales;
     private double total;
 
     public pedido() {
     }
-    
-    public pedido(int id,Date fechaPedido, Date fechaEntrega, String estado, String InstruccionesEspeciales, double total) {
-        this.id=id;
+
+    public pedido(int id, Date fechaPedido, Date fechaEntrega, String InstruccionesEspeciales, String string1, double total) {
+        this.id = id;
         this.fechaPedido = fechaPedido;
         this.fechaEntrega = fechaEntrega;
-        this.estado = estado;
         this.InstruccionesEspeciales = InstruccionesEspeciales;
         this.total = total;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public int getId() {
@@ -29,14 +37,6 @@ public class pedido {
 
     public void setId(int id) {
         this.id = id;
-    }
-    
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public Date getFechaPedido() {
@@ -55,11 +55,11 @@ public class pedido {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public String getEstado() {
+    public String[] getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(String[] estado) {
         this.estado = estado;
     }
 
@@ -71,17 +71,18 @@ public class pedido {
         this.InstruccionesEspeciales = InstruccionesEspeciales;
     }
 
-    public double getToal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setToal(double toal) {
-        this.total = toal;
+    public void setTotal(double total) {
+        this.total = total;
     }
 
+    
     @Override
     public String toString() {
-        return "Pedido\n" + "Fecha: " + fecha + "\nFecha pedido: " + fechaPedido + "\nFecha de entrega: " + fechaEntrega + "\nEstado: " + estado + "\nInstrucciones especiales:" + InstruccionesEspeciales + "\nTotal=" + total;
+        return "Pedido\n" + "Fecha: " + fecha + "\nFecha pedido: " + fechaPedido + "\nFecha de entrega: " + fechaEntrega + "\nEstado: " + Arrays.toString(estado)+ "\nInstrucciones especiales:" + InstruccionesEspeciales + "\nTotal=" + total;
     }
     
     
