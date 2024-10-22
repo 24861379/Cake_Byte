@@ -56,7 +56,4 @@ public class historialPedido {
     public String toString() {
         return "Historial de pedido: " + "\nEstado Anterior: " + Arrays.toString(estadoAnteriorHistorialP) + "\nEstado Nuevo:" +Arrays.toString(estadoNuevoHistorialP)+ "\nFecha de cambio:" + fechaCambioHistorialP + "\nObservaciones: \n" + observacionesHistorialP;
     }
-
-   
-    
 }
