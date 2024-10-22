@@ -41,6 +41,6 @@ public class figura {
 
     @Override
     public String toString() {
-        return "Figura\n" + "id Figura: " + id_figura + "\nNombre: " + Nombre + "\nPrecio adicional: " + precio_adicional;
+        return "Figura\n" + "\nNombre: " + Nombre + "\nPrecio adicional: " + precio_adicional;
     }
 }

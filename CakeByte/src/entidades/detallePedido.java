@@ -1,6 +1,6 @@
 package entidades;
 
-public class detalle_pedido {
+public class detallePedido {
     
     private int id_detalle_pedido;
     private int cantidad;
@@ -8,11 +8,11 @@ public class detalle_pedido {
     private double subtotal;
 
     
-    public detalle_pedido(){
+    public detallePedido(){
         
     }
     
-    public detalle_pedido(int id_detalle_pedido, int cantidad, double precio_unitario, double subtotal) {
+    public detallePedido(int id_detalle_pedido, int cantidad, double precio_unitario, double subtotal) {
         this.id_detalle_pedido = id_detalle_pedido;
         this.cantidad = cantidad;
         this.precio_unitario = precio_unitario;
@@ -53,6 +53,6 @@ public class detalle_pedido {
 
     @Override
     public String toString() {
-        return "Detalle del pedido\n" + "id del detalle del pedido: " + id_detalle_pedido + "\nCantidad: " + cantidad + "\nPrecio Unitario: " + precio_unitario + "\nSubtotal: " + subtotal;
+        return "Detalle del pedido\n" + "\nCantidad: " + cantidad + "\nPrecio Unitario: " + precio_unitario + "\nSubtotal: " + subtotal;
     }
 }

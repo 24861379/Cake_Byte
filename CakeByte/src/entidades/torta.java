@@ -52,6 +52,6 @@ public class torta {
 
     @Override
     public String toString() {
-        return "Torta\n" + "id: " + id + "\nNombre: " + Nombre + "\nDescripcion: " + Descripcion + "\nPrecio base: " + precio_base;
+        return "Torta\n" + "\nNombre: " + Nombre + "\nDescripcion: " + Descripcion + "\nPrecio base: " + precio_base;
     }
 }

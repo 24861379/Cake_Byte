@@ -54,6 +54,6 @@ public class pago {
 
     @Override
     public String toString() {
-        return "Pago\n" + "id: " + id + "\nMonto: " + monto + "\nFecha de Pago: " + fechaPago + "\nMetodo de Pago: " + Arrays.toString(metodosPago);
+        return "Pago\n" + "\nMonto: " + monto + "\nFecha de Pago: " + fechaPago + "\nMetodo de Pago: " + Arrays.toString(metodosPago);
     }
 }
