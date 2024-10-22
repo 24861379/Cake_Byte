@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class historialPedido {
-    //id_historial FK
-    //id_pedido FK
+    private int idHistorialP;
     //id_usuario FK
     private String[] estadoAnteriorHistorialP= {"Pendiente", "Confirmado", "En Preparacion", "Listo", "Entregado'", "Cancelado"};
     private String[] estadoNuevoHistorialP= {"Pendiente", "Confirmado", "En Preparacion", "Listo", "Entregado'", "Cancelado"};
@@ -15,9 +14,18 @@ public class historialPedido {
     public historialPedido() {
     }
 
-    public historialPedido(Date fechaCambioHistorialP, String observacionesHistorialP) {
+    public historialPedido(int idHistorialP, Date fechaCambioHistorialP, String observacionesHistorialP) {
+        this.idHistorialP = idHistorialP;
         this.fechaCambioHistorialP = fechaCambioHistorialP;
         this.observacionesHistorialP = observacionesHistorialP;
+    }
+
+    public int getIdHistorialP() {
+        return idHistorialP;
+    }
+
+    public void setIdHistorialP(int idHistorialP) {
+        this.idHistorialP = idHistorialP;
     }
 
     public String[] getEstadoAnteriorHistorialP() {

@@ -83,8 +83,5 @@ public class pedido {
     @Override
     public String toString() {
         return "Pedido\n" + "Fecha: " + fecha + "\nFecha pedido: " + fechaPedido + "\nFecha de entrega: " + fechaEntrega + "\nEstado: " + Arrays.toString(estado)+ "\nInstrucciones especiales:" + InstruccionesEspeciales + "\nTotal=" + total;
-    }
-    
-    
-    
+    }  
 }

@@ -40,6 +40,6 @@ public class decoracion {
 
     @Override
     public String toString() {
-        return "Decoracion \n" + "\nid decoracion: " + idDecoracion + "\nNombrede la decoracion: " + nombreDecoracion + "\nPrecio adicional: " + precioAdicional;
+        return "Decoracion \n"+ "Nombrede la decoracion: " + nombreDecoracion + "\nPrecio adicional: " + precioAdicional;
     }
 }

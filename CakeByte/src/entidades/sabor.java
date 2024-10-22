@@ -40,7 +40,7 @@ public class sabor {
 
     @Override
     public String toString() {
-        return "Sabor \n" + "\nid del sabor: " + idSabor + "\nNombre del sabor: " + NombreSabor + "\nPrecio adicional: " + precioAdicionalSabor;
+        return "Sabor \n" + NombreSabor + "\nPrecio adicional: " + precioAdicionalSabor;
     }
    
    
