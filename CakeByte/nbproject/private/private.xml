@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/datos/ClienteDAO.java</file>
+            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/entidades/cliente.java</file>
+=======
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/pedido.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/cliente.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/PedidoDAO.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/Interfaces/crudPedido.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/Interfaces/CrudSimpleInterface.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/ClienteDAO.java</file>
+>>>>>>> 63945a933e23ef9738d43e6641b890c5057620e3
         </group>
     </open-files>
 </project-private>
