@@ -226,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `tb_Detalle_Decoracion` (
 CREATE TABLE IF NOT EXISTS `tb_Pago` (
   `ID_Pago` INT NOT NULL AUTO_INCREMENT,
   `ID_Pedido` INT NOT NULL,
-  `Metodo_Pago` ENUM('Tarjeta', 'PayPal', 'Efectivo', 'Transferencia') NOT NULL,
+  `Metodo_Pago` ENUM('Tarjeta','Efectivo', 'Nequi') NOT NULL,
   `Monto` DECIMAL(11,2) NOT NULL,
   `Fecha_Pago` DATETIME NOT NULL,
   PRIMARY KEY (`ID_Pago`),
@@ -257,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `tb_Historial_Pedido` (
     REFERENCES `tb_Pedido` (`ID_Pedido`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION
-  /*CONSTRAINT `FK_Usuario_Historial`
+	/*CONSTRAINT `FK_Usuario_Historial`
     FOREIGN KEY (`ID_Usuario`)
     REFERENCES `tb_Usuario` (`ID_Usuario`)
     ON DELETE NO ACTION
@@ -265,7 +265,6 @@ CREATE TABLE IF NOT EXISTS `tb_Historial_Pedido` (
 ) ENGINE = InnoDB;
 ALTER TABLE tb_Historial_Pedido 
 DROP FOREIGN KEY FK_Usuario_Historial;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
