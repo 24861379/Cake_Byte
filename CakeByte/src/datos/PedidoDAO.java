@@ -16,7 +16,8 @@ public class PedidoDAO implements crudPedido<pedido> {
     private final Conexion CON;
     private PreparedStatement ps;
     private ResultSet rs;
-    private boolean resp; 
+    private boolean resp;
+    private int estadoIndex; // Índice que representa el estado actual
    
     public PedidoDAO(){
         CON = Conexion.getinstancia();
@@ -53,7 +54,7 @@ public class PedidoDAO implements crudPedido<pedido> {
             
             ps.setDate(1, new java.sql.Date(obj.getFechaPedido().getTime()));// Convertir a java.sql.Date
             ps.setDate(2, new java.sql.Date(obj.getFechaEntrega().getTime()));
-            ps.setString(3, obj.getEstado()[0]);
+            ps.setString(3, obj.getEstado()[estadoIndex]);// estadoIndex es el índice del estado actual
             ps.setString(4, obj.getInstruccionesEspeciales());
             ps.setDouble(5, obj.getTotal());
             
@@ -78,7 +79,7 @@ public class PedidoDAO implements crudPedido<pedido> {
         try {
             ps = CON.conectar().prepareStatement("UPDATE pedido SET Fecha_Entrega=?, Estado=?, Instrucciones_Especiales=?  WHERE id=?");
             ps.setDate(1, new java.sql.Date(obj.getFechaEntrega().getTime()));
-            ps.setString(2, obj.getEstado()[0]);
+            ps.setString(2, obj.getEstado()[estadoIndex]);
             ps.setInt(3, obj.getId());
             if (ps.executeUpdate() > 0) {
                 resp = true;
@@ -116,8 +117,10 @@ public class PedidoDAO implements crudPedido<pedido> {
     public boolean activar(int id) {
         resp = false;
         try {                                                   //ajustar
-            ps = CON.conectar().prepareStatement("UPDATE pedido SET Estado= WHERE id=?");
-            ps.setInt(1, id);
+            ps = CON.conectar().prepareStatement("UPDATE pedido SET Estado=? WHERE id=?");
+            pedido objPedido = new pedido();//instancie la clase pedido para poder traer el array de estado
+            ps.setString(1, objPedido.getEstado()[1]);
+            ps.setInt(2,id);
             if (ps.executeUpdate() > 0) {
                 resp = true;
             }
@@ -157,7 +160,7 @@ public class PedidoDAO implements crudPedido<pedido> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM pedido WHERE nombre=?");
+            ps = CON.conectar().prepareStatement("SELECT nombre FROM pedido WHERE nombre=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();
