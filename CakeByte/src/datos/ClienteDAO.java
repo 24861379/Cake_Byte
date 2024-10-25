@@ -77,7 +77,7 @@ public class ClienteDAO implements CrudSimpleInterface<cliente> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM cliente WHERE nombre=?");
+            ps = CON.conectar().prepareStatement("SELECT nombre FROM cliente WHERE nombre=?",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();
