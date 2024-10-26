@@ -17,6 +17,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
     private PreparedStatement ps;
     private ResultSet rs;
     private boolean resp;
+    private int estadoIndexU;
     
     public UsuarioDAO(){
         CON = Conexion.getinstancia();
@@ -48,14 +49,12 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
     @Override
     public boolean insertar(usuario obj) {
         resp= false;
-        try {
-            ps= CON.conectar().prepareStatement("INSERT INTO pedido (Fecha_Pedido, Fecha_Entrega, Estado, Instrucciones_Especiales, Total) VALUES (?,?,?,?,?)");
+        try {                                                                              // asi está en la base de datos         
+            ps= CON.conectar().prepareStatement("INSERT INTO usuario (Nombre_Usuario, Contrasena, ROl) VALUES (?,?,?)");
             
-            ps.setDate(1, new java.sql.Date(obj.getFechaPedido().getTime()));// Convertir a java.sql.Date
-            ps.setDate(2, new java.sql.Date(obj.getFechaEntrega().getTime()));
-            ps.setString(3, obj.getEstado()[estadoIndex]);// estadoIndex es el índice del estado actual
-            ps.setString(4, obj.getInstruccionesEspeciales());
-            ps.setDouble(5, obj.getTotal());
+            ps.setString(1, obj.getNombreUsuario());
+            ps.setString(2, obj.getContraseñaUsuario());
+            ps.setString(3, obj.getRolUsuario()[estadoIndexU]);// estadoIndex es el índice del estado actual
             
             if (ps.executeUpdate() > 0) {
                 resp= true;
@@ -77,10 +76,10 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
     public boolean actualizar(usuario obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE pedido SET Fecha_Entrega=?, Estado=?, Instrucciones_Especiales=?  WHERE id=?");
-            ps.setDate(1, new java.sql.Date(obj.getFechaEntrega().getTime()));
-            ps.setString(2, obj.getEstado()[estadoIndex]);
-            ps.setInt(3, obj.getId());
+            ps = CON.conectar().prepareStatement("UPDATE usuario SET Nombre_Usuario=?, contrasena=? WHERE id=?");
+            ps.setString(1, obj.getNombreUsuario());
+            ps.setString(2, obj.getContraseñaUsuario());
+            ps.setInt(3, obj.getIdUsuario());
             if (ps.executeUpdate() > 0) {
                 resp = true;
             }
@@ -97,7 +96,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM pedido WHERE nombre=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps = CON.conectar().prepareStatement("SELECT nombre FROM usuario WHERE nombre=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();
