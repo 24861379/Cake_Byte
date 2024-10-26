@@ -226,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `tb_Detalle_Decoracion` (
 CREATE TABLE IF NOT EXISTS `tb_Pago` (
   `ID_Pago` INT NOT NULL AUTO_INCREMENT,
   `ID_Pedido` INT NOT NULL,
-  `Metodo_Pago` ENUM('Tarjeta','Efectivo', 'Nequi') NOT NULL,
+  `Metodo_Pago` ENUM('Tarjeta', 'PayPal', 'Efectivo', 'Transferencia') NOT NULL,
   `Monto` DECIMAL(11,2) NOT NULL,
   `Fecha_Pago` DATETIME NOT NULL,
   PRIMARY KEY (`ID_Pago`),
@@ -237,6 +237,8 @@ CREATE TABLE IF NOT EXISTS `tb_Pago` (
     ON DELETE CASCADE
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
+ALTER TABLE `tb_Pago`
+MODIFY COLUMN `Metodo_Pago` ENUM('Tarjeta', 'Efectivo', 'Nequi') NOT NULL;
 
 -- -----------------------------------------------------
 -- Table `tb_Historial_Pedido`

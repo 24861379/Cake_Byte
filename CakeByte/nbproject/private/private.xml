@@ -3,9 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/pedido.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/PedidoDAO.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/ClienteDAO.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/database/Prueba.java</file>
+            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/database/Conexion.java</file>
+=======
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/database/Prueba.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/cliente.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/decoracion.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/sabor.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/historialPedido.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/usauario.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/database/Conexion.java</file>
+>>>>>>> 2f1dbbb345c5fea74972146f0d6414381128bbb6
+>>>>>>> b66f47b201a1a3c4ffcdc085653b0d509d05a2b9
         </group>
     </open-files>
 </project-private>
