@@ -70,8 +70,7 @@ public class cliente {
         this.Telefono = Telefono;
     }
 
-    @Override
-    public String toString() {
+    public String Informacion() {
         return "Cliente\n " + "Nombre: " + Nombre + " Apellido: " + Apellido + "\nDireccion: " + Direccion + "\nCorreo: " + Correo + "\nTelefono: " + Telefono;
     }
 }

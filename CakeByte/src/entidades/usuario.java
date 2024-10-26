@@ -3,16 +3,16 @@ package entidades;
 
 import java.util.Arrays;
 
-public class usauario {
+public class usuario {
     private int idUsuario;
     private String nombreUsuario;
     private String contraseñaUsuario;
     private String[] rolUsuario = {"Cliente", "Empleado", "Administrador"};
 
-    public usauario() {
+    public usuario() {
     }
 
-    public usauario(int idUsuario, String nombreUsuario, String contraseñaUsuario) {
+    public usuario(int idUsuario, String nombreUsuario, String contraseñaUsuario) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.contraseñaUsuario = contraseñaUsuario;

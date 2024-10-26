@@ -15,7 +15,7 @@ public class pedido {
     public pedido() {
     }
 
-    public pedido(int id, Date fechaPedido, Date fechaEntrega, String InstruccionesEspeciales, String string1, double total) {
+    public pedido(int id, Date fechaPedido, Date fechaEntrega, String InstruccionesEspeciales, double total) {
         this.id = id;
         this.fechaPedido = fechaPedido;
         this.fechaEntrega = fechaEntrega;

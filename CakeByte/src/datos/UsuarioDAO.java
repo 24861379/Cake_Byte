@@ -1,38 +1,37 @@
+
 package datos;
 
 import database.Conexion;
-import datos.Interfaces.crudPedido;
-import entidades.pedido;
+import datos.Interfaces.CrudUsuario;
+import entidades.usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-//import java.util.Date;
 
-public class PedidoDAO implements crudPedido<pedido> {
+public class UsuarioDAO implements CrudUsuario<usuario> {
+    
     private final Conexion CON;
     private PreparedStatement ps;
     private ResultSet rs;
     private boolean resp;
-    private int estadoIndex; // Índice que representa el estado actual
-   
-    public PedidoDAO(){
+    
+    public UsuarioDAO(){
         CON = Conexion.getinstancia();
     }
     
     @Override
-    public List<pedido> listar(String Texto) {
-        List<pedido> registros = new ArrayList(); 
+    public List<usuario> listar(String Texto) {
+        List<usuario> registros = new ArrayList(); 
         
         try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM pedido WHERE nombre LIKE ?");
+            ps= CON.conectar().prepareStatement("SELECT * FROM usuario WHERE nombre LIKE ?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new pedido(rs.getInt(1), rs.getDate(2),rs.getDate(3),rs.getString(4),rs.getDouble(6)));
+                registros.add(new usuario(rs.getInt(1), rs.getString(2),rs.getString(3)));
             }
             ps.close();
             rs.close();
@@ -47,7 +46,7 @@ public class PedidoDAO implements crudPedido<pedido> {
     }
     
     @Override
-    public boolean insertar(pedido obj) {
+    public boolean insertar(usuario obj) {
         resp= false;
         try {
             ps= CON.conectar().prepareStatement("INSERT INTO pedido (Fecha_Pedido, Fecha_Entrega, Estado, Instrucciones_Especiales, Total) VALUES (?,?,?,?,?)");
@@ -73,8 +72,9 @@ public class PedidoDAO implements crudPedido<pedido> {
         return resp;
     }
     
+    //actualizar contraseña
     @Override
-    public boolean actualizar(pedido obj) {
+    public boolean actualizar(usuario obj) {
         resp = false;
         try {
             ps = CON.conectar().prepareStatement("UPDATE pedido SET Fecha_Entrega=?, Estado=?, Instrucciones_Especiales=?  WHERE id=?");
@@ -93,67 +93,6 @@ public class PedidoDAO implements crudPedido<pedido> {
         }
         return resp;
     }
-    
-    @Override
-    public boolean desactivar(int id) {
-        resp = false;
-        try {
-            ps = CON.conectar().prepareStatement("UPDATE pedido SET Estado='Cancelado' WHERE id=?");
-            ps.setInt(1, id);
-            if (ps.executeUpdate() > 0) {
-                resp = true;
-            }
-            ps.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        } finally {
-            ps = null;
-            CON.desconectar();
-        }
-        return resp;
-    }
-
-    @Override
-    public boolean activar(int id) {
-        resp = false;
-        try {                                                   //ajustar
-            ps = CON.conectar().prepareStatement("UPDATE pedido SET Estado='Confirmado' WHERE id=?");
-            ps.setInt(1,id);
-            if (ps.executeUpdate() > 0) {
-                resp = true;
-            }
-            ps.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        } finally {
-            ps = null;
-            CON.desconectar();
-        }
-        return resp;
-    }
-
-    @Override
-    public int total() {
-       int totalRegistros = 0;
-        try {
-            ps = CON.conectar().prepareStatement("SELECT COUNT(id) FROM pedido");
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                totalRegistros = rs.getInt("COUNT(id)");
-            }
-            ps.close();
-            rs.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        } finally {
-            ps = null;
-            rs = null;
-            CON.desconectar();
-        }
-        return totalRegistros;
-    }
-
     @Override
     public boolean existencia(String existe) {
         resp = false;
