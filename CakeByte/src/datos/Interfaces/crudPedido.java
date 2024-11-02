@@ -3,7 +3,7 @@ package datos.Interfaces;
 
 import java.util.List;
 
-                          //creo el objeto de List 
+//creo el objeto de List 
 public interface CrudPedido <T> {
     public List<T> listar(String Texto);
     public boolean insertar(T obj);
