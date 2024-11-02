@@ -4,54 +4,55 @@ package entidades;
 import java.util.Arrays;
 
 public class usuario {
-    private int idUsuario;
-    private String nombreUsuario;
-    private String contraseñaUsuario;
-    private String[] rolUsuario = {"Cliente", "Empleado", "Administrador"};
+    private int ID_Usuario;
+    private String Nombre_Usuario;
+    private String Contraseña;
+    private String[] Rol = {"Cliente", "Empleado", "Administrador"};
 
     public usuario() {
     }
 
-    public usuario(int idUsuario, String nombreUsuario, String contraseñaUsuario) {
-        this.idUsuario = idUsuario;
-        this.nombreUsuario = nombreUsuario;
-        this.contraseñaUsuario = contraseñaUsuario;
+    public usuario(int ID_Usuario, String Nombre_Usuario, String Contraseña) {
+        this.ID_Usuario = ID_Usuario;
+        this.Nombre_Usuario = Nombre_Usuario;
+        this.Contraseña = Contraseña;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getID_Usuario() {
+        return ID_Usuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setID_Usuario(int ID_Usuario) {
+        this.ID_Usuario = ID_Usuario;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getNombre_Usuario() {
+        return Nombre_Usuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setNombre_Usuario(String Nombre_Usuario) {
+        this.Nombre_Usuario = Nombre_Usuario;
     }
 
-    public String getContraseñaUsuario() {
-        return contraseñaUsuario;
+    public String getContraseña() {
+        return Contraseña;
     }
 
-    public void setContraseñaUsuario(String contraseñaUsuario) {
-        this.contraseñaUsuario = contraseñaUsuario;
+    public void setContraseña(String Contraseña) {
+        this.Contraseña = Contraseña;
     }
 
-    public String[] getRolUsuario() {
-        return rolUsuario;
+    public String[] getRol() {
+        return Rol;
     }
 
-    public void setRolUsuario(String[] rolUsuario) {
-        this.rolUsuario = rolUsuario;
+    public void setRol(String[] Rol) {
+        this.Rol = Rol;
     }
 
+    
     @Override
     public String toString() {
-        return "Usauario: \n"+ "Contraseña del usuario: " + contraseñaUsuario + "\nRol del usuario: " +Arrays.toString(rolUsuario);
+        return "Usuario: \n"+"Nombre: "+Nombre_Usuario+ "\nContraseña del usuario: " + Contraseña + "\nRol del usuario: " +Arrays.toString(Rol);
     }  
 }

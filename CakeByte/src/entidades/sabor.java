@@ -1,45 +1,48 @@
 package entidades;
 
 public class sabor {
-   private int idSabor;
-   private String NombreSabor;
-   private double precioAdicionalSabor;
+    
+   private int id_Sabor;
+   private String Nombre;
+   private double precioAdicional;
 
     public sabor() {
     }
 
-    public sabor(int idSabor, String NombreSabor, double precioAdicionalSabor) {
-        this.idSabor = idSabor;
-        this.NombreSabor = NombreSabor;
-        this.precioAdicionalSabor = precioAdicionalSabor;
+    public sabor(int id_Sabor, String Nombre, double precioAdicional) {
+        this.id_Sabor = id_Sabor;
+        this.Nombre = Nombre;
+        this.precioAdicional = precioAdicional;
     }
 
-    public int getIdSabor() {
-        return idSabor;
+    public int getId_Sabor() {
+        return id_Sabor;
     }
 
-    public void setIdSabor(int idSabor) {
-        this.idSabor = idSabor;
+    public void setId_Sabor(int id_Sabor) {
+        this.id_Sabor = id_Sabor;
     }
 
-    public String getNombreSabor() {
-        return NombreSabor;
+    public String getNombre() {
+        return Nombre;
     }
 
-    public void setNombreSabor(String NombreSabor) {
-        this.NombreSabor = NombreSabor;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
 
-    public double getPrecioAdicionalSabor() {
-        return precioAdicionalSabor;
+    public double getPrecioAdicional() {
+        return precioAdicional;
     }
 
-    public void setPrecioAdicionalSabor(double precioAdicionalSabor) {
-        this.precioAdicionalSabor = precioAdicionalSabor;
+    public void setPrecioAdicional(double precioAdicional) {
+        this.precioAdicional = precioAdicional;
     }
+
+    
 
     @Override
     public String toString() {
-        return "Sabor \n" + NombreSabor + "\nPrecio adicional: " + precioAdicionalSabor;
+        return "Sabor \n" + Nombre + "\nPrecio adicional: " + precioAdicional;
     }      
 }

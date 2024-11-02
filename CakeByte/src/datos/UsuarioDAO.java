@@ -52,9 +52,9 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
         try {                                                                              // asi está en la base de datos         
             ps= CON.conectar().prepareStatement("INSERT INTO usuario (Nombre_Usuario, Contrasena, ROl) VALUES (?,?,?)");
             
-            ps.setString(1, obj.getNombreUsuario());
-            ps.setString(2, obj.getContraseñaUsuario());
-            ps.setString(3, obj.getRolUsuario()[estadoIndexU]);// estadoIndex es el índice del estado actual
+            ps.setString(1, obj.getNombre_Usuario());
+            ps.setString(2, obj.getContraseña());
+            ps.setString(3, obj.getRol()[estadoIndexU]);// estadoIndex es el índice del estado actual
             
             if (ps.executeUpdate() > 0) {
                 resp= true;
@@ -77,9 +77,9 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
         resp = false;
         try {
             ps = CON.conectar().prepareStatement("UPDATE usuario SET Nombre_Usuario=?, contrasena=? WHERE id=?");
-            ps.setString(1, obj.getNombreUsuario());
-            ps.setString(2, obj.getContraseñaUsuario());
-            ps.setInt(3, obj.getIdUsuario());
+            ps.setString(1, obj.getNombre_Usuario());
+            ps.setString(2, obj.getContraseña());
+            ps.setInt(3, obj.getID_Usuario());
             if (ps.executeUpdate() > 0) {
                 resp = true;
             }
@@ -92,6 +92,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
         }
         return resp;
     }
+    
     @Override
     public boolean existencia(String existe) {
         resp = false;

@@ -2,7 +2,7 @@ package entidades;
 
 public class torta {
    
-    private int id;
+    private int ID_Torta;
     private String Nombre;
     private String Descripcion;
     private double precio_base;
@@ -11,19 +11,19 @@ public class torta {
         
     }
     
-    public torta(int id, String Nombre, String Descripcion, double precio_base) {
-        this.id = id;
+    public torta(int ID_Torta, String Nombre, String Descripcion, double precio_base) {
+        this.ID_Torta = ID_Torta;
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.precio_base = precio_base;
     }
 
     public int getId() {
-        return id;
+        return ID_Torta;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int ID_Torta) {
+        this.ID_Torta = ID_Torta;
     }
 
     public String getNombre() {

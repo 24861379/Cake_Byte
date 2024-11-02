@@ -5,17 +5,17 @@ import java.util.Date;
 
 public class historialPedido {
     private int idHistorialP;
-    //id_usuario FK
+    private int id_Pedido;//FK de pedido
     private String[] estadoAnteriorHistorialP= {"Pendiente", "Confirmado", "En Preparacion", "Listo", "Entregado'", "Cancelado"};
-    private String[] estadoNuevoHistorialP= {"Pendiente", "Confirmado", "En Preparacion", "Listo", "Entregado'", "Cancelado"};
     private Date fechaCambioHistorialP;
     private String observacionesHistorialP;
 
     public historialPedido() {
     }
 
-    public historialPedido(int idHistorialP, Date fechaCambioHistorialP, String observacionesHistorialP) {
+    public historialPedido(int idHistorialP, int id_Pedido, Date fechaCambioHistorialP, String observacionesHistorialP) {
         this.idHistorialP = idHistorialP;
+        this.id_Pedido = id_Pedido;
         this.fechaCambioHistorialP = fechaCambioHistorialP;
         this.observacionesHistorialP = observacionesHistorialP;
     }
@@ -28,20 +28,20 @@ public class historialPedido {
         this.idHistorialP = idHistorialP;
     }
 
+    public int getId_Pedido() {
+        return id_Pedido;
+    }
+
+    public void setId_Pedido(int id_Pedido) {
+        this.id_Pedido = id_Pedido;
+    }
+
     public String[] getEstadoAnteriorHistorialP() {
         return estadoAnteriorHistorialP;
     }
 
     public void setEstadoAnteriorHistorialP(String[] estadoAnteriorHistorialP) {
         this.estadoAnteriorHistorialP = estadoAnteriorHistorialP;
-    }
-
-    public String[] getEstadoNuevoHistorialP() {
-        return estadoNuevoHistorialP;
-    }
-
-    public void setEstadoNuevoHistorialP(String[] estadoNuevoHistorialP) {
-        this.estadoNuevoHistorialP = estadoNuevoHistorialP;
     }
 
     public Date getFechaCambioHistorialP() {
@@ -62,6 +62,6 @@ public class historialPedido {
 
     @Override
     public String toString() {
-        return "Historial de pedido: " + "\nEstado Anterior: " + Arrays.toString(estadoAnteriorHistorialP) + "\nEstado Nuevo:" +Arrays.toString(estadoNuevoHistorialP)+ "\nFecha de cambio:" + fechaCambioHistorialP + "\nObservaciones: \n" + observacionesHistorialP;
+        return "historialPedido:\n" + "estado anterior del Historial:" + estadoAnteriorHistorialP + " fecha de cambio del historial: " + fechaCambioHistorialP + " observaciones de Historial: " + observacionesHistorialP ;
     }
 }

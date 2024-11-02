@@ -2,7 +2,8 @@ package entidades;
 
 public class cliente {
     
-    private int id;
+    private int ID_Cliente;
+    private int ID_Usuario;//FK de usuario
     private String Nombre;
     private String Apellido;
     private String Direccion;
@@ -12,9 +13,10 @@ public class cliente {
     public cliente(){
         
     }
-    
-    public cliente(int id, String Nombre, String Apellido, String Direccion, String Correo, int Telefono) {
-        this.id = id;
+
+    public cliente(int ID_Cliente, int ID_Usuario, String Nombre, String Apellido, String Direccion, String Correo, int Telefono) {
+        this.ID_Cliente = ID_Cliente;
+        this.ID_Usuario = ID_Usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Direccion = Direccion;
@@ -22,12 +24,20 @@ public class cliente {
         this.Telefono = Telefono;
     }
 
-    public int getId() {
-        return id;
+    public int getID_Cliente() {
+        return ID_Cliente;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID_Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
+    }
+
+    public int getID_Usuario() {
+        return ID_Usuario;
+    }
+
+    public void setID_Usuario(int ID_Usuario) {
+        this.ID_Usuario = ID_Usuario;
     }
 
     public String getNombre() {
@@ -70,7 +80,10 @@ public class cliente {
         this.Telefono = Telefono;
     }
 
-    public String Informacion() {
-        return "Cliente\n " + "Nombre: " + Nombre + " Apellido: " + Apellido + "\nDireccion: " + Direccion + "\nCorreo: " + Correo + "\nTelefono: " + Telefono;
+    @Override
+    public String toString() {
+        return "Cliente:\n" + "Nombre:" + Nombre + " Apellido: " + Apellido + " Direccion: " + Direccion + " Correo: " + Correo + " Telefono: " + Telefono;
     }
+    
+    
 }

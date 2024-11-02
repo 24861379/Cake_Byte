@@ -5,7 +5,8 @@ import java.util.Date;
 
 public class pedido {
     Date fecha = new Date();
-    private int id;
+    private int id_Pedido;
+    private int ID_Cliente; //FK de cliente
     private Date fechaPedido;
     private Date fechaEntrega;
     private String[] estado = {"Pendiente", "Confirmado", "En Preparacion", "Listo", "Entregado'", "Cancelado"};
@@ -15,8 +16,9 @@ public class pedido {
     public pedido() {
     }
 
-    public pedido(int id, Date fechaPedido, Date fechaEntrega, String InstruccionesEspeciales, double total) {
-        this.id = id;
+    public pedido(int id_Pedido, int ID_Cliente, Date fechaPedido, Date fechaEntrega, String InstruccionesEspeciales, double total) {
+        this.id_Pedido = id_Pedido;
+        this.ID_Cliente = ID_Cliente;
         this.fechaPedido = fechaPedido;
         this.fechaEntrega = fechaEntrega;
         this.InstruccionesEspeciales = InstruccionesEspeciales;
@@ -31,12 +33,20 @@ public class pedido {
         this.fecha = fecha;
     }
 
-    public int getId() {
-        return id;
+    public int getId_Pedido() {
+        return id_Pedido;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_Pedido(int id_Pedido) {
+        this.id_Pedido = id_Pedido;
+    }
+
+    public int getID_Cliente() {
+        return ID_Cliente;
+    }
+
+    public void setID_Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
     }
 
     public Date getFechaPedido() {
@@ -79,9 +89,8 @@ public class pedido {
         this.total = total;
     }
 
-    
     @Override
     public String toString() {
-        return "Pedido\n" + "Fecha: " + fecha + "\nFecha pedido: " + fechaPedido + "\nFecha de entrega: " + fechaEntrega + "\nEstado: " + Arrays.toString(estado)+ "\nInstrucciones especiales:" + InstruccionesEspeciales + "\nTotal=" + total;
+        return "Pedido\n" + "Fecha: " + fecha + "\nFecha pedido: " + fechaPedido + "\nFecha de entrega: " + fechaEntrega + "\nEstado: " + Arrays.toString(estado)+ "\nInstrucciones especiales: " + InstruccionesEspeciales + "\nTotal: " + total;
     }  
 }

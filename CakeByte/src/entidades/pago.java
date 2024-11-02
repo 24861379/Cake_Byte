@@ -5,7 +5,8 @@ import java.util.Date;
 
 public class pago {
     
-    private int id;
+    private int id_Pago;
+    private int id_Pedido; //FK de pedido
     private double monto;
     private Date fechaPago;
     private String[] metodosPago = {"Targeta", "Efectivo", "Nequi"};
@@ -13,19 +14,28 @@ public class pago {
     public pago(){
         
     }
-    
-    public pago(int id, int idPedido, double monto, Date fechaPago) {
-        this.id = id;
+
+    public pago(int id_Pago, int id_Pedido, double monto, Date fechaPago) {
+        this.id_Pago = id_Pago;
+        this.id_Pedido = id_Pedido;
         this.monto = monto;
         this.fechaPago = fechaPago;
     }
 
-    public int getIdPago() {
-        return id;
+    public int getId_Pago() {
+        return id_Pago;
     }
 
-    public void setIdPago(int idPago) {
-        this.id = idPago;
+    public void setId_Pago(int id_Pago) {
+        this.id_Pago = id_Pago;
+    }
+
+    public int getId_Pedido() {
+        return id_Pedido;
+    }
+
+    public void setId_Pedido(int id_Pedido) {
+        this.id_Pedido = id_Pedido;
     }
 
     public double getMonto() {
@@ -51,7 +61,7 @@ public class pago {
     public void setMetodosPago(String[] metodosPago) {
         this.metodosPago = metodosPago;
     }
-
+    
     @Override
     public String toString() {
         return "Pago\n" + "\nMonto: " + monto + "\nFecha de Pago: " + fechaPago + "\nMetodo de Pago: " + Arrays.toString(metodosPago);

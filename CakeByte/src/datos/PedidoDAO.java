@@ -1,7 +1,6 @@
 package datos;
 
 import database.Conexion;
-import datos.Interfaces.crudPedido;
 import entidades.pedido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,9 +9,10 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import datos.Interfaces.CrudPedido;
 //import java.util.Date;
 
-public class PedidoDAO implements crudPedido<pedido> {
+public class PedidoDAO implements CrudPedido <pedido> {
     private final Conexion CON;
     private PreparedStatement ps;
     private ResultSet rs;
@@ -26,13 +26,13 @@ public class PedidoDAO implements crudPedido<pedido> {
     @Override
     public List<pedido> listar(String Texto) {
         List<pedido> registros = new ArrayList(); 
-        
-        try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM pedido WHERE nombre LIKE ?");
+                                                                                        
+        try {                                      
+            ps= CON.conectar().prepareStatement("SELECT p.id_pedido, p.ID_Cliente, c.Nombre, c.Apellido, c.Telefono, p.Fecha_Pedido, p.Fecha_Entrega, p.Estado, p.Instrucciones_Especiales, p.Total FROM tb_pedido  p inner join tb_cliente c  ON c.id_pedido= ID_Cliente WHERE p.Nombre LIKE ? ORDER BY p.id_pedido ASC LIMIT ?,?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new pedido(rs.getInt(1), rs.getDate(2),rs.getDate(3),rs.getString(4),rs.getDouble(6)));
+                registros.add(new pedido(rs.getInt(1),rs.getInt(2), rs.getDate(3),rs.getDate(4),rs.getString(5),rs.getDouble(6)));
             }
             ps.close();
             rs.close();
@@ -80,7 +80,7 @@ public class PedidoDAO implements crudPedido<pedido> {
             ps = CON.conectar().prepareStatement("UPDATE pedido SET Fecha_Entrega=?, Estado=?, Instrucciones_Especiales=?  WHERE id=?");
             ps.setDate(1, new java.sql.Date(obj.getFechaEntrega().getTime()));
             ps.setString(2, obj.getEstado()[estadoIndex]);
-            ps.setInt(3, obj.getId());
+            ps.setInt(3, obj.getId_Pedido());
             if (ps.executeUpdate() > 0) {
                 resp = true;
             }

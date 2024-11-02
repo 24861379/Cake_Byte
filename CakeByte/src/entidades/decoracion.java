@@ -1,6 +1,7 @@
 package entidades;
 
 public class decoracion {
+    
     private int idDecoracion;
     private String nombreDecoracion;
     private double precioAdicional;
