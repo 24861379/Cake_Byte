@@ -10,10 +10,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema DB_Cake_Byte
 -- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema DB_Cake_Byte
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `DB_Cake_Byte` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `DB_Cake_Byte` ;
 
@@ -136,12 +132,18 @@ CREATE TABLE IF NOT EXISTS `tb_Detalle_Pedido` (
   `ID_Detalle` INT NOT NULL AUTO_INCREMENT,
   `ID_Pedido` INT NOT NULL,
   `ID_Torta` INT NOT NULL,
+  `ID_Figura` INT NOT NULL,
+  `ID_Sabor` INT NOT NULL,
+  `ID_Decoracion` INT NOT NULL,
   `Cantidad` INT NOT NULL,
   `Precio_Unitario` DECIMAL(11,2) NOT NULL,
   `Subtotal` DECIMAL(11,2) NOT NULL,
   PRIMARY KEY (`ID_Detalle`),
   INDEX `FK_Pedido_idx` (`ID_Pedido` ASC),
   INDEX `FK_Torta_idx` (`ID_Torta` ASC),
+  INDEX `FK_Figura_idx` (`ID_Figura` ASC),
+  INDEX `FK_Sabor_idx` (`ID_Sabor` ASC),
+  INDEX `FK_Decoracion_idx` (`ID_Decoracion` ASC),
   CONSTRAINT `FK_Pedido_Detalle`
     FOREIGN KEY (`ID_Pedido`)
     REFERENCES `tb_Pedido` (`ID_Pedido`)
@@ -151,69 +153,18 @@ CREATE TABLE IF NOT EXISTS `tb_Detalle_Pedido` (
     FOREIGN KEY (`ID_Torta`)
     REFERENCES `tb_Torta` (`ID_Torta`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-) ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `tb_Detalle_Figura`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tb_Detalle_Figura` (
-  `ID_Detalle_Figura` INT NOT NULL AUTO_INCREMENT,
-  `ID_Detalle` INT NOT NULL,
-  `ID_Figura` INT NOT NULL,
-  PRIMARY KEY (`ID_Detalle_Figura`),
-  INDEX `FK_DetallePedidoFigura_idx` (`ID_Detalle` ASC),
-  INDEX `FK_Figura_idx` (`ID_Figura` ASC),
-  CONSTRAINT `FK_DetallePedido_Figura`
-    FOREIGN KEY (`ID_Detalle`)
-    REFERENCES `tb_Detalle_Pedido` (`ID_Detalle`)
-    ON DELETE CASCADE
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_Figura`
+ CONSTRAINT `FK_Figura`
     FOREIGN KEY (`ID_Figura`)
     REFERENCES `tb_Figura` (`ID_Figura`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-) ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `tb_Detalle_Sabor`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tb_Detalle_Sabor` (
-  `ID_Detalle_Sabor` INT NOT NULL AUTO_INCREMENT,
-  `ID_Detalle` INT NOT NULL,
-  `ID_Sabor` INT NOT NULL,
-  PRIMARY KEY (`ID_Detalle_Sabor`),
-  INDEX `FK_DetallePedidoSabor_idx` (`ID_Detalle` ASC),
-  INDEX `FK_Sabor_idx` (`ID_Sabor` ASC),
-  CONSTRAINT `FK_DetallePedido_Sabor`
-    FOREIGN KEY (`ID_Detalle`)
-    REFERENCES `tb_Detalle_Pedido` (`ID_Detalle`)
-    ON DELETE CASCADE
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_Sabor`
+ CONSTRAINT `FK_Sabor`
     FOREIGN KEY (`ID_Sabor`)
     REFERENCES `tb_Sabor` (`ID_Sabor`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-) ENGINE = InnoDB;
-
--- -----------------------------------------------------
--- Table `tb_Detalle_Decoracion`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tb_Detalle_Decoracion` (
-  `ID_Detalle_Decoracion` INT NOT NULL AUTO_INCREMENT,
-  `ID_Detalle` INT NOT NULL,
-  `ID_Decoracion` INT NOT NULL,
-  PRIMARY KEY (`ID_Detalle_Decoracion`),
-  INDEX `FK_DetallePedidoDecoracion_idx` (`ID_Detalle` ASC),
-  INDEX `FK_Decoracion_idx` (`ID_Decoracion` ASC),
-  CONSTRAINT `FK_DetallePedido_Decoracion`
-    FOREIGN KEY (`ID_Detalle`)
-    REFERENCES `tb_Detalle_Pedido` (`ID_Detalle`)
-    ON DELETE CASCADE
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_Decoracion`
+ CONSTRAINT `FK_Decoracion`
     FOREIGN KEY (`ID_Decoracion`)
     REFERENCES `tb_Decoracion` (`ID_Decoracion`)
     ON DELETE NO ACTION
@@ -226,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `tb_Detalle_Decoracion` (
 CREATE TABLE IF NOT EXISTS `tb_Pago` (
   `ID_Pago` INT NOT NULL AUTO_INCREMENT,
   `ID_Pedido` INT NOT NULL,
-  `Metodo_Pago` ENUM('Tarjeta', 'PayPal', 'Efectivo', 'Transferencia') NOT NULL,
+  `Metodo_Pago` ENUM('Tarjeta', 'Efectivo', 'Nequi') NOT NULL,
   `Monto` DECIMAL(11,2) NOT NULL,
   `Fecha_Pago` DATETIME NOT NULL,
   PRIMARY KEY (`ID_Pago`),
@@ -237,8 +188,6 @@ CREATE TABLE IF NOT EXISTS `tb_Pago` (
     ON DELETE CASCADE
     ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
-ALTER TABLE `tb_Pago`
-MODIFY COLUMN `Metodo_Pago` ENUM('Tarjeta', 'Efectivo', 'Nequi') NOT NULL;
 
 -- -----------------------------------------------------
 -- Table `tb_Historial_Pedido`
@@ -246,27 +195,17 @@ MODIFY COLUMN `Metodo_Pago` ENUM('Tarjeta', 'Efectivo', 'Nequi') NOT NULL;
 CREATE TABLE IF NOT EXISTS `tb_Historial_Pedido` (
   `ID_Historial` INT NOT NULL AUTO_INCREMENT,
   `ID_Pedido` INT NOT NULL,
-  /*`ID_Usuario` INT NOT NULL,*/
   `Estado_Anterior` ENUM('Pendiente', 'Confirmado', 'En Preparacion', 'Listo', 'Entregado', 'Cancelado') NOT NULL,
-  `Estado_Nuevo` ENUM('Pendiente', 'Confirmado', 'En Preparacion', 'Listo', 'Entregado', 'Cancelado') NOT NULL,
   `Fecha_Cambio` DATETIME NOT NULL,
   `Observaciones` TEXT NULL,
   PRIMARY KEY (`ID_Historial`),
   INDEX `FK_PedidoHistorial_idx` (`ID_Pedido` ASC),
-  INDEX `FK_UsuarioHistorial_idx` (`ID_Usuario` ASC),
   CONSTRAINT `FK_Pedido_Historial`
     FOREIGN KEY (`ID_Pedido`)
     REFERENCES `tb_Pedido` (`ID_Pedido`)
     ON DELETE CASCADE
     ON UPDATE NO ACTION
-	/*CONSTRAINT `FK_Usuario_Historial`
-    FOREIGN KEY (`ID_Usuario`)
-    REFERENCES `tb_Usuario` (`ID_Usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION*/
 ) ENGINE = InnoDB;
-ALTER TABLE tb_Historial_Pedido 
-DROP FOREIGN KEY FK_Usuario_Historial;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
