@@ -9,10 +9,8 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import datos.Interfaces.CrudPedido;
-//import java.util.Date;
-
-public class PedidoDAO implements CrudPedido <pedido> {
+import datos.Interfaces.crudPedido;
+public class PedidoDAO implements crudPedido <pedido> {
     private final Conexion CON;
     private PreparedStatement ps;
     private ResultSet rs;
