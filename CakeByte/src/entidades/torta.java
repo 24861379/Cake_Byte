@@ -18,11 +18,11 @@ public class torta {
         this.precio_base = precio_base;
     }
 
-    public int getId() {
+    public int getID_Torta() {
         return ID_Torta;
     }
 
-    public void setId(int ID_Torta) {
+    public void setID_Torta(int ID_Torta) {
         this.ID_Torta = ID_Torta;
     }
 

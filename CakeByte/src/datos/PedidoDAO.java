@@ -5,14 +5,12 @@ import entidades.pedido;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import datos.Interfaces.CrudPedido;
-//import java.util.Date;
+import datos.Interfaces.crudPedido;
 
-public class PedidoDAO implements CrudPedido <pedido> {
+public class PedidoDAO implements crudPedido <pedido> {
     private final Conexion CON;
     private PreparedStatement ps;
     private ResultSet rs;
