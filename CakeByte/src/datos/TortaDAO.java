@@ -1,9 +1,8 @@
-
 package datos;
 
 import database.Conexion;
-import datos.Interfaces.CrudUsuario;
-import entidades.usuario;
+import datos.Interfaces.CrudTorta;
+import entidades.torta;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,29 +10,28 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class UsuarioDAO implements CrudUsuario<usuario> {
+public class TortaDAO implements CrudTorta<torta>{
     
     private final Conexion CON;
     private PreparedStatement ps;
     private ResultSet rs;
     private boolean resp;
-    private int estadoIndexU;
-    
-    public UsuarioDAO(){
+ 
+    public TortaDAO(){
         CON = Conexion.getinstancia();
     }
-    
+
     @Override
-    public List<usuario> listar(String Texto) {
+    public List<torta> listar(String Texto) {
         
-        List<usuario> registros = new ArrayList(); 
+        List<torta> registros = new ArrayList(); 
         
         try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM usuario WHERE nombre LIKE ?");
+            ps= CON.conectar().prepareStatement("SELECT * FROM torta WHERE nombre LIKE ?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new usuario(rs.getInt(1), rs.getString(2),rs.getString(3)));
+                registros.add(new torta(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getDouble(4)));
             }
             ps.close();
             rs.close();
@@ -45,17 +43,18 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
             CON.desconectar();
         }
         return registros;
+        
     }
-    
+
     @Override
-    public boolean insertar(usuario obj) {
+    public boolean insertar(torta obj) {
+       
         resp= false;
-        try {                                                                              // asi está en la base de datos         
-            ps= CON.conectar().prepareStatement("INSERT INTO usuario (Nombre_Usuario, Contrasena, ROl) VALUES (?,?,?)");
-            
-            ps.setString(1, obj.getNombre_Usuario());
-            ps.setString(2, obj.getContraseña());
-            ps.setString(3, obj.getRol()[estadoIndexU]);// estadoIndex es el índice del estado actual
+        try {                                                                                       
+            ps= CON.conectar().prepareStatement("INSERT INTO torta (Nombre, Descripcion, Precio_base) VALUES (?,?,?)");
+            ps.setString(1, obj.getNombre());
+            ps.setString(2, obj.getDescripcion());
+            ps.setDouble(3, obj.getPrecio_base());
             
             if (ps.executeUpdate() > 0) {
                 resp= true;
@@ -70,17 +69,19 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
             CON.desconectar();    
         }
         return resp;
+        
     }
-    
-    //actualizar contraseña
+
     @Override
-    public boolean actualizar(usuario obj) {
+    public boolean actualizar(torta obj) {
+       
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE usuario SET Nombre_Usuario=?, contrasena=? WHERE id=?");
-            ps.setString(1, obj.getNombre_Usuario());
-            ps.setString(2, obj.getContraseña());
-            ps.setInt(3, obj.getID_Usuario());
+            ps = CON.conectar().prepareStatement("UPDATE torta SET Nombre=?, Descripcion=?, Precio_Base=? WHERE id=?");
+            ps.setString(1, obj.getNombre());
+            ps.setString(2, obj.getDescripcion());
+            ps.setDouble(3, obj.getPrecio_base());
+            ps.setInt(4, obj.getID_Torta());
             if (ps.executeUpdate() > 0) {
                 resp = true;
             }
@@ -92,18 +93,19 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
             CON.desconectar();
         }
         return resp;
+        
     }
-    
+
     @Override
-    public boolean existencia(String existe) {
-        resp = false;
+    public int total() {
+        
+        int totalRegistros = 0;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM usuario WHERE nombre=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            ps.setString(1, existe);
+            ps = CON.conectar().prepareStatement("SELECT COUNT(id) FROM torta");
             rs = ps.executeQuery();
-            rs.last();
-            if (rs.getRow() > 0) {
-                resp = true;
+
+            while (rs.next()) {
+                totalRegistros = rs.getInt("COUNT(id)");
             }
             ps.close();
             rs.close();
@@ -114,6 +116,8 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
             rs = null;
             CON.desconectar();
         }
-        return resp;
+        return totalRegistros;
+        
     }
+    
 }

@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import datos.Interfaces.CrudCliente;
 import datos.Interfaces.CrudEmpleado;
 
 public class EmpleadoDAO implements CrudEmpleado<empleado> {
