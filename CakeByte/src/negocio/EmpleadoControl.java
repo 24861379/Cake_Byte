@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package negocio;
 
-/**
- *
- * @author Yodver
- */
+import datos.EmpleadoDAO;
+
 public class EmpleadoControl {
     
+    private final EmpleadoDAO DATOS;
+    private empleado obj;
+    private DefaultTableModel modeltabla;
+    public int registrosMostrados;
 }
