@@ -94,6 +94,29 @@ public class DetallePedidoDAO implements CrudDetallePedido <detallePedido>{
         }
         return resp;
     }
+    
+    @Override
+    public boolean existencia(String existe) {
+        resp = false;
+        try {
+            ps = CON.conectar().prepareStatement("SELECT Cantidad FROM tb_detalle_pedido WHERE Cantidad=?, Subtotal=?",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps.setString(1, existe);
+            rs = ps.executeQuery();
+            rs.last();
+            if (rs.getRow() > 0) {
+                resp = true;
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            ps = null;
+            rs = null;
+            CON.desconectar();
+        }
+        return resp;
+    }
 
     @Override
     public int total() {

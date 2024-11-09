@@ -82,7 +82,7 @@ public class ClienteControl {
             obj.setTelefono(telefono);
             
             if(DATOS.actualizar(obj)){
-                return "Información actulizada";
+                return "Información actualizada";
             }else{
                 return "Error en la actualización";
             } 
