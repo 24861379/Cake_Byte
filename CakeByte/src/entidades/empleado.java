@@ -6,7 +6,6 @@ public class empleado   {
     private int ID_Usuario;//FK de usuario
     private String Nombre;
     private String Apellido;
-    private String Direccion;
     private String Correo;
     private int Telefono;
     private String Puesto;
@@ -14,12 +13,11 @@ public class empleado   {
     public empleado() {
     }
 
-    public empleado(int ID_Empleado, int ID_Usuario, String Nombre, String Apellido, String Direccion, String Correo, int Telefono, String Puesto) {
+    public empleado(int ID_Empleado, int ID_Usuario, String Nombre, String Apellido, String Correo, int Telefono, String Puesto) {
         this.ID_Empleado = ID_Empleado;
         this.ID_Usuario = ID_Usuario;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
-        this.Direccion = Direccion;
         this.Correo = Correo;
         this.Telefono = Telefono;
         this.Puesto = Puesto;
@@ -57,14 +55,6 @@ public class empleado   {
         this.Apellido = Apellido;
     }
 
-    public String getDireccion() {
-        return Direccion;
-    }
-
-    public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
-    }
-
     public String getCorreo() {
         return Correo;
     }
@@ -91,6 +81,6 @@ public class empleado   {
 
     @Override
     public String toString() {
-        return "Empleado:\n" + "Nombre: " + Nombre + " Apellido:" + Apellido + " Direccion: " + Direccion + " Correo: " + Correo + " Telefono: " + Telefono + " Puesto: " + Puesto ;
+        return "Empleado:\n" + "Nombre: " + Nombre + " Apellido:" + Apellido + " Correo: " + Correo + " Telefono: " + Telefono + " Puesto: " + Puesto ;
     }
 }

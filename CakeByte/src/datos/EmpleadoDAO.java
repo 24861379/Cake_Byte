@@ -32,7 +32,7 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                registros.add(new empleado(rs.getInt(1),rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getString(8)));
+                registros.add(new empleado(rs.getInt(1),rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),  rs.getInt(6), rs.getString(7)));
             }
             ps.close();
             rs.close();
@@ -51,10 +51,9 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
     public boolean insertar(empleado obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("INSERT INTO empleado (Nombre,Apellido,Direccion,Correo,Telefono, puesto) VALUES (?,?,?,?,?,?)");
+            ps = CON.conectar().prepareStatement("INSERT INTO empleado (Nombre, Apellido, Correo, Telefono, puesto) VALUES (?,?,?,?,?,?)");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getApellido());
-            ps.setString(3, obj.getDireccion());
             ps.setString(4, obj.getCorreo());
             ps.setInt(5, obj.getTelefono());
             ps.setString(6, obj.getPuesto());
