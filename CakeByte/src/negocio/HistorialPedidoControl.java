@@ -99,6 +99,7 @@ public class HistorialPedidoControl {
             }
         }
     }
+    
     public int totalMostrados(){
         return this.registrosMostrados;
     }
