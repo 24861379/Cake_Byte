@@ -39,9 +39,9 @@ public class PagoControl {
         
         for (pago pgo : lista) {
             if (!pgo.getMetodosPago()[1].equals("Targeta") && pgo.getMonto()==0 && pgo.getFechaPago()==null) {
-                estado = "Activo";
+                estado = "hay un método de pago";
             }else{
-                estado = "Inactivo";
+                estado = "no hay un método de pago";
             }
             
             registro[0] =Integer.toString(pgo.getId_Pago());

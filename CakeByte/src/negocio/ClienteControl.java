@@ -33,7 +33,7 @@ public class ClienteControl {
         this.registrosMostrados =0;
         
         for (cliente cli : lista) {
-            if (!cli.getNombre().isEmpty() && cli.getApellido().isEmpty() && cli.getDireccion().isEmpty() && cli.getCorreo().isEmpty() && cli.getTelefono()== 0) {
+            if (!cli.getNombre().isEmpty() && !cli.getApellido().isEmpty() && !cli.getDireccion().isEmpty() && !cli.getCorreo().isEmpty() && cli.getTelefono()== 0) {
                 estado = "Activo";
             }else{
                 estado = "Inactivo";
