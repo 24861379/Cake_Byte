@@ -1,4 +1,3 @@
-
 package datos;
 
 import database.Conexion;
@@ -29,7 +28,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
         List<usuario> registros = new ArrayList(); 
         
         try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM usuario WHERE nombre LIKE ?");
+            ps= CON.conectar().prepareStatement("SELECT * FROM tb_usuario WHERE Nombre_Usuario LIKE ?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
@@ -51,7 +50,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
     public boolean insertar(usuario obj) {
         resp= false;
         try {                                                                              // asi está en la base de datos         
-            ps= CON.conectar().prepareStatement("INSERT INTO usuario (Nombre_Usuario, Contrasena, ROl) VALUES (?,?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_usuario (Nombre_Usuario, Contrasena, ROl) VALUES (?,?,?)");
             
             ps.setString(1, obj.getNombre_Usuario());
             ps.setString(2, obj.getContraseña());
@@ -77,7 +76,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
     public boolean actualizar(usuario obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE usuario SET Nombre_Usuario=?, contrasena=? WHERE id=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_usuario SET Nombre_Usuario=?, contrasena=? WHERE ID_Usuario=?");
             ps.setString(1, obj.getNombre_Usuario());
             ps.setString(2, obj.getContraseña());
             ps.setInt(3, obj.getID_Usuario());
@@ -98,7 +97,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM usuario WHERE nombre=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps = CON.conectar().prepareStatement("SELECT Nombre_Usuario FROM tb_usuario WHERE Nombre_Usuario=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();
