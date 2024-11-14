@@ -27,7 +27,7 @@ public class SaborDAO implements CrudSabor<sabor>{
         List<sabor> registros = new ArrayList(); 
         
         try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM sabor WHERE nombre LIKE ?");
+            ps= CON.conectar().prepareStatement("SELECT * FROM tb_sabor WHERE Nombre LIKE ?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
@@ -49,7 +49,7 @@ public class SaborDAO implements CrudSabor<sabor>{
     public boolean insertar(sabor obj) {
        resp= false;
         try {                                                                                       
-            ps= CON.conectar().prepareStatement("INSERT INTO sabor (Nombre, PrecioAdicional) VALUES (?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_sabor (Nombre, PrecioAdicional) VALUES (?,?)");
             ps.setString(1, obj.getNombre());
             ps.setDouble(2, obj.getPrecioAdicional());
 
@@ -72,7 +72,7 @@ public class SaborDAO implements CrudSabor<sabor>{
     public boolean actualizar(sabor obj) {
          resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE sabor SET Nombre=?, PrecioAdicional=? WHERE id=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_sabor SET Nombre=?, PrecioAdicional=? WHERE ID_Sabor=?");
             ps.setString(1, obj.getNombre());
             ps.setDouble(2, obj.getPrecioAdicional());
             ps.setInt(3, obj.getId_Sabor());
@@ -93,11 +93,11 @@ public class SaborDAO implements CrudSabor<sabor>{
     public int total() {
         int totalRegistros = 0;
         try {
-            ps = CON.conectar().prepareStatement("SELECT COUNT(id) FROM sabor");
+            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Sabor) FROM tb_sabor");
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                totalRegistros = rs.getInt("COUNT(id)");
+                totalRegistros = rs.getInt("COUNT(ID_Sabor)");
             }
             ps.close();
             rs.close();

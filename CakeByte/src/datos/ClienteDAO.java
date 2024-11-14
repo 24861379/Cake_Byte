@@ -27,7 +27,7 @@ public class ClienteDAO implements CrudCliente<cliente> {
         List<cliente> registros = new ArrayList();
 
         try {
-            ps = CON.conectar().prepareStatement("SELECT c.ID_Cliente, c.ID_Usuario, u.Nombre_Usuario, u.Rol, c.Nombre, c.Apellido, c.Direccion, c.Correo, c.Telefono FROM tb_cliente c inner join tb_usuario u ON c.Usuario_id= u.id  WHERE u.Nombre_Usuario LIKE ? ORDER BY c.id ASC LIMIT ?,?");
+            ps = CON.conectar().prepareStatement("SELECT c.ID_Cliente, c.ID_Usuario, u.Nombre_Usuario, u.Rol, c.Nombre, c.Apellido, c.Direccion, c.Correo, c.Telefono FROM tb_cliente c inner join tb_usuario u ON c.Usuario_id= u.ID_Usuario  WHERE u.Nombre_Usuario LIKE ? ORDER BY c.ID_Cliente ASC LIMIT ?,?");
             ps.setString(1, "%" + Texto + "%");
             
             rs = ps.executeQuery();
@@ -52,7 +52,7 @@ public class ClienteDAO implements CrudCliente<cliente> {
     public boolean insertar(cliente obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("INSERT INTO cliente (Nombre,Apellido,Direccion,Correo,Telefono) VALUES (?,?,?,?,?)");
+            ps = CON.conectar().prepareStatement("INSERT INTO tb_cliente (Nombre, Apellido, Direccion, Correo, Telefono) VALUES (?,?,?,?,?)");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getApellido());
             ps.setString(3, obj.getDireccion());
@@ -78,7 +78,7 @@ public class ClienteDAO implements CrudCliente<cliente> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM cliente WHERE Nombre=?, Apellido=?",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps = CON.conectar().prepareStatement("SELECT Nombre FROM tb_cliente WHERE Nombre=?, Apellido=?",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();

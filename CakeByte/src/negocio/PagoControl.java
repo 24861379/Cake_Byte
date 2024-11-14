@@ -61,8 +61,8 @@ public class PagoControl {
     }
     
     public String insertar(Double monto, Date FechaPago){
-        String fechaCambio = PGC.format(FechaPago);
-        if (DATOS.existencia(fechaCambio)) {
+        String fechaPagoS = PGC.format(FechaPago);
+        if (DATOS.existencia(fechaPagoS)) {
             return "El pago ya existe";
         }else{
             obj.setFechaPago(FechaPago);

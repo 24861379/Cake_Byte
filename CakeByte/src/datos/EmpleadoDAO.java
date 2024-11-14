@@ -27,7 +27,7 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
         List<empleado> registros = new ArrayList<>();
 
         try {                                        //SELECT c.ID_Cliente, c.ID_Usuario, u.Nombre_Usuario, u.Rol, c.Nombre, c.Apellido, c.Direccion, c.Correo, c.Telefono FROM tb_cliente c inner join tb_usuario u ON c.Usuario_id= u.id  WHERE u.Nombre_Usuario LIKE ? ORDER BY c.id ASC LIMIT ?,?"
-            ps = CON.conectar().prepareStatement("SELECT e.ID_Empleado, e.ID_Usuario, e.Nombre_Usuario, e.Rol, c.Nombre, c.Apellido, c.Direccion, c.Correo, c.Telefono FROM tb_empleado e inner join tb_usuario u ON e.Usuario_id= u.id  WHERE u.Nombre_Usuario LIKE ? ORDER BY e.id ASC LIMIT ?,?");
+            ps = CON.conectar().prepareStatement("SELECT e.ID_Empleado, e.ID_Usuario, e.Nombre_Usuario, e.Rol, c.Nombre, c.Apellido, c.Direccion, c.Correo, c.Telefono FROM tb_empleado e inner join tb_usuario u ON e.Usuario_id= u.ID_Usuario  WHERE u.Nombre_Usuario LIKE ? ORDER BY e.ID_Empleado ASC LIMIT ?,?");
             ps.setString(1, "%" + Texto + "%");
             rs = ps.executeQuery();
 
@@ -51,7 +51,7 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
     public boolean insertar(empleado obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("INSERT INTO empleado (Nombre, Apellido, Correo, Telefono, puesto) VALUES (?,?,?,?,?,?)");
+            ps = CON.conectar().prepareStatement("INSERT INTO tb_empleado (Nombre, Apellido, Correo, Telefono, Puesto) VALUES (?,?,?,?,?,?)");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getApellido());
             ps.setString(4, obj.getCorreo());
@@ -77,7 +77,7 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
     public boolean actualizar(empleado obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE tb_empleado SET Nombre=?, Apellido=?, Correo=?, Telefono=?, Puesto=? WHERE id=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_empleado SET Nombre=?, Apellido=?, Correo=?, Telefono=?, Puesto=? WHERE Id_Empleado=?");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getApellido());
             ps.setString(3, obj.getCorreo());
@@ -101,7 +101,7 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM tb_empleado WHERE nombre=?",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps = CON.conectar().prepareStatement("SELECT Nombre FROM tb_empleado WHERE Nombre=?",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();

@@ -26,7 +26,7 @@ public class DecoracionDAO implements CrudDecoracion<decoracion>{
         List<decoracion> registros = new ArrayList(); 
         
         try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM decoracion WHERE nombre LIKE ?");
+            ps= CON.conectar().prepareStatement("SELECT * FROM tb_decoracion WHERE Nombre LIKE ?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
@@ -48,7 +48,7 @@ public class DecoracionDAO implements CrudDecoracion<decoracion>{
     public boolean insertar(decoracion obj) {
         resp= false;
         try {                                                                                       
-            ps= CON.conectar().prepareStatement("INSERT INTO torta (Nombre, Precio_Adicional) VALUES (?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_decoracion (Nombre, Precio_Adicional) VALUES (?,?)");
             ps.setString(1, obj.getNombreDecoracion());
             ps.setDouble(2, obj.getPrecioAdicional());            
             if (ps.executeUpdate() > 0) {
@@ -70,7 +70,7 @@ public class DecoracionDAO implements CrudDecoracion<decoracion>{
     public boolean actualizar(decoracion obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE torta SET Nombre=?, Precio_Adicional=? WHERE id=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_decoracion SET Nombre=?, Precio_Adicional=? WHERE ID_Decoracion=?");
             ps.setString(1, obj.getNombreDecoracion());
             ps.setDouble(2, obj.getPrecioAdicional());
             ps.setInt(3, obj.getIdDecoracion());
@@ -91,11 +91,11 @@ public class DecoracionDAO implements CrudDecoracion<decoracion>{
     public int total() {
         int totalRegistros = 0;
         try {
-            ps = CON.conectar().prepareStatement("SELECT COUNT(id) FROM decoracion");
+            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Decoracion) FROM tb_decoracion");
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                totalRegistros = rs.getInt("COUNT(id)");
+                totalRegistros = rs.getInt("COUNT(ID_Decoracion)");
             }
             ps.close();
             rs.close();

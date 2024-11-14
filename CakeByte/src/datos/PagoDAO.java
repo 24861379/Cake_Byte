@@ -27,7 +27,7 @@ public class PagoDAO implements CrudPago<pago> {
         List<pago> registros = new ArrayList(); 
                                                                                         
         try {                                      
-            ps= CON.conectar().prepareStatement("SELECT pe.id_Pago, p.id_Pedido, pe.metodo_pago, pe.Monto, pe.Fecha_Pago, p.Fecha_Pedido, p.Fecha_Entrega, p.Estado, p.Instrucciones_Especiales, p.TotalFROM tb_pago pe inner join tb_pedido p ON pe.id_pago = id_pedido WHERE pe.Nombre LIKE ? ORDER BY pe.id_Pago ASC LIMIT ?,?");
+            ps= CON.conectar().prepareStatement("SELECT pe.id_Pago, p.id_Pedido, pe.metodo_pago, pe.Monto, pe.Fecha_Pago, p.Fecha_Pedido, p.Fecha_Entrega, p.Estado, p.Instrucciones_Especiales, p.Total FROM tb_pago pe inner join tb_pedido p ON pe.id_pago = p.id_pedido WHERE pe.Fecha_Pago LIKE ? ORDER BY pe.id_Pago ASC LIMIT ?,?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
@@ -49,7 +49,7 @@ public class PagoDAO implements CrudPago<pago> {
     public boolean insertar(pago obj) {
         resp= false;
         try {
-            ps= CON.conectar().prepareStatement("INSERT INTO pago (monto, FechaPago, metodosPago) VALUES (?,?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_pago (Metodo_Pago, Monto, Fecha_Pago) VALUES (?,?,?)");
             
             ps.setDouble(1, obj.getMonto());
             ps.setDate(2, new java.sql.Date(obj.getFechaPago().getTime()));
@@ -74,10 +74,10 @@ public class PagoDAO implements CrudPago<pago> {
     public boolean actualizar(pago obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE pago SET monto=?, fechaPago=?, MetodosPago=?  WHERE id=?");
-            ps.setDouble(1, obj.getMonto());
-            ps.setDate(2, new java.sql.Date(obj.getFechaPago().getTime()));
-            ps.setString(3, obj.getMetodosPago()[estadoIndex]);
+            ps = CON.conectar().prepareStatement("UPDATE tb_pago SET Metodo_Pago=?, Monto=?, Fecha_Pago=? WHERE ID_Pago=?");
+            ps.setString(1, obj.getMetodosPago()[estadoIndex]);
+            ps.setDouble(2, obj.getMonto());
+            ps.setDate(3, new java.sql.Date(obj.getFechaPago().getTime()));
             ps.setInt(4, obj.getId_Pago());
             if (ps.executeUpdate() > 0) {
                 resp = true;
@@ -96,11 +96,11 @@ public class PagoDAO implements CrudPago<pago> {
     public int total() {
         int totalRegistros = 0;
         try {
-            ps = CON.conectar().prepareStatement("SELECT COUNT(id) FROM pago");
+            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Pago) FROM tb_pago");
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                totalRegistros = rs.getInt("COUNT(id)");
+                totalRegistros = rs.getInt("COUNT(ID_Pago)");
             }
             ps.close();
             rs.close();
@@ -118,7 +118,7 @@ public class PagoDAO implements CrudPago<pago> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM pago WHERE nombre=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps = CON.conectar().prepareStatement("SELECT Fecha_Pago FROM tb_pago WHERE Fecha_Pago=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();
