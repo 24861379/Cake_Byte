@@ -27,7 +27,7 @@ public class TortaDAO implements CrudTorta<torta>{
         List<torta> registros = new ArrayList(); 
         
         try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM torta WHERE nombre LIKE ?");
+            ps= CON.conectar().prepareStatement("SELECT * FROM tb_torta WHERE Nombre LIKE ?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
@@ -51,7 +51,7 @@ public class TortaDAO implements CrudTorta<torta>{
        
         resp= false;
         try {                                                                                       
-            ps= CON.conectar().prepareStatement("INSERT INTO torta (Nombre, Descripcion, Precio_base) VALUES (?,?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_torta (Nombre, Descripcion, Precio_base) VALUES (?,?,?)");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getDescripcion());
             ps.setDouble(3, obj.getPrecio_base());
@@ -77,7 +77,7 @@ public class TortaDAO implements CrudTorta<torta>{
        
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE torta SET Nombre=?, Descripcion=?, Precio_Base=? WHERE id=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_torta SET Nombre=?, Descripcion=?, Precio_Base=? WHERE ID_Torta=?");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getDescripcion());
             ps.setDouble(3, obj.getPrecio_base());
@@ -101,11 +101,11 @@ public class TortaDAO implements CrudTorta<torta>{
         
         int totalRegistros = 0;
         try {
-            ps = CON.conectar().prepareStatement("SELECT COUNT(id) FROM torta");
+            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Torta) FROM tb_torta");
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                totalRegistros = rs.getInt("COUNT(id)");
+                totalRegistros = rs.getInt("COUNT(ID_Torta)");
             }
             ps.close();
             rs.close();

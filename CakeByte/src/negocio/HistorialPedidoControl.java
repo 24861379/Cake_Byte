@@ -35,7 +35,7 @@ public class HistorialPedidoControl {
         this.registrosMostrados =0;
         
         for (historialPedido HPD : lista) {
-            if (!HPD.getEstadoAnteriorHistorialP()[1].equals("Confirmado") && HPD.getFechaCambioHistorialP()== null && HPD.getObservacionesHistorialP().isEmpty()) {
+            if (!HPD.getEstadoAnteriorHistorialP()[1].equals("Confirmado") && HPD.getFechaCambioHistorialP()== null && !HPD.getObservacionesHistorialP().isEmpty()) {
                 estado = "Si hay un historial de pedido";
             }else{
                 estado = "No hay un historial de pedido";

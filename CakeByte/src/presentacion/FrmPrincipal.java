@@ -133,7 +133,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnIniciarSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRealizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+                .addContainerGap(122, Short.MAX_VALUE))
+>>>>>>> 48fb2ae28d559c31aecd27604f7fa811eb09436b
         );
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
@@ -186,6 +190,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         backgroundLayout.setVerticalGroup(
+<<<<<<< HEAD
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
             .addGroup(backgroundLayout.createSequentialGroup()
@@ -193,6 +198,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(jpContenedorHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(407, Short.MAX_VALUE))
+>>>>>>> 48fb2ae28d559c31aecd27604f7fa811eb09436b
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

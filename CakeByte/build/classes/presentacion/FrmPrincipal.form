@@ -57,6 +57,7 @@
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
+<<<<<<< HEAD
           <Group type="103" groupAlignment="1" attributes="0">
               <Component id="menu" pref="672" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
@@ -64,6 +65,14 @@
                   <Component id="jpContenedorHeader" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="content" min="-2" max="-2" attributes="0"/>
+=======
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="menu" pref="600" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <Component id="header" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="407" max="32767" attributes="0"/>
+>>>>>>> 48fb2ae28d559c31aecd27604f7fa811eb09436b
               </Group>
           </Group>
         </DimensionLayout>
@@ -106,7 +115,11 @@
                       <Component id="btnIniciarSeccion" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnRealizarPedido" min="-2" pref="51" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace max="32767" attributes="0"/>
+=======
+                      <EmptySpace pref="122" max="32767" attributes="0"/>
+>>>>>>> 48fb2ae28d559c31aecd27604f7fa811eb09436b
                   </Group>
               </Group>
             </DimensionLayout>

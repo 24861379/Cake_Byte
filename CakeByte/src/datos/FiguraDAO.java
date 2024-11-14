@@ -27,7 +27,7 @@ public class FiguraDAO implements CrudFigura<figura>{
         List<figura> registros = new ArrayList(); 
         
         try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM figura WHERE nombre LIKE ?");
+            ps= CON.conectar().prepareStatement("SELECT * FROM tb_figura WHERE Nombre LIKE ?");
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
@@ -49,7 +49,7 @@ public class FiguraDAO implements CrudFigura<figura>{
     public boolean insertar(figura obj) {
         resp= false;
         try {                                                                                       
-            ps= CON.conectar().prepareStatement("INSERT INTO torta (Nombre, Precio_Adicional) VALUES (?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_figura (Nombre, Precio_Adicional) VALUES (?,?)");
             ps.setString(1, obj.getNombre());
             ps.setDouble(2, obj.getPrecio_adicional());
 
@@ -73,7 +73,7 @@ public class FiguraDAO implements CrudFigura<figura>{
         
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE figura SET Nombre=?, Precio_Adicional=? WHERE id=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_figura SET Nombre=?, Precio_Adicional=? WHERE ID_Figura=?");
             ps.setString(1, obj.getNombre());
             ps.setDouble(2, obj.getPrecio_adicional());
             ps.setInt(3, obj.getId_figura());
@@ -95,11 +95,11 @@ public class FiguraDAO implements CrudFigura<figura>{
         
         int totalRegistros = 0;
         try {
-            ps = CON.conectar().prepareStatement("SELECT COUNT(id) FROM figura");
+            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Figura) FROM tb_figura");
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                totalRegistros = rs.getInt("COUNT(id)");
+                totalRegistros = rs.getInt("COUNT(ID_Figura)");
             }
             ps.close();
             rs.close();

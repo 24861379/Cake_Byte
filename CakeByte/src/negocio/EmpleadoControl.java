@@ -32,7 +32,7 @@ public class EmpleadoControl {
         this.registrosMostrados =0;
         
         for (empleado EMP : lista) {
-            if (!EMP.getNombre().isEmpty() && EMP.getApellido().isEmpty() && EMP.getCorreo().isEmpty() && EMP.getTelefono()== 0 && EMP.getPuesto().isEmpty()) {
+            if (!EMP.getNombre().isEmpty() && !EMP.getApellido().isEmpty() && !EMP.getCorreo().isEmpty() && EMP.getTelefono()== 0 && !EMP.getPuesto().isEmpty()) {
                 estado = "El empleado esta activo";
             }else{
                 estado = "El empleado no existe";

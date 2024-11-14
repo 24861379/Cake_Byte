@@ -25,9 +25,10 @@ public class PedidoDAO implements crudPedido <pedido> {
     public List<pedido> listar(String Texto) {
         List<pedido> registros = new ArrayList(); 
                                                                                         
-        try {                                      
-            ps= CON.conectar().prepareStatement("SELECT p.id_pedido, p.ID_Cliente, c.Nombre, c.Apellido, c.Telefono, p.Fecha_Pedido, p.Fecha_Entrega, p.Estado, p.Instrucciones_Especiales, p.Total FROM tb_pedido  p inner join tb_cliente c  ON c.id_pedido= ID_Cliente WHERE p.Nombre LIKE ? ORDER BY p.id_pedido ASC LIMIT ?,?");
+        try {                                                                                                                                                                                                                                         //c.ID_pedido= ID_Cliente           p                                                      
+            ps= CON.conectar().prepareStatement("SELECT p.id_pedido, p.ID_Cliente, c.Nombre, c.Apellido, c.Telefono, p.Fecha_Pedido, p.Fecha_Entrega, p.Estado, p.Instrucciones_Especiales, p.Total FROM tb_pedido  p inner join tb_cliente c  ON p.ID_Cliente = c.ID_Cliente WHERE c.Nombre LIKE ? ORDER BY p.ID_pedido ASC LIMIT ?,?");
             ps.setString(1, "%"+ Texto+ "%");
+            
             rs=ps.executeQuery();
             while(rs.next()){
                 registros.add(new pedido(rs.getInt(1),rs.getInt(2), rs.getDate(3),rs.getDate(4),rs.getString(5),rs.getDouble(6)));
@@ -48,7 +49,7 @@ public class PedidoDAO implements crudPedido <pedido> {
     public boolean insertar(pedido obj) {
         resp= false;
         try {
-            ps= CON.conectar().prepareStatement("INSERT INTO pedido (Fecha_Pedido, Fecha_Entrega, Estado, Instrucciones_Especiales, Total) VALUES (?,?,?,?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_pedido (Fecha_Pedido, Fecha_Entrega, Estado, Instrucciones_Especiales, Total) VALUES (?,?,?,?,?)");
             
             ps.setDate(1, new java.sql.Date(obj.getFechaPedido().getTime()));// Convertir a java.sql.Date
             ps.setDate(2, new java.sql.Date(obj.getFechaEntrega().getTime()));
@@ -75,7 +76,7 @@ public class PedidoDAO implements crudPedido <pedido> {
     public boolean actualizar(pedido obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE pedido SET Fecha_Entrega=?, Estado=?, Instrucciones_Especiales=?  WHERE id=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_pedido SET Fecha_Entrega=?, Estado=?, Instrucciones_Especiales=?  WHERE ID_Pedido=?");
             ps.setDate(1, new java.sql.Date(obj.getFechaEntrega().getTime()));
             ps.setString(2, obj.getEstado()[estadoIndex]);
             ps.setInt(3, obj.getId_Pedido());
@@ -96,7 +97,7 @@ public class PedidoDAO implements crudPedido <pedido> {
     public boolean desactivar(int id) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE pedido SET Estado='Cancelado' WHERE id=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_pedido SET Estado='Cancelado' WHERE ID_Pedido=?");
             ps.setInt(1, id);
             if (ps.executeUpdate() > 0) {
                 resp = true;
@@ -114,8 +115,8 @@ public class PedidoDAO implements crudPedido <pedido> {
     @Override
     public boolean activar(int id) {
         resp = false;
-        try {                                                   //ajustar
-            ps = CON.conectar().prepareStatement("UPDATE pedido SET Estado='Confirmado' WHERE id=?");
+        try {                                                   
+            ps = CON.conectar().prepareStatement("UPDATE tb_pedido SET Estado='Confirmado' WHERE ID_Pedido=?");
             ps.setInt(1,id);
             if (ps.executeUpdate() > 0) {
                 resp = true;
@@ -134,11 +135,11 @@ public class PedidoDAO implements crudPedido <pedido> {
     public int total() {
        int totalRegistros = 0;
         try {
-            ps = CON.conectar().prepareStatement("SELECT COUNT(id) FROM pedido");
+            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Pedido) FROM tb_pedido");
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                totalRegistros = rs.getInt("COUNT(id)");
+                totalRegistros = rs.getInt("COUNT(ID_Pedido)");
             }
             ps.close();
             rs.close();
@@ -156,7 +157,7 @@ public class PedidoDAO implements crudPedido <pedido> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT nombre FROM pedido WHERE nombre=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps = CON.conectar().prepareStatement("SELECT ID_Pedido FROM tb_pedido WHERE ID_Pedido=?", ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();

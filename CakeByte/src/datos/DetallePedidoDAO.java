@@ -52,7 +52,7 @@ public class DetallePedidoDAO implements CrudDetallePedido <detallePedido>{
     public boolean insertar(detallePedido obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("INSERT INTO tb_detalle_pedido (Cantidad, precio_Unitario, Subtotal) VALUES (?,?,?)");
+            ps = CON.conectar().prepareStatement("INSERT INTO tb_detalle_pedido (Cantidad, Precio_Unitario, Subtotal) VALUES (?,?,?)");
             ps.setInt(1, obj.getCantidad());
             ps.setDouble(2, obj.getPrecio_unitario());
             ps.setDouble(3, obj.getSubtotal());
@@ -77,7 +77,7 @@ public class DetallePedidoDAO implements CrudDetallePedido <detallePedido>{
     public boolean actualizar(detallePedido obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE tb_detalle_pedido SET Cantidad=?, pedido=?, Subtotal=? WHERE ID_Detalle=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_detalle_pedido SET Cantidad=?, Precio_Unitario=?, Subtotal=? WHERE ID_Detalle=?");
             ps.setInt(1, obj.getCantidad());
             ps.setDouble(2, obj.getPrecio_unitario());
             ps.setDouble(3, obj.getSubtotal());
@@ -122,7 +122,7 @@ public class DetallePedidoDAO implements CrudDetallePedido <detallePedido>{
     public int total() {
         int totalRegistros = 0;
         try {                                                       //id          
-            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Detalle_Pedido) FROM tb_detall_pedido");
+            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Detalle_Pedido) FROM tb_detalle_pedido");
             rs = ps.executeQuery();
 
             while (rs.next()) {
