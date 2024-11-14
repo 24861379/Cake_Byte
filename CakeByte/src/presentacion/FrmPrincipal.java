@@ -2,17 +2,36 @@ package presentacion;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.BorderLayout;
 
 public class FrmPrincipal extends javax.swing.JFrame {
-
     
     public FrmPrincipal() {
         initComponents();
-        this.setLocationRelativeTo(this);
-        
+        InitContent();
         rsscalelabel.RSScaleLabel.setScaleLabel(lblImagen, "src//presentacion//Iconos//Logo1.png");
     }
 
+    //Instacia para llamar los paneles al espacio en blanco del formulario principal
+    private void InitContent(){
+        // Crear una instancia del panel principal
+    Principal pl = new Principal();
+    
+    // No es necesario llamar a setSize, ya que BorderLayout lo maneja
+    // Plantea las restricciones adecuadas para el panel
+    pl.setPreferredSize(new Dimension(817, 471));
+    
+    // Limpiar el contenido anterior
+    content.removeAll();
+    
+    // Añadir el panel Principal al contenedor de contenido
+    content.add(pl, BorderLayout.CENTER);
+    
+    // Llamar a revalidate() y repaint() para asegurarse de que el panel se muestre correctamente
+    content.revalidate();
+    content.repaint();
+    }
+    
     
     @SuppressWarnings("")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -25,7 +44,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnIniciarSeccion = new javax.swing.JButton();
         btnRealizarPedido = new javax.swing.JButton();
         lblImagen = new javax.swing.JLabel();
-        header = new javax.swing.JPanel();
+        content = new javax.swing.JPanel();
+        jpContenedorHeader = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de pedidos");
@@ -96,8 +117,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(btnRegistrarse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnRealizarPedido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnIniciarSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(btnRealizarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnIniciarSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,20 +133,44 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(btnIniciarSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRealizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        header.setBackground(new java.awt.Color(204, 255, 255));
-
-        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
-        header.setLayout(headerLayout);
-        headerLayout.setHorizontalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+        javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
+        content.setLayout(contentLayout);
+        contentLayout.setHorizontalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        headerLayout.setVerticalGroup(
-            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+        contentLayout.setVerticalGroup(
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 471, Short.MAX_VALUE)
+        );
+
+        jpContenedorHeader.setBackground(new java.awt.Color(204, 255, 255));
+
+        String titleText = "<html>"
+        + "<div style='text-align: center; font-family: Arial;'>"
+        + "<h1 style='color: #FF6F61; font-size: 40px;'>Cake Byte</h1>"  // Color coral brillante para Cake Byte
+        + "<h3 style='color: #34495E; font-size: 15px;'>Tu postre favorito, a un click de distancia</h3>"  // Color gris oscuro para el eslogan
+        + "</div></html>";
+        jLabel1.setText(titleText);
+
+        javax.swing.GroupLayout jpContenedorHeaderLayout = new javax.swing.GroupLayout(jpContenedorHeader);
+        jpContenedorHeader.setLayout(jpContenedorHeaderLayout);
+        jpContenedorHeaderLayout.setHorizontalGroup(
+            jpContenedorHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpContenedorHeaderLayout.createSequentialGroup()
+                .addContainerGap(221, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152))
+        );
+        jpContenedorHeaderLayout.setVerticalGroup(
+            jpContenedorHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpContenedorHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
@@ -133,17 +178,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpContenedorHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(jpContenedorHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -170,7 +219,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmPrincipal().setVisible(true);
+                 FrmPrincipal frame = new FrmPrincipal();
+                 frame.setVisible(true);
+
+                // Asignar la imagen después de que la ventana esté visible
+                 Principal pl = new Principal();
+                 rsscalelabel.RSScaleLabel.setScaleLabel(pl.getjlImagen1(), "src//presentacion//Iconos//Imagen01.png");
             }
         });
     }
@@ -181,7 +235,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRealizarPedido;
     private javax.swing.JButton btnRegistrarse;
-    private javax.swing.JPanel header;
+    private javax.swing.JPanel content;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jpContenedorHeader;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JPanel menu;
     // End of variables declaration//GEN-END:variables
