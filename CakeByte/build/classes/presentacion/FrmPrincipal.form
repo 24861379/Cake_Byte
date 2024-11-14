@@ -45,19 +45,34 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Component id="menu" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="header" max="32767" attributes="0"/>
+                  <Component id="menu" min="-2" pref="278" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jpContenedorHeader" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="content" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
+<<<<<<< HEAD
+          <Group type="103" groupAlignment="1" attributes="0">
+              <Component id="menu" pref="672" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jpContenedorHeader" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="content" min="-2" max="-2" attributes="0"/>
+=======
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="menu" pref="600" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   <Component id="header" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="407" max="32767" attributes="0"/>
+>>>>>>> 48fb2ae28d559c31aecd27604f7fa811eb09436b
               </Group>
           </Group>
         </DimensionLayout>
@@ -83,8 +98,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Component id="btnRegistrarse" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnRealizarPedido" alignment="1" max="32767" attributes="0"/>
-                  <Component id="btnIniciarSeccion" alignment="0" pref="270" max="32767" attributes="0"/>
+                  <Component id="btnRealizarPedido" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnIniciarSeccion" alignment="0" pref="278" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -100,7 +115,11 @@
                       <Component id="btnIniciarSeccion" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnRealizarPedido" min="-2" pref="51" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                      <EmptySpace max="32767" attributes="0"/>
+=======
                       <EmptySpace pref="122" max="32767" attributes="0"/>
+>>>>>>> 48fb2ae28d559c31aecd27604f7fa811eb09436b
                   </Group>
               </Group>
             </DimensionLayout>
@@ -210,7 +229,22 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="header">
+        <Container class="javax.swing.JPanel" name="content">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="471" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jpContenedorHeader">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="cc" type="rgb"/>
@@ -220,15 +254,36 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="750" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="221" max="32767" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="450" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="140" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel1" pref="133" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="titleText" type="code"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JLabel()"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="String titleText = &quot;&lt;html&gt;&quot;&#xa;    + &quot;&lt;div style=&apos;text-align: center; font-family: Arial;&apos;&gt;&quot;&#xa;    + &quot;&lt;h1 style=&apos;color: #FF6F61; font-size: 40px;&apos;&gt;Cake Byte&lt;/h1&gt;&quot;  // Color coral brillante para Cake Byte&#xa;    + &quot;&lt;h3 style=&apos;color: #34495E; font-size: 15px;&apos;&gt;Tu postre favorito, a un click de distancia&lt;/h3&gt;&quot;  // Color gris oscuro para el eslogan&#xa;    + &quot;&lt;/div&gt;&lt;/html&gt;&quot;;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
