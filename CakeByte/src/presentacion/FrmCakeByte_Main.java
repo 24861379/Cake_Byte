@@ -232,12 +232,12 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_InicioActionPerformed
 
     private void IniciarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSeccionActionPerformed
-        Registrarse RG = new Registrarse();
-        RG.setSize(759,430);
-        RG.setLocation(0, 0); 
+        IniciarSeccion IS = new IniciarSeccion();
+        IS.setSize(759,430);
+        IS.setLocation(0, 0); 
         
         Content.removeAll();
-        Content.add(RG, BorderLayout.CENTER);
+        Content.add(IS, BorderLayout.CENTER);
         Content.revalidate();
         Content.repaint();
     }//GEN-LAST:event_IniciarSeccionActionPerformed
