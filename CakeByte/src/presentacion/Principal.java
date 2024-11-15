@@ -1,19 +1,11 @@
 package presentacion;
 
-import javax.swing.JLabel;
-
 public class Principal extends javax.swing.JPanel {
 
     public Principal() {
-        jlImagen1 = new JLabel();
-        jlImagen1.setBounds(50, 50, 200, 200);
-        add(jlImagen1);
+        initComponents();
     }
 
-    // Método getter público para acceder al JLabel
-    public JLabel getjlImagen1() {
-        return jlImagen1;
-    }
     
     @SuppressWarnings("")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -21,9 +13,10 @@ public class Principal extends javax.swing.JPanel {
 
         jpPrincipal = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jlImagen1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jpPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        jpPrincipal.setPreferredSize(new java.awt.Dimension(759, 430));
 
         String descriptionText = "<html>"
         + "<div style='font-family: Arial; font-size: 10px; color: #2C3E50; text-align: justify;'>"
@@ -49,28 +42,29 @@ public class Principal extends javax.swing.JPanel {
         jLabel4.setText(descriptionText);
         jLabel4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/Iconos/Imagen01 (2).png"))); // NOI18N
+
         javax.swing.GroupLayout jpPrincipalLayout = new javax.swing.GroupLayout(jpPrincipal);
         jpPrincipal.setLayout(jpPrincipalLayout);
         jpPrincipalLayout.setHorizontalGroup(
             jpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpPrincipalLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jlImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(17, 17, 17))
         );
         jpPrincipalLayout.setVerticalGroup(
             jpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpPrincipalLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpPrincipalLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
                 .addGroup(jpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpPrincipalLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpPrincipalLayout.createSequentialGroup()
-                        .addComponent(jlImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))))
+                    .addGroup(jpPrincipalLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(79, 79, 79))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -87,8 +81,8 @@ public class Principal extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jlImagen1;
     private javax.swing.JPanel jpPrincipal;
     // End of variables declaration//GEN-END:variables
 }
