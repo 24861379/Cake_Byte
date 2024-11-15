@@ -3,12 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/presentacion/FrmPrincipal.java</file>
-            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/presentacion/Principal.java</file>
-=======
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/VerPedido.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/RealizarPedido.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/Principal.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/Registrarse_Empleado.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/IniciarSeccion.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/FrmCakeByte_Main.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/negocio/PagoControl.java</file>
->>>>>>> 87cf621e3be355cee859d3b778594335b9a62c7d
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/Registrarse_Cliente.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/negocio/ClienteControl.java</file>
         </group>
     </open-files>
 </project-private>
