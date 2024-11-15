@@ -1,6 +1,10 @@
 package presentacion;
 
+import datos.UsuarioDAO;
+import entidades.usuario;
 import java.awt.BorderLayout;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 public class IniciarSeccion extends javax.swing.JPanel {
 
@@ -57,6 +61,11 @@ public class IniciarSeccion extends javax.swing.JPanel {
 
         btnIniciarSesion.setBackground(new java.awt.Color(204, 255, 204));
         btnIniciarSesion.setText("Iniciar sesión");
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
 
         btnRegistrarse.setBackground(new java.awt.Color(204, 255, 204));
         btnRegistrarse.setText("Registrarse");
@@ -153,6 +162,42 @@ public class IniciarSeccion extends javax.swing.JPanel {
         BackInicio.revalidate();
         BackInicio.repaint();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+    String nombreUsuario = jtNombreUsuario.getText().trim();
+    String contrasena = jtContrasena.getText().trim();
+
+    if (nombreUsuario.isEmpty() || contrasena.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
+    boolean existe = usuarioDAO.existencia(nombreUsuario);
+
+    if (existe) {
+        // Si el usuario existe, verifica que la contraseña sea correcta
+        List<usuario> usuarios = usuarioDAO.listar(nombreUsuario);
+        for (usuario user : usuarios) {
+            if (user.getContraseña().equals(contrasena)) {
+                JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso.", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                
+            Principal pl = new Principal();
+            pl.setSize(759,430);
+            pl.setLocation(0,0);
+        
+            BackInicio.removeAll();
+            BackInicio.add(pl, BorderLayout.CENTER);
+            BackInicio.revalidate();
+            BackInicio.repaint();
+            return;
+            }
+        }
+        JOptionPane.showMessageDialog(this, "La contraseña es incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);
+    } else {
+        JOptionPane.showMessageDialog(this, "El usuario no existe.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
