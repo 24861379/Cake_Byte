@@ -33,7 +33,7 @@ public class ClienteDAO implements CrudCliente<cliente> {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                registros.add(new cliente(rs.getInt(1),rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7)));
+                registros.add(new cliente( rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5)));
             }
             ps.close();
             rs.close();
