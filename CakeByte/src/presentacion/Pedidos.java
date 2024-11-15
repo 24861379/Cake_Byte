@@ -10,13 +10,13 @@ import negocio.ClienteControl;
  *
  * @author Yodver
  */
-public class prueba extends javax.swing.JPanel {
+public class Pedidos extends javax.swing.JPanel {
     private final ClienteControl CONTROL;
 
     /**
      * Creates new form prueba
      */
-    public prueba() {
+    public Pedidos() {
         initComponents();
         this.CONTROL = new ClienteControl();
         this.listar("");

@@ -249,14 +249,14 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
 
     private void VerPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerPedidoActionPerformed
         // TODO add your handling code here:
-//        prueba test = new prueba();
-//        test.setSize(759,430);
-//        test.setLocation(0, 0);
-//        
-//        Content.removeAll();
-//        Content.add(test, BorderLayout.CENTER);
-//        Content.revalidate();
-//        Content.repaint();
+        Pedidos pedido = new Pedidos();
+        pedido.setSize(759,430);
+        pedido.setLocation(0, 0);
+        
+        Content.removeAll();
+        Content.add(pedido, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
     }//GEN-LAST:event_VerPedidoActionPerformed
 
     public static void main(String args[]) {
