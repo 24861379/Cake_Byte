@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 public class usuario {
     private int ID_Usuario;
+    private int ID_Cliente;
+    private int ID_Empleado;
     private String Nombre_Usuario;
     private String Contraseña;
     private String[] Rol = {"Cliente", "Empleado", "Administrador"};
@@ -12,8 +14,10 @@ public class usuario {
     public usuario() {
     }
 
-    public usuario(int ID_Usuario, String Nombre_Usuario, String Contraseña) {
+    public usuario(int ID_Usuario, int ID_Cliente, int ID_Empleado, String Nombre_Usuario, String Contraseña) {
         this.ID_Usuario = ID_Usuario;
+        this.ID_Cliente = ID_Cliente;
+        this.ID_Empleado = ID_Empleado;
         this.Nombre_Usuario = Nombre_Usuario;
         this.Contraseña = Contraseña;
     }
@@ -24,6 +28,22 @@ public class usuario {
 
     public void setID_Usuario(int ID_Usuario) {
         this.ID_Usuario = ID_Usuario;
+    }
+
+    public int getID_Cliente() {
+        return ID_Cliente;
+    }
+
+    public void setID_Cliente(int ID_Cliente) {
+        this.ID_Cliente = ID_Cliente;
+    }
+
+    public int getID_Empleado() {
+        return ID_Empleado;
+    }
+
+    public void setID_Empleado(int ID_Empleado) {
+        this.ID_Empleado = ID_Empleado;
     }
 
     public String getNombre_Usuario() {
@@ -50,7 +70,6 @@ public class usuario {
         this.Rol = Rol;
     }
 
-    
     @Override
     public String toString() {
         return "Usuario: \n"+"Nombre: "+Nombre_Usuario+ "\nContraseña del usuario: " + Contraseña + "\nRol del usuario: " +Arrays.toString(Rol);

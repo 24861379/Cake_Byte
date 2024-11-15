@@ -3,7 +3,6 @@ package entidades;
 public class empleado   {
     
     private int ID_Empleado;
-    private int ID_Usuario;//FK de usuario
     private String Nombre;
     private String Apellido;
     private String Correo;
@@ -13,9 +12,7 @@ public class empleado   {
     public empleado() {
     }
 
-    public empleado(int ID_Empleado, int ID_Usuario, String Nombre, String Apellido, String Correo, int Telefono, String Puesto) {
-        this.ID_Empleado = ID_Empleado;
-        this.ID_Usuario = ID_Usuario;
+    public empleado(String Nombre, String Apellido, String Correo, int Telefono, String Puesto) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Correo = Correo;
@@ -29,14 +26,6 @@ public class empleado   {
 
     public void setID_Empleado(int ID_Empleado) {
         this.ID_Empleado = ID_Empleado;
-    }
-
-    public int getID_Usuario() {
-        return ID_Usuario;
-    }
-
-    public void setID_Usuario(int ID_Usuario) {
-        this.ID_Usuario = ID_Usuario;
     }
 
     public String getNombre() {

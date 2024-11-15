@@ -26,13 +26,13 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
 
         List<empleado> registros = new ArrayList<>();
 
-        try {                                        //SELECT c.ID_Cliente, c.ID_Usuario, u.Nombre_Usuario, u.Rol, c.Nombre, c.Apellido, c.Direccion, c.Correo, c.Telefono FROM tb_cliente c inner join tb_usuario u ON c.Usuario_id= u.id  WHERE u.Nombre_Usuario LIKE ? ORDER BY c.id ASC LIMIT ?,?"
-            ps = CON.conectar().prepareStatement("SELECT e.ID_Empleado, e.ID_Usuario, e.Nombre_Usuario, e.Rol, c.Nombre, c.Apellido, c.Direccion, c.Correo, c.Telefono FROM tb_empleado e inner join tb_usuario u ON e.Usuario_id= u.ID_Usuario  WHERE u.Nombre_Usuario LIKE ? ORDER BY e.ID_Empleado ASC LIMIT ?,?");
+        try {                                       
+            ps = CON.conectar().prepareStatement("SELECT * FROM tb_empleado WHERE Nombre LIKE ?");
             ps.setString(1, "%" + Texto + "%");
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                registros.add(new empleado(rs.getInt(1),rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5),  rs.getInt(6), rs.getString(7)));
+                registros.add(new empleado(rs.getString(1), rs.getString(2), rs.getString(3),  rs.getInt(4), rs.getString(5)));
             }
             ps.close();
             rs.close();

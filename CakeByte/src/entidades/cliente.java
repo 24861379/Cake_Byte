@@ -3,7 +3,6 @@ package entidades;
 public class cliente {
     
     private int ID_Cliente;
-    private int ID_Usuario;//FK de usuario
     private String Nombre;
     private String Apellido;
     private String Direccion;
@@ -14,7 +13,7 @@ public class cliente {
         
     }
 
-    public cliente( String Nombre, String Apellido, String Direccion, String Correo, int Telefono) {
+    public cliente(String Nombre, String Apellido, String Direccion, String Correo, int Telefono) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Direccion = Direccion;
@@ -28,14 +27,6 @@ public class cliente {
 
     public void setID_Cliente(int ID_Cliente) {
         this.ID_Cliente = ID_Cliente;
-    }
-
-    public int getID_Usuario() {
-        return ID_Usuario;
-    }
-
-    public void setID_Usuario(int ID_Usuario) {
-        this.ID_Usuario = ID_Usuario;
     }
 
     public String getNombre() {

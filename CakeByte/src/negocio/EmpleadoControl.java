@@ -39,7 +39,7 @@ public class EmpleadoControl {
             }
             
             registro[0] =Integer.toString(EMP.getID_Empleado());
-            registro[1] =Integer.toString(EMP.getID_Usuario());
+            //registro[1] =Integer.toString(EMP.getID_Usuario());
             registro[2] =EMP.getNombre();
             registro[3] =EMP.getApellido();
             registro[4] =EMP.getCorreo();

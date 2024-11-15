@@ -27,7 +27,7 @@ public class ClienteDAO implements CrudCliente<cliente> {
         List<cliente> registros = new ArrayList();
 
         try {
-            ps = CON.conectar().prepareStatement("SELECT c.ID_Cliente, c.ID_Usuario, u.Nombre_Usuario, u.Rol, c.Nombre, c.Apellido, c.Direccion, c.Correo, c.Telefono FROM tb_cliente c inner join tb_usuario u ON c.Usuario_id= u.ID_Usuario  WHERE u.Nombre_Usuario LIKE ? ORDER BY c.ID_Cliente ASC LIMIT ?,?");
+            ps = CON.conectar().prepareStatement("SELECT * FROM tb_cliente WHERE Nombre LIKE ?");
             ps.setString(1, "%" + Texto + "%");
             
             rs = ps.executeQuery();
@@ -48,7 +48,6 @@ public class ClienteDAO implements CrudCliente<cliente> {
         return registros;
     }
     
-    @Override
     public boolean insertar(cliente obj) {
         resp = false;
         try {
