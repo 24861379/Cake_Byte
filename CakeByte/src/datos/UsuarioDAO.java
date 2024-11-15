@@ -28,11 +28,16 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
         List<usuario> registros = new ArrayList(); 
         
         try {
-            ps= CON.conectar().prepareStatement("SELECT * FROM tb_usuario WHERE Nombre_Usuario LIKE ?");
+            ps= CON.conectar().prepareStatement("SELECT u.ID_Usuario, u.ID_Cliente, u.ID_Empleado, u.Nombre_Usuario, u.Contrasena, u.Rol, c.Nombre AS ClienteNombre, e.Nombre AS EmpleadoNombre " +
+            "FROM tb_usuario u " +
+            "LEFT JOIN tb_cliente c ON u.ID_Cliente = c.ID_Cliente " +
+            "LEFT JOIN tb_empleado e ON u.ID_Empleado = e.ID_Empleado " +
+            "WHERE u.Nombre_Usuario LIKE ?");
+            
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new usuario(rs.getInt(1), rs.getString(2),rs.getString(3)));
+                registros.add(new usuario(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getString(5)));
             }
             ps.close();
             rs.close();

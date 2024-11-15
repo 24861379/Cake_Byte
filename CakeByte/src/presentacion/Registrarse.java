@@ -3,6 +3,7 @@ package presentacion;
 import java.awt.BorderLayout;
 
 
+
 public class Registrarse extends javax.swing.JPanel {
 
     
@@ -78,6 +79,11 @@ public class Registrarse extends javax.swing.JPanel {
 
         btnRegistrar.setBackground(new java.awt.Color(204, 255, 204));
         btnRegistrar.setText("Registrarme");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setBackground(new java.awt.Color(255, 102, 102));
         btnCancelar.setText("Cancelar");
@@ -212,6 +218,9 @@ public class Registrarse extends javax.swing.JPanel {
         BackRegistrarse.repaint();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+       
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackRegistrarse;

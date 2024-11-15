@@ -40,7 +40,7 @@ public class ClienteControl {
             }
             
             registro[0] =Integer.toString(cli.getID_Cliente());
-            registro[1] =Integer.toString(cli.getID_Usuario());
+            //registro[1] =Integer.toString(cli.getID_Usuario());
             registro[2] =cli.getNombre();
             registro[3] =cli.getApellido();
             registro[4] =cli.getDireccion();
