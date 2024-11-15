@@ -108,6 +108,11 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         VerPedido.setBorder(null);
         VerPedido.setBorderPainted(false);
         VerPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VerPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerPedidoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/Iconos/Logo1 (1).png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(37, 10));
@@ -242,7 +247,18 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         Content.repaint();
     }//GEN-LAST:event_IniciarSeccionActionPerformed
 
-    
+    private void VerPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerPedidoActionPerformed
+        // TODO add your handling code here:
+//        prueba test = new prueba();
+//        test.setSize(759,430);
+//        test.setLocation(0, 0);
+//        
+//        Content.removeAll();
+//        Content.add(test, BorderLayout.CENTER);
+//        Content.revalidate();
+//        Content.repaint();
+    }//GEN-LAST:event_VerPedidoActionPerformed
+
     public static void main(String args[]) {
         
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
