@@ -9,8 +9,7 @@ public class figura {
     public figura() {
     }
 
-    public figura(int id_figura, String Nombre, double precio_adicional) {
-        this.id_figura = id_figura;
+    public figura( String Nombre, double precio_adicional) {
         this.Nombre = Nombre;
         this.precio_adicional = precio_adicional;
     }

@@ -30,7 +30,7 @@ public class DecoracionDAO implements CrudDecoracion<decoracion>{
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new decoracion(rs.getInt(1), rs.getString(2),rs.getDouble(4)));
+                registros.add(new decoracion( rs.getString(1),rs.getDouble(2)));
             }
             ps.close();
             rs.close();

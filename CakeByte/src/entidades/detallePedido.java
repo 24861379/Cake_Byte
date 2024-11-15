@@ -16,13 +16,7 @@ public class detallePedido {
         
     }
 
-    public detallePedido(int id_detalle_pedido, int id_Pedido, int ID_Torta, int id_figura, int id_Sabor, int idDecoracion, int cantidad, double precio_unitario, double subtotal) {
-        this.id_detalle_pedido = id_detalle_pedido;
-        this.id_Pedido = id_Pedido;
-        this.ID_Torta = ID_Torta;
-        this.id_figura = id_figura;
-        this.id_Sabor = id_Sabor;
-        this.idDecoracion = idDecoracion;
+    public detallePedido( int cantidad, double precio_unitario, double subtotal) {
         this.cantidad = cantidad;
         this.precio_unitario = precio_unitario;
         this.subtotal = subtotal;

@@ -31,7 +31,7 @@ public class PagoDAO implements CrudPago<pago> {
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new pago(rs.getInt(1),rs.getInt(2), rs.getDouble(3),rs.getDate(4)));
+                registros.add(new pago( rs.getDouble(1),rs.getDate(2)));
             }
             ps.close();
             rs.close();

@@ -37,7 +37,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new usuario(rs.getInt(1), rs.getInt(2),rs.getInt(3),rs.getString(4),rs.getString(5)));
+                registros.add(new usuario(rs.getString(1),rs.getString(2)));
             }
             ps.close();
             rs.close();

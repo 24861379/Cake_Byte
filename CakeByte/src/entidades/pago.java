@@ -15,9 +15,7 @@ public class pago {
         
     }
 
-    public pago(int id_Pago, int id_Pedido, double monto, Date fechaPago) {
-        this.id_Pago = id_Pago;
-        this.id_Pedido = id_Pedido;
+    public pago( double monto, Date fechaPago) {
         this.monto = monto;
         this.fechaPago = fechaPago;
     }

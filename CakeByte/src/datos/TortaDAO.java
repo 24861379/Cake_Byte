@@ -31,7 +31,7 @@ public class TortaDAO implements CrudTorta<torta>{
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new torta(rs.getInt(1), rs.getString(2),rs.getString(3),rs.getDouble(4)));
+                registros.add(new torta( rs.getString(1),rs.getString(2),rs.getDouble(3)));
             }
             ps.close();
             rs.close();

@@ -33,7 +33,7 @@ public class DetallePedidoDAO implements CrudDetallePedido <detallePedido>{
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                registros.add(new detallePedido(rs.getInt(1),rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7),rs.getDouble(8), rs.getDouble(9)));
+                registros.add(new detallePedido( rs.getInt(1),rs.getDouble(2), rs.getDouble(3)));
             }
             ps.close();
             rs.close();

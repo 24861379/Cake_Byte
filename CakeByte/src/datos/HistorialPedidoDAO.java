@@ -33,7 +33,7 @@ public class HistorialPedidoDAO implements CrudHistorialPedido<historialPedido>{
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                registros.add(new historialPedido(rs.getInt(1),rs.getInt(2), rs.getDate(4), rs.getString(5)));
+                registros.add(new historialPedido( rs.getDate(1), rs.getString(2)));
             }
             ps.close();
             rs.close();

@@ -16,9 +16,7 @@ public class pedido {
     public pedido() {
     }
 
-    public pedido(int id_Pedido, int ID_Cliente, Date fechaPedido, Date fechaEntrega, String InstruccionesEspeciales, double total) {
-        this.id_Pedido = id_Pedido;
-        this.ID_Cliente = ID_Cliente;
+    public pedido( Date fechaPedido, Date fechaEntrega, String InstruccionesEspeciales, double total) {
         this.fechaPedido = fechaPedido;
         this.fechaEntrega = fechaEntrega;
         this.InstruccionesEspeciales = InstruccionesEspeciales;
