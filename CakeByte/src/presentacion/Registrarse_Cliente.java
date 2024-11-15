@@ -1,5 +1,6 @@
 package presentacion;
 
+<<<<<<< HEAD
 import datos.ClienteDAO;
 import entidades.cliente;
 
@@ -10,6 +11,12 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
     private final ClienteDAO DATOS;
 
 
+=======
+
+public class Registrarse_Cliente extends javax.swing.JPanel {
+
+    
+>>>>>>> e8afadd62e2d9a2fb846e20bef921d6b1e03fbac
     public Registrarse_Cliente() {
         initComponents();
         this.DATOS = new ClienteDAO();
@@ -46,6 +53,7 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
         LBL_CTelefono = new javax.swing.JTextField();
         BtnRegistrarC = new javax.swing.JButton();
         BtnCancelarC = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         JPBackRC.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -53,7 +61,6 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ingresa tus datos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -63,7 +70,7 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(306, 306, 306)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(311, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,19 +81,15 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
         );
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Apellido");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Dirección");
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Correo");
 
         LBL_CEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +99,6 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Télefono");
 
         LBL_CTelefono.addActionListener(new java.awt.event.ActionListener() {
@@ -107,8 +109,12 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
 
         BtnRegistrarC.setBackground(new java.awt.Color(102, 255, 51));
         BtnRegistrarC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+<<<<<<< HEAD
         BtnRegistrarC.setForeground(new java.awt.Color(0, 0, 0));
         BtnRegistrarC.setText("Iniciar sesión");
+=======
+        BtnRegistrarC.setText("Registrar");
+>>>>>>> e8afadd62e2d9a2fb846e20bef921d6b1e03fbac
         BtnRegistrarC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnRegistrarC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,16 +124,17 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
 
         BtnCancelarC.setBackground(new java.awt.Color(255, 51, 51));
         BtnCancelarC.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        BtnCancelarC.setForeground(new java.awt.Color(0, 0, 0));
         BtnCancelarC.setText("Cancelar");
         BtnCancelarC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/Iconos/Pastel (1).gif"))); // NOI18N
 
         javax.swing.GroupLayout JPBackRCLayout = new javax.swing.GroupLayout(JPBackRC);
         JPBackRC.setLayout(JPBackRCLayout);
         JPBackRCLayout.setHorizontalGroup(
             JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(JPBackRCLayout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(135, 135, 135)
                 .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
@@ -153,28 +160,72 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
                         .addGap(101, 101, 101)
                         .addComponent(BtnCancelarC, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(166, Short.MAX_VALUE))
+=======
+                .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(JPBackRCLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(BtnRegistrarC, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnCancelarC, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JPBackRCLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(JPBackRCLayout.createSequentialGroup()
+                                .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, Short.MAX_VALUE)
+                                .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(LBL_CApellido, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(LBL_CEmail1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(LBL_CNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(JPBackRCLayout.createSequentialGroup()
+                                .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(18, 18, 18)
+                                .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(LBL_CAddress)
+                                    .addComponent(LBL_CEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(JPBackRCLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+>>>>>>> e8afadd62e2d9a2fb846e20bef921d6b1e03fbac
         );
         JPBackRCLayout.setVerticalGroup(
             JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPBackRCLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addGap(40, 40, 40)
+=======
+>>>>>>> e8afadd62e2d9a2fb846e20bef921d6b1e03fbac
                 .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPBackRCLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
                         .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(LBL_CNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(LBL_CApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(JPBackRCLayout.createSequentialGroup()
+                            .addComponent(LBL_CApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(LBL_CEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(LBL_CAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
+<<<<<<< HEAD
                             .addComponent(LBL_CEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -185,21 +236,28 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
                     .addComponent(BtnRegistrarC, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtnCancelarC, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 111, Short.MAX_VALUE))
+=======
+                            .addComponent(LBL_CEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addGroup(JPBackRCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtnRegistrarC, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnCancelarC, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JPBackRCLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
+>>>>>>> e8afadd62e2d9a2fb846e20bef921d6b1e03fbac
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(JPBackRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(JPBackRC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(JPBackRC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(JPBackRC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -232,6 +290,7 @@ public class Registrarse_Cliente extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
