@@ -194,6 +194,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerPedidoActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="VerPedido.setBorderPainted(false);&#xa;VerPedido.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pasteler&#xed;a&#xa;VerPedido.setForeground(new java.awt.Color(102, 51, 0)); // Color marr&#xf3;n para el texto, simulando tonos de chocolate&#xa;VerPedido.setFont(new java.awt.Font(&quot;Segoe UI&quot;, java.awt.Font.BOLD, 16)); // Fuente moderna&#xa;&#xa;// Quitar bordes y darle un dise&#xf1;o plano&#xa;VerPedido.setFocusPainted(false);&#xa;VerPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
