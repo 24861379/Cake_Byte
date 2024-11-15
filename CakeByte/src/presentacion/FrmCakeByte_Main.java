@@ -56,6 +56,11 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         Inicio.setBorder(null);
         Inicio.setBorderPainted(false);
         Inicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Inicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InicioActionPerformed(evt);
+            }
+        });
 
         IniciarSeccion.setBorderPainted(false);
         IniciarSeccion.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pastelería
@@ -70,6 +75,11 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         IniciarSeccion.setBorder(null);
         IniciarSeccion.setBorderPainted(false);
         IniciarSeccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        IniciarSeccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IniciarSeccionActionPerformed(evt);
+            }
+        });
 
         RealizarPedido.setBorderPainted(false);
         RealizarPedido.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pastelería
@@ -209,6 +219,28 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void InicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioActionPerformed
+        Principal pl = new Principal();
+        pl.setSize(759,430);
+        pl.setLocation(0,0);
+        
+        Content.removeAll();
+        Content.add(pl, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_InicioActionPerformed
+
+    private void IniciarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarSeccionActionPerformed
+        Registrarse_Cliente RC = new Registrarse_Cliente();
+        RC.setSize(759,430);
+        RC.setLocation(0, 0); 
+        
+        Content.removeAll();
+        Content.add(RC, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_IniciarSeccionActionPerformed
 
     
     public static void main(String args[]) {
