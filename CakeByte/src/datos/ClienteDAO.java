@@ -25,7 +25,6 @@ public class ClienteDAO implements CrudCliente<cliente> {
     public List<cliente> listar(String Texto) {
 
         List<cliente> registros = new ArrayList();
-        
         try {
             ps = CON.conectar().prepareStatement("SELECT * FROM tb_cliente WHERE Nombre LIKE ?");
             ps.setString(1, "%" + Texto + "%");
@@ -48,7 +47,8 @@ public class ClienteDAO implements CrudCliente<cliente> {
         return registros;
     }
     
-    
+
+    @Override
     public boolean insertar(cliente obj) {
         resp = false;
         try {
