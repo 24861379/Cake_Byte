@@ -14,9 +14,7 @@ public class cliente {
         
     }
 
-    public cliente(int ID_Cliente, int ID_Usuario, String Nombre, String Apellido, String Direccion, String Correo, int Telefono) {
-        this.ID_Cliente = ID_Cliente;
-        this.ID_Usuario = ID_Usuario;
+    public cliente( String Nombre, String Apellido, String Direccion, String Correo, int Telefono) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Direccion = Direccion;
