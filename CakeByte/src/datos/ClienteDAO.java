@@ -47,6 +47,7 @@ public class ClienteDAO implements CrudCliente<cliente> {
         return registros;
     }
     
+
     @Override
     public boolean insertar(cliente obj) {
         resp = false;

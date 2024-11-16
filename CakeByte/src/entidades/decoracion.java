@@ -9,8 +9,7 @@ public class decoracion {
     public decoracion() {
     }
 
-    public decoracion(int idDecoracion, String nombreDecoracion, double precioAdicional) {
-        this.idDecoracion = idDecoracion;
+    public decoracion(String nombreDecoracion, double precioAdicional) {
         this.nombreDecoracion = nombreDecoracion;
         this.precioAdicional = precioAdicional;
     }

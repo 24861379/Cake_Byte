@@ -11,8 +11,7 @@ public class torta {
         
     }
     
-    public torta(int ID_Torta, String Nombre, String Descripcion, double precio_base) {
-        this.ID_Torta = ID_Torta;
+    public torta( String Nombre, String Descripcion, double precio_base) {
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.precio_base = precio_base;

@@ -13,9 +13,7 @@ public class historialPedido {
     public historialPedido() {
     }
 
-    public historialPedido(int idHistorialP, int id_Pedido, Date fechaCambioHistorialP, String observacionesHistorialP) {
-        this.idHistorialP = idHistorialP;
-        this.id_Pedido = id_Pedido;
+    public historialPedido( Date fechaCambioHistorialP, String observacionesHistorialP) {
         this.fechaCambioHistorialP = fechaCambioHistorialP;
         this.observacionesHistorialP = observacionesHistorialP;
     }

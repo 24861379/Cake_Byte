@@ -31,7 +31,7 @@ public class SaborDAO implements CrudSabor<sabor>{
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new sabor(rs.getInt(1), rs.getString(2),rs.getDouble(3)));
+                registros.add(new sabor( rs.getString(1),rs.getDouble(2)));
             }
             ps.close();
             rs.close();

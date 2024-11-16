@@ -9,8 +9,7 @@ public class sabor {
     public sabor() {
     }
 
-    public sabor(int id_Sabor, String Nombre, double precioAdicional) {
-        this.id_Sabor = id_Sabor;
+    public sabor( String Nombre, double precioAdicional) {
         this.Nombre = Nombre;
         this.precioAdicional = precioAdicional;
     }

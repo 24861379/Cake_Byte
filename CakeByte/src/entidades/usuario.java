@@ -14,7 +14,11 @@ public class usuario {
     public usuario() {
     }
 
+<<<<<<< HEAD
     public usuario(String Nombre_Usuario, String Contraseña,String Rol) {
+=======
+    public usuario( String Nombre_Usuario, String Contraseña) {
+>>>>>>> 9a890eebeb1ea523e3cd54c8b433a54b6ae650aa
         this.Nombre_Usuario = Nombre_Usuario;
         this.Contraseña = Contraseña;
     }

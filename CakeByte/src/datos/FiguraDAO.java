@@ -31,7 +31,7 @@ public class FiguraDAO implements CrudFigura<figura>{
             ps.setString(1, "%"+ Texto+ "%");
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new figura(rs.getInt(1), rs.getString(2),rs.getDouble(3)));
+                registros.add(new figura( rs.getString(1),rs.getDouble(2)));
             }
             ps.close();
             rs.close();

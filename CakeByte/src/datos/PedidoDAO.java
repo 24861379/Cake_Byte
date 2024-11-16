@@ -31,7 +31,7 @@ public class PedidoDAO implements crudPedido <pedido> {
             
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new pedido(rs.getInt(1),rs.getInt(2), rs.getDate(3),rs.getDate(4),rs.getString(5),rs.getDouble(6)));
+                registros.add(new pedido( rs.getDate(1),rs.getDate(2),rs.getString(3),rs.getDouble(4)));
             }
             ps.close();
             rs.close();

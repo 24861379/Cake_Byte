@@ -36,9 +36,32 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
         ps.setString(1, "%" + Texto + "%");
         rs = ps.executeQuery();
         
+<<<<<<< HEAD
         while (rs.next()) {
             // Recuperar la contraseña y agregarla al objeto usuario
             registros.add(new usuario(rs.getString("Nombre_Usuario"), rs.getString("Contrasena"), rs.getString("Rol")));
+=======
+        try {
+            ps= CON.conectar().prepareStatement("SELECT u.ID_Usuario, u.ID_Cliente, u.ID_Empleado, u.Nombre_Usuario, u.Contrasena, u.Rol, c.Nombre AS ClienteNombre, e.Nombre AS EmpleadoNombre " +
+            "FROM tb_usuario u " +
+            "LEFT JOIN tb_cliente c ON u.ID_Cliente = c.ID_Cliente " +
+            "LEFT JOIN tb_empleado e ON u.ID_Empleado = e.ID_Empleado " +
+            "WHERE u.Nombre_Usuario LIKE ?");
+            
+            ps.setString(1, "%"+ Texto+ "%");
+            rs=ps.executeQuery();
+            while(rs.next()){
+                registros.add(new usuario(rs.getString(1),rs.getString(2)));
+            }
+            ps.close();
+            rs.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }finally{
+            ps= null;
+            rs=null;
+            CON.desconectar();
+>>>>>>> 9a890eebeb1ea523e3cd54c8b433a54b6ae650aa
         }
         
         ps.close();
