@@ -1,11 +1,22 @@
 package presentacion;
 
+import datos.ClienteDAO;
+import datos.EmpleadoDAO;
+import datos.UsuarioDAO;
+import entidades.cliente;
+import entidades.empleado;
+import entidades.usuario;
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 
 
 
 public class Registrarse extends javax.swing.JPanel {
 
+    private String usuario;
+    private String password;
+    
+    IniciarSeccion IS = new IniciarSeccion();
     
     public Registrarse() {
         initComponents();
@@ -219,9 +230,69 @@ public class Registrarse extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-       
+       // Obtener los datos del formulario
+    String nombre = lblNombre.getText();
+    String apellido = lblApellido.getText();
+    String direccion = lblAddress.getText();
+    String correo = lblEmail.getText();
+    int telefono = Integer.parseInt(lblTelefono.getText());
+    usuario = lblUsuarioName.getText();
+    password = lblPassword.getText();
+    String rol = (String) jComboBox1.getSelectedItem(); // Selección del rol
+    
+    // Validaciones simples
+    if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty() || correo.isEmpty() || telefono == 0 || usuario.isEmpty() || password.isEmpty() || rol.equals("Seleccione un rol")) {
+        JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
+        return;
+    }
+    
+    // Si el rol seleccionado es "Cliente", insertar en tb_cliente y tb_usuario
+    if (rol.equals("Cliente")) {
+        ClienteDAO clienteDAO = new ClienteDAO();
+        cliente nuevoCliente = new cliente(nombre, apellido, direccion, correo, telefono);
+        
+        // Insertar cliente en la tabla tb_cliente
+        boolean clienteInsertado = clienteDAO.insertar(nuevoCliente);
+        
+        if (clienteInsertado) {
+            // Si el cliente se inserta con éxito, insertar también en tb_usuario
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuario nuevoUsuario = new usuario(usuario, password, rol);  // Asegúrate de tener esta clase Usuario definida
+            boolean usuarioInsertado = usuarioDAO.insertar(nuevoUsuario);
+            
+            if (usuarioInsertado) {
+                JOptionPane.showMessageDialog(this, "¡Registro exitoso!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al registrar el usuario.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar el cliente.");
+        }
+    }
+    // Si el rol seleccionado es "Empleado", insertar en tb_empleado y tb_usuario
+    else if (rol.equals("Empleado")) {
+    EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+    empleado nuevoEmpleado = new empleado(nombre, apellido,correo, telefono);
+    
+    // Insertar empleado en la tabla tb_empleado
+    boolean empleadoInsertado = empleadoDAO.insertar(nuevoEmpleado);
+    
+    if (empleadoInsertado) {
+        // Si el empleado se inserta con éxito, insertar también en tb_usuario
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        usuario nuevoUsuario = new usuario(usuario, password, rol);  // Asegúrate de tener esta clase Usuario definida
+        boolean usuarioInsertado = usuarioDAO.insertar(nuevoUsuario);
+        
+        if (usuarioInsertado) {
+            JOptionPane.showMessageDialog(this, "¡Registro de empleado exitoso!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error al registrar el usuario del empleado.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(this, "Error al registrar el empleado.");
+    }
     }//GEN-LAST:event_btnRegistrarActionPerformed
-
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackRegistrarse;
     private javax.swing.JButton btnCancelar;

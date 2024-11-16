@@ -14,10 +14,7 @@ public class usuario {
     public usuario() {
     }
 
-    public usuario(int ID_Usuario, int ID_Cliente, int ID_Empleado, String Nombre_Usuario, String Contraseña) {
-        this.ID_Usuario = ID_Usuario;
-        this.ID_Cliente = ID_Cliente;
-        this.ID_Empleado = ID_Empleado;
+    public usuario(String Nombre_Usuario, String Contraseña,String Rol) {
         this.Nombre_Usuario = Nombre_Usuario;
         this.Contraseña = Contraseña;
     }

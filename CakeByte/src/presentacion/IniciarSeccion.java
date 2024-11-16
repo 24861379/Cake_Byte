@@ -164,14 +164,14 @@ public class IniciarSeccion extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-    String nombreUsuario = jtNombreUsuario.getText().trim();
+     String nombreUsuario = jtNombreUsuario.getText().trim();
     String contrasena = jtContrasena.getText().trim();
 
     if (nombreUsuario.isEmpty() || contrasena.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
         return;
     }
-
+    
     UsuarioDAO usuarioDAO = new UsuarioDAO();
     boolean existe = usuarioDAO.existencia(nombreUsuario);
 
@@ -179,18 +179,19 @@ public class IniciarSeccion extends javax.swing.JPanel {
         // Si el usuario existe, verifica que la contraseña sea correcta
         List<usuario> usuarios = usuarioDAO.listar(nombreUsuario);
         for (usuario user : usuarios) {
-            if (user.getContraseña().equals(contrasena)) {
+            // Verificación con .trim() para evitar espacios adicionales
+            if (user.getContraseña() != null && user.getContraseña().trim().equals(contrasena.trim())) {
                 JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso.", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
                 
-            Principal pl = new Principal();
-            pl.setSize(759,430);
-            pl.setLocation(0,0);
-        
-            BackInicio.removeAll();
-            BackInicio.add(pl, BorderLayout.CENTER);
-            BackInicio.revalidate();
-            BackInicio.repaint();
-            return;
+                Principal pl = new Principal();
+                pl.setSize(759, 430);
+                pl.setLocation(0, 0);
+                
+                BackInicio.removeAll();
+                BackInicio.add(pl, BorderLayout.CENTER);
+                BackInicio.revalidate();
+                BackInicio.repaint();
+                return;
             }
         }
         JOptionPane.showMessageDialog(this, "La contraseña es incorrecta.", "Error", JOptionPane.ERROR_MESSAGE);

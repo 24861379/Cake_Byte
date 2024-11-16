@@ -1,5 +1,5 @@
 package datos;
-//usuario
+
 import database.Conexion;
 import entidades.empleado;
 import java.sql.PreparedStatement;
@@ -32,7 +32,7 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                registros.add(new empleado(rs.getString(1), rs.getString(2), rs.getString(3),  rs.getInt(4), rs.getString(5)));
+                registros.add(new empleado(rs.getString(1), rs.getString(2), rs.getString(3),  rs.getInt(4)));
             }
             ps.close();
             rs.close();
@@ -51,12 +51,11 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
     public boolean insertar(empleado obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("INSERT INTO tb_empleado (Nombre, Apellido, Correo, Telefono, Puesto) VALUES (?,?,?,?,?,?)");
+            ps = CON.conectar().prepareStatement("INSERT INTO tb_empleado (Nombre, Apellido, Correo, Telefono) VALUES (?,?,?,?)");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getApellido());
-            ps.setString(4, obj.getCorreo());
-            ps.setInt(5, obj.getTelefono());
-            ps.setString(6, obj.getPuesto());
+            ps.setString(3, obj.getCorreo());
+            ps.setInt(4, obj.getTelefono());
 
             if (ps.executeUpdate() > 0) {
                 resp = true;
@@ -77,13 +76,12 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
     public boolean actualizar(empleado obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE tb_empleado SET Nombre=?, Apellido=?, Correo=?, Telefono=?, Puesto=? WHERE Id_Empleado=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_empleado SET Nombre=?, Apellido=?, Correo=?, Telefono=? WHERE Id_Empleado=?");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getApellido());
             ps.setString(3, obj.getCorreo());
             ps.setInt(4, obj.getTelefono());
-            ps.setString(5, obj.getPuesto());
-            ps.setInt(6, obj.getID_Empleado());
+            ps.setInt(5, obj.getID_Empleado());
             if (ps.executeUpdate() > 0) {
                 resp = true;
             }
@@ -101,7 +99,7 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
     public boolean existencia(String existe) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("SELECT Nombre FROM tb_empleado WHERE Nombre=?",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            ps = CON.conectar().prepareStatement("SELECT Nombre FROM tb_empleado WHERE Nombre=? AND Apellido=?",ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ps.setString(1, existe);
             rs = ps.executeQuery();
             rs.last();

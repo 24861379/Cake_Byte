@@ -8,16 +8,17 @@ public class empleado   {
     private String Correo;
     private int Telefono;
     private String Puesto;
+    
 
     public empleado() {
     }
 
-    public empleado(String Nombre, String Apellido, String Correo, int Telefono, String Puesto) {
+    public empleado(String Nombre, String Apellido, String Correo, int Telefono) {
         this.Nombre = Nombre;
         this.Apellido = Apellido;
         this.Correo = Correo;
         this.Telefono = Telefono;
-        this.Puesto = Puesto;
+        Puesto = "Pastelero";
     }
 
     public int getID_Empleado() {
