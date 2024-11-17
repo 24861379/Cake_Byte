@@ -8,6 +8,7 @@ import entidades.empleado;
 import entidades.usuario;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
+import presentacion.IniciarSeccion;
 
 
 
@@ -16,8 +17,7 @@ public class Registrarse extends javax.swing.JPanel {
     private String usuario;
     private String password;
     
-    IniciarSeccion IS = new IniciarSeccion();
-    
+
     public Registrarse() {
         initComponents();
     }
@@ -107,7 +107,7 @@ public class Registrarse extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel7.setText("Rol");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un rol", "Cliente", "Empleado", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu rol", "Cliente", "Empleado", " " }));
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -138,21 +138,21 @@ public class Registrarse extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(lblUsuarioName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(BackRegistrarseLayout.createSequentialGroup()
                         .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblApellido, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(32, 32, 32))
                     .addGroup(BackRegistrarseLayout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)))
+                .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblPassword)
+                    .addComponent(lblApellido)
+                    .addComponent(lblAddress)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(160, 160, 160))
             .addGroup(BackRegistrarseLayout.createSequentialGroup()
                 .addGap(256, 256, 256)
@@ -193,12 +193,11 @@ public class Registrarse extends javax.swing.JPanel {
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))))
                 .addGap(18, 18, 18)
-                .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(lblUsuarioName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(lblUsuarioName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(BackRegistrarseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrar)
@@ -230,7 +229,7 @@ public class Registrarse extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-       // Obtener los datos del formulario
+         
     String nombre = lblNombre.getText();
     String apellido = lblApellido.getText();
     String direccion = lblAddress.getText();
@@ -240,10 +239,9 @@ public class Registrarse extends javax.swing.JPanel {
     password = lblPassword.getText();
     String rol = (String) jComboBox1.getSelectedItem(); // Selección del rol
     
-    // Validaciones simples
     if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty() || correo.isEmpty() || telefono == 0 || usuario.isEmpty() || password.isEmpty() || rol.equals("Seleccione un rol")) {
-        JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
-        return;
+    JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
+    return; // Sale del método si alguna validación falla
     }
     
     // Si el rol seleccionado es "Cliente", insertar en tb_cliente y tb_usuario
@@ -261,7 +259,18 @@ public class Registrarse extends javax.swing.JPanel {
             boolean usuarioInsertado = usuarioDAO.insertar(nuevoUsuario);
             
             if (usuarioInsertado) {
-                JOptionPane.showMessageDialog(this, "¡Registro exitoso!");
+                JOptionPane.showMessageDialog(this, "¡Cliente registrado con exito!");
+                
+            IniciarSeccion pl = new IniciarSeccion();
+            pl.setSize(759,430);
+            pl.setLocation(0,0);
+        
+            BackRegistrarse.removeAll();
+            BackRegistrarse.add(pl, BorderLayout.CENTER);
+            BackRegistrarse.revalidate();
+            BackRegistrarse.repaint();
+            
+            
             } else {
                 JOptionPane.showMessageDialog(this, "Error al registrar el usuario.");
             }
@@ -284,15 +293,27 @@ public class Registrarse extends javax.swing.JPanel {
         boolean usuarioInsertado = usuarioDAO.insertar(nuevoUsuario);
         
         if (usuarioInsertado) {
-            JOptionPane.showMessageDialog(this, "¡Registro de empleado exitoso!");
+            JOptionPane.showMessageDialog(this, "¡Empleado registrado con exito!");
+            
+        // Mostrar el siguiente formulario
+        IniciarSeccion pl = new IniciarSeccion();
+        pl.setSize(759,430);
+        pl.setLocation(0,0);
+        
+        BackRegistrarse.removeAll();
+        BackRegistrarse.add(pl, BorderLayout.CENTER);
+        BackRegistrarse.revalidate();
+        BackRegistrarse.repaint();
+        
         } else {
             JOptionPane.showMessageDialog(this, "Error al registrar el usuario del empleado.");
         }
     } else {
         JOptionPane.showMessageDialog(this, "Error al registrar el empleado.");
     }
-    }//GEN-LAST:event_btnRegistrarActionPerformed
     }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackRegistrarse;
     private javax.swing.JButton btnCancelar;

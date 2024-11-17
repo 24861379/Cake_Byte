@@ -144,7 +144,7 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
                 .addComponent(RealizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(VerPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         Heard.setBackground(new java.awt.Color(204, 255, 255));
@@ -167,7 +167,7 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
             HeardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeardLayout.createSequentialGroup()
                 .addGap(203, 203, 203)
-                .addComponent(lblNombreHeard, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+                .addComponent(lblNombreHeard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(167, 167, 167))
         );
         HeardLayout.setVerticalGroup(
@@ -181,11 +181,11 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         Content.setLayout(ContentLayout);
         ContentLayout.setHorizontalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 747, Short.MAX_VALUE)
+            .addGap(0, 759, Short.MAX_VALUE)
         );
         ContentLayout.setVerticalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout BackGroundLayout = new javax.swing.GroupLayout(BackGround);
@@ -195,10 +195,12 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
             .addGroup(BackGroundLayout.createSequentialGroup()
                 .addComponent(Dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackGroundLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Heard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Heard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(BackGroundLayout.createSequentialGroup()
+                        .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         BackGroundLayout.setVerticalGroup(
             BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,7 +251,7 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
 
     private void VerPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerPedidoActionPerformed
         // TODO add your handling code here:
-        Pedidos pedido = new Pedidos();
+        VerPedido pedido = new VerPedido();
         pedido.setSize(759,430);
         pedido.setLocation(0, 0);
         

@@ -43,7 +43,7 @@ public class IniciarSeccion extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(234, 234, 234)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,9 +88,6 @@ public class IniciarSeccion extends javax.swing.JPanel {
         BackInicioLayout.setHorizontalGroup(
             BackInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackInicioLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
-            .addGroup(BackInicioLayout.createSequentialGroup()
                 .addGap(197, 197, 197)
                 .addGroup(BackInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackInicioLayout.createSequentialGroup()
@@ -107,7 +104,10 @@ public class IniciarSeccion extends javax.swing.JPanel {
                                 .addComponent(jtContrasena)
                                 .addComponent(jtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(100, 100, 100)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
+            .addGroup(BackInicioLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         BackInicioLayout.setVerticalGroup(
             BackInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,18 +153,18 @@ public class IniciarSeccion extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        Principal pl = new Principal();
-        pl.setSize(759,430);
-        pl.setLocation(0,0);
+        Principal RP = new Principal();
+        RP.setSize(759,430);
+        RP.setLocation(0,0);
         
         BackInicio.removeAll();
-        BackInicio.add(pl, BorderLayout.CENTER);
+        BackInicio.add(RP, BorderLayout.CENTER);
         BackInicio.revalidate();
         BackInicio.repaint();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-     String nombreUsuario = jtNombreUsuario.getText().trim();
+    String nombreUsuario = jtNombreUsuario.getText().trim();
     String contrasena = jtContrasena.getText().trim();
 
     if (nombreUsuario.isEmpty() || contrasena.isEmpty()) {
@@ -183,12 +183,12 @@ public class IniciarSeccion extends javax.swing.JPanel {
             if (user.getContraseña() != null && user.getContraseña().trim().equals(contrasena.trim())) {
                 JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso.", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
                 
-                Principal pl = new Principal();
-                pl.setSize(759, 430);
-                pl.setLocation(0, 0);
-                
+                RealizarPedido RP = new RealizarPedido(nombreUsuario);
+                RP.setSize(759,430);
+                RP.setLocation(0,0);
+        
                 BackInicio.removeAll();
-                BackInicio.add(pl, BorderLayout.CENTER);
+                BackInicio.add(RP, BorderLayout.CENTER);
                 BackInicio.revalidate();
                 BackInicio.repaint();
                 return;
