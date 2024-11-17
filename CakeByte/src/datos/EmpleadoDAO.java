@@ -76,7 +76,7 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
     public boolean actualizar(empleado obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE tb_empleado SET Nombre=?, Apellido=?, Correo=?, Telefono=? WHERE Id_Empleado=?");
+            ps = CON.conectar().prepareStatement("UPDATE tb_empleado SET Nombre=?, Apellido=?, Correo=?, Telefono=? WHERE ID_Empleado=?");
             ps.setString(1, obj.getNombre());
             ps.setString(2, obj.getApellido());
             ps.setString(3, obj.getCorreo());
