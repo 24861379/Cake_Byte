@@ -24,6 +24,9 @@ public class RealizarPedido2 extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
 
         BackSabor.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -95,29 +98,31 @@ public class RealizarPedido2 extends javax.swing.JPanel {
         BackSaborLayout.setHorizontalGroup(
             BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(BackSaborLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSaborVainilla, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(BackSaborLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel2)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackSaborLayout.createSequentialGroup()
                 .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BackSaborLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnAtras))
+                    .addGroup(BackSaborLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel2)
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel3))
+                    .addGroup(BackSaborLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1)
+                            .addComponent(lblSaborVainilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(37, 37, 37)
-                        .addComponent(lblSaborFresa, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BackSaborLayout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabel3)))
+                        .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblSaborFresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField2))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
-                    .addComponent(lblSaborChocolate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblSaborChocolate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField3))
                 .addGap(37, 37, 37))
-            .addGroup(BackSaborLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnAtras)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BackSaborLayout.setVerticalGroup(
             BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,19 +131,22 @@ public class RealizarPedido2 extends javax.swing.JPanel {
                     .addComponent(lblSaborFresa)
                     .addGroup(BackSaborLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(BackSaborLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
+                                .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(3, 3, 3)
                                 .addComponent(lblSaborVainilla))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackSaborLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblSaborChocolate)))))
+                            .addComponent(lblSaborChocolate, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnAtras)
                 .addContainerGap())
         );
@@ -208,6 +216,9 @@ public class RealizarPedido2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblSaborChocolate;
     private javax.swing.JLabel lblSaborFresa;
     private javax.swing.JLabel lblSaborVainilla;

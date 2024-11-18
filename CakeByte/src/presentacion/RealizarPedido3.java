@@ -61,8 +61,20 @@ public class RealizarPedido3 extends javax.swing.JPanel {
         });
 
         lblTortaCuadrada.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/Iconos/Tortra-Cuadrada.png"))); // NOI18N
+        lblTortaCuadrada.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTortaCuadrada.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTortaCuadradaMouseClicked(evt);
+            }
+        });
 
         lblTortaRectangular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/Iconos/Tortra-Rectangular.png"))); // NOI18N
+        lblTortaRectangular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTortaRectangular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTortaRectangularMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout BackBaseLayout = new javax.swing.GroupLayout(BackBase);
         BackBase.setLayout(BackBaseLayout);
@@ -153,6 +165,75 @@ public class RealizarPedido3 extends javax.swing.JPanel {
     }
     }//GEN-LAST:event_lblTortaRedondaMouseClicked
 
+    private void lblTortaCuadradaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTortaCuadradaMouseClicked
+        String BaseTorta2 = txtTortaCuadrada.getText();
+    
+    // Verificar si el campo no está vacío
+    if (!BaseTorta2.isEmpty()) {
+        
+        FiguraDAO1 figuraDAO = new FiguraDAO1();
+        figura nuevaFigura = new figura(BaseTorta2, 10.0);  // Supongo que el precio adicional es 10.0, ajusta según sea necesario
+        
+        boolean figuraInsertada = figuraDAO.insertar(nuevaFigura);
+        
+        // Verificar si la figura fue insertada correctamente
+        if (figuraInsertada) {
+            // Mostrar un mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Figura insertada correctamente.");
+            
+            RealizarPedido2 RP2 = new RealizarPedido2();
+            RP2.setSize(440,306);
+            RP2.setLocation(0,0);
+        
+            BackBase.removeAll();
+            BackBase.add(RP2, BorderLayout.CENTER);
+            BackBase.revalidate();
+            BackBase.repaint();
+            
+        } else {
+            // Mostrar un mensaje de error si no se insertó la figura
+            JOptionPane.showMessageDialog(null, "Error al insertar la figura.");
+        }
+    } else {
+        // Si el campo está vacío, mostrar un mensaje de advertencia
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese un nombre para la figura.");
+    }
+    }//GEN-LAST:event_lblTortaCuadradaMouseClicked
+
+    private void lblTortaRectangularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTortaRectangularMouseClicked
+      String BaseTorta3 = txtTortaRectangular.getText();
+    
+    // Verificar si el campo no está vacío
+    if (!BaseTorta3.isEmpty()) {
+        
+        FiguraDAO1 figuraDAO = new FiguraDAO1();
+        figura nuevaFigura = new figura(BaseTorta3, 10.0);  // Supongo que el precio adicional es 10.0, ajusta según sea necesario
+        
+        boolean figuraInsertada = figuraDAO.insertar(nuevaFigura);
+        
+        // Verificar si la figura fue insertada correctamente
+        if (figuraInsertada) {
+            // Mostrar un mensaje de éxito
+            JOptionPane.showMessageDialog(null, "Figura insertada correctamente.");
+            
+            RealizarPedido2 RP2 = new RealizarPedido2();
+            RP2.setSize(440,306);
+            RP2.setLocation(0,0);
+        
+            BackBase.removeAll();
+            BackBase.add(RP2, BorderLayout.CENTER);
+            BackBase.revalidate();
+            BackBase.repaint();
+            
+        } else {
+            // Mostrar un mensaje de error si no se insertó la figura
+            JOptionPane.showMessageDialog(null, "Error al insertar la figura.");
+        }
+    } else {
+        // Si el campo está vacío, mostrar un mensaje de advertencia
+        JOptionPane.showMessageDialog(null, "Por favor, ingrese un nombre para la figura.");
+    }  
+    }//GEN-LAST:event_lblTortaRectangularMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackBase;
