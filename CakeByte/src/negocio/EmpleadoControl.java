@@ -23,12 +23,12 @@ public class EmpleadoControl {
         List<empleado> lista = new ArrayList();
         lista.addAll(DATOS.listar(texto));
         
-        String titulos[] ={"ID_Empleado", "ID_Usuario", "Nombre", "Apellido", "Correo", "Telefono", "Puesto"};
+        String titulos[] ={"Nombre", "Apellido", "Correo", "Telefono"};
         this.modeltabla = new DefaultTableModel(null, titulos);
         
         String estado;
         //vector temporal
-        String registro [] = new String [7];
+        String registro [] = new String [4];
         this.registrosMostrados =0;
         
         for (empleado EMP : lista) {
@@ -37,14 +37,12 @@ public class EmpleadoControl {
             }else{
                 estado = "El empleado no existe";
             }
-            
-            registro[0] =Integer.toString(EMP.getID_Empleado());
-            //registro[1] =Integer.toString(EMP.getID_Usuario());
-            registro[2] =EMP.getNombre();
-            registro[3] =EMP.getApellido();
-            registro[4] =EMP.getCorreo();
-            registro[5] =Integer.toString(EMP.getTelefono());
-            registro[6] =EMP.getPuesto();
+
+            registro[0] =EMP.getNombre();
+            registro[1] =EMP.getApellido();
+            registro[2] =EMP.getCorreo();
+            registro[3] =Integer.toString(EMP.getTelefono());
+//            registro[4] =EMP.getPuesto();
             
             //agregado el registro a default model table
             this.modeltabla.addRow(registro);
@@ -53,7 +51,7 @@ public class EmpleadoControl {
         return this.modeltabla;
     }
     
-    public String insertar(String Nombre, String Apellido, String Correo, int Telefono, String puesto){
+    public String insertar(String Nombre, String Apellido, String Correo, int Telefono){
         if (DATOS.existencia(Nombre)&& DATOS.existencia(Apellido)) {
             return "El empleado ya existe";
         }else{
@@ -61,7 +59,7 @@ public class EmpleadoControl {
             obj.setApellido(Apellido);
             obj.setCorreo(Correo);
             obj.setTelefono(Telefono);
-            obj.setPuesto(puesto);
+//            obj.setPuesto(puesto);
             
             if (DATOS.insertar(obj)) {
                 return "Registro exitoso";
