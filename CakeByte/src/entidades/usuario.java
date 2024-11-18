@@ -14,9 +14,6 @@ public class usuario {
     public usuario(){
         
     }
-    public usuario(int ID_Usuario) {
-        this.ID_Usuario = ID_Usuario;
-    }
 
     public usuario(String Nombre_Usuario, String Contraseña,String Rol) {
         this.Nombre_Usuario = Nombre_Usuario;
