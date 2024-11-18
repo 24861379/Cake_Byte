@@ -24,28 +24,27 @@ public class ClienteControl {
         List<cliente> lista = new ArrayList();
         lista.addAll(DATOS.listar(texto));
         
-        String titulos[] ={"ID_Cliente", "ID_Usuario", "Nombre", "Apellido", "Direccion", "Correo", "Telefono"};
+        String titulos[] ={"Nombre", "Apellido", "Direccion", "Correo", "Telefono"};
         this.modeltabla = new DefaultTableModel(null, titulos);
         
         String estado;
         //vector temporal
-        String registro [] = new String [7];
+        String registro [] = new String [5];
         this.registrosMostrados =0;
         
         for (cliente cli : lista) {
-            if (!cli.getNombre().isEmpty() && !cli.getApellido().isEmpty() && !cli.getDireccion().isEmpty() && !cli.getCorreo().isEmpty() && cli.getTelefono()== 0) {
+            if (!cli.getNombre().isEmpty() && !cli.getApellido().isEmpty() && !cli.getDireccion().isEmpty() && !cli.getCorreo().isEmpty() && cli.getTelefono() ==0) {
                 estado = "Activo";
             }else{
                 estado = "Inactivo";
             }
             
-            registro[0] =Integer.toString(cli.getID_Cliente());
-            //registro[1] =Integer.toString(cli.getID_Usuario());
-            registro[2] =cli.getNombre();
-            registro[3] =cli.getApellido();
-            registro[4] =cli.getDireccion();
-            registro[5] =cli.getCorreo();
-            registro[6] =Integer.toString(cli.getTelefono());
+//            registro[0] =Integer.toString(cli.getID_Cliente());
+            registro[0] =cli.getNombre();
+            registro[1] =cli.getApellido();
+            registro[2] =cli.getDireccion();
+            registro[3] =cli.getCorreo();
+            registro[4] =Integer.toString(cli.getTelefono()) ;
             
             //agregado el registro a default model table
             this.modeltabla.addRow(registro);

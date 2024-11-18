@@ -57,7 +57,7 @@ public class ClienteDAO implements CrudCliente<cliente> {
             ps.setString(2, obj.getApellido());
             ps.setString(3, obj.getDireccion());
             ps.setString(4, obj.getCorreo());
-            ps.setInt(5, obj.getTelefono());
+            ps.setString(5, Integer.toString(obj.getTelefono()));
 
             if (ps.executeUpdate() > 0) {
                 resp = true;
@@ -106,7 +106,7 @@ public class ClienteDAO implements CrudCliente<cliente> {
             ps.setString(2, obj.getApellido());
             ps.setString(3, obj.getDireccion());
             ps.setString(4, obj.getCorreo());
-            ps.setInt(5, obj.getTelefono());
+            ps.setString(5, Integer.toString(obj.getTelefono()));
             ps.setInt(6, obj.getID_Cliente());
             if (ps.executeUpdate() > 0) {
                 resp = true;

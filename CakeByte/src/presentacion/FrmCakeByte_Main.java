@@ -251,12 +251,42 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
 
     private void VerPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerPedidoActionPerformed
         // TODO add your handling code here:
-        VerPedido pedido = new VerPedido();
-        pedido.setSize(759,430);
-        pedido.setLocation(0, 0);
+        
+//        VerPedido pedido = new VerPedido();
+//        pedido.setSize(759,430);
+//        pedido.setLocation(0, 0);
+//        
+//        Content.removeAll();
+//        Content.add(pedido, BorderLayout.CENTER);
+//        Content.revalidate();
+//        Content.repaint();
+        
+        //Panel del listado de cliente   
+//        verCliente VC = new verCliente();
+//        VC.setSize(759,430);
+//        VC.setLocation(0, 0);
+//        
+//        Content.removeAll();
+//        Content.add(VC, BorderLayout.CENTER);
+//        Content.revalidate();
+//        Content.repaint();
+
+        //Panel del listado de empleado
+//          verEmpleado VE = new verEmpleado();
+//          VE.setSize(759,430);
+//          VE.setLocation(0, 0);
+//        
+//          Content.removeAll();
+//          Content.add(VE, BorderLayout.CENTER);
+//          Content.revalidate();
+//          Content.repaint();
+
+        verUsuario VU = new verUsuario();
+        VU.setSize(759,430);
+        VU.setLocation(0, 0);
         
         Content.removeAll();
-        Content.add(pedido, BorderLayout.CENTER);
+        Content.add(VU, BorderLayout.CENTER);
         Content.revalidate();
         Content.repaint();
     }//GEN-LAST:event_VerPedidoActionPerformed

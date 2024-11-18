@@ -23,12 +23,12 @@ public class UsuarioControl {
         List<usuario> lista = new ArrayList();
         lista.addAll(DATOS.listar(Texto));//recursividad
         
-        String titulos[] = {"ID_Usuario", "Nombre_Usuario", "Contraseña", "Rol"};
+        String titulos[] = { "Nombre_Usuario", "Contraseña", "Rol"};
         this.modeltabla= new DefaultTableModel(null, titulos);
         
         String estado;
         //vector temporal 
-        String registro []= new String [4];
+        String registro []= new String [3];
         
         this.registrosMostrados = 0;
         
@@ -39,10 +39,10 @@ public class UsuarioControl {
                 estado = "Inativo";
             }
             
-            registro [0] =Integer.toString(USER.getID_Usuario());
-            registro [1] =USER.getNombre_Usuario();
-            registro [2] =USER.getContraseña();
-            registro [3] =USER.getRol()[0];
+
+            registro [0] =USER.getNombre_Usuario();
+            registro [1] =USER.getContraseña();
+            registro [2] =USER.getRol()[0];
             
             //agregado el registro a default model table
             this.modeltabla.addRow(registro);
