@@ -15,7 +15,6 @@ public class VerPedido extends javax.swing.JPanel {
         BackVerPedido = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lblBaseTorta1 = new javax.swing.JLabel();
 
         BackVerPedido.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -48,18 +47,12 @@ public class VerPedido extends javax.swing.JPanel {
             .addGroup(BackVerPedidoLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(BackVerPedidoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblBaseTorta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BackVerPedidoLayout.setVerticalGroup(
             BackVerPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BackVerPedidoLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblBaseTorta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 212, Short.MAX_VALUE))
+                .addGap(0, 330, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -79,6 +72,5 @@ public class VerPedido extends javax.swing.JPanel {
     private javax.swing.JPanel BackVerPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblBaseTorta1;
     // End of variables declaration//GEN-END:variables
 }

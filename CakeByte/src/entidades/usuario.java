@@ -11,7 +11,11 @@ public class usuario {
     private String Contraseña;
     private String[] Rol = {"Cliente", "Empleado", "Administrador"};
 
-    public usuario() {
+    public usuario(){
+        
+    }
+    public usuario(int ID_Usuario) {
+        this.ID_Usuario = ID_Usuario;
     }
 
     public usuario(String Nombre_Usuario, String Contraseña,String Rol) {
