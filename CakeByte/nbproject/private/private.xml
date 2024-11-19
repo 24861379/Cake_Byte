@@ -3,18 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/EmpleadoDAO.java</file>
-            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/ClienteDAO.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/Registrarse.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/negocio/EmpleadoControl.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/verCliente.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/verEmpleado.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/verUsuario.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/FrmCakeByte_Main.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/negocio/UsuarioControl.java</file>
+            <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/usuario.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/empleado.java</file>
-=======
-            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/datos/FiguraDAO.java</file>
-            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/datos/ClienteDAO.java</file>
-            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/entidades/cliente.java</file>
-            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/presentacion/Registrarse.java</file>
-            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/presentacion/RealizarPedido2.java</file>
-            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/presentacion/RealizarPedido3.java</file>
->>>>>>> e3d597fc531459ca1e6864691ac7cbba7b73c8e0
         </group>
     </open-files>
 </project-private>

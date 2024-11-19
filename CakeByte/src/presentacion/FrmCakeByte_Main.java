@@ -281,14 +281,23 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
 //          Content.revalidate();
 //          Content.repaint();
 
-        verUsuario VU = new verUsuario();
-        VU.setSize(759,430);
-        VU.setLocation(0, 0);
+//        verUsuario VU = new verUsuario();
+//        VU.setSize(759,430);
+//        VU.setLocation(0, 0);
+//        
+//        Content.removeAll();
+//        Content.add(VU, BorderLayout.CENTER);
+//        Content.revalidate();
+//        Content.repaint();
+       verHistorial VH = new verHistorial();
+       
+       VH.setSize(759,430);
+       VH.setLocation(0, 0);
         
-        Content.removeAll();
-        Content.add(VU, BorderLayout.CENTER);
-        Content.revalidate();
-        Content.repaint();
+       Content.removeAll();
+       Content.add(VH, BorderLayout.CENTER);
+       Content.revalidate();
+       Content.repaint();
     }//GEN-LAST:event_VerPedidoActionPerformed
 
     public static void main(String args[]) {
