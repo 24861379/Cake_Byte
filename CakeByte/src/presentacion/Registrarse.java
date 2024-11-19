@@ -8,9 +8,6 @@ import entidades.empleado;
 import entidades.usuario;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
-import presentacion.IniciarSeccion;
-
-
 
 public class Registrarse extends javax.swing.JPanel {
 
@@ -239,10 +236,10 @@ public class Registrarse extends javax.swing.JPanel {
     password = lblPassword.getText();
     String rol = (String) jComboBox1.getSelectedItem(); // Selección del rol
     
-    if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty() || correo.isEmpty() || telefono == 0 || usuario.isEmpty() || password.isEmpty() || rol.equals("Seleccione un rol")) {
-    JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
-    return; // Sale del método si alguna validación falla
-    }
+//    if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty() || correo.isEmpty() || telefono == 0 || usuario.isEmpty() || password.isEmpty() || rol.equals("Seleccione un rol")) {
+//    JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
+//    return; // Sale del método si alguna validación falla
+//    }
     
     // Si el rol seleccionado es "Cliente", insertar en tb_cliente y tb_usuario
     if (rol.equals("Cliente")) {

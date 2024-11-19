@@ -137,7 +137,7 @@ public class RealizarPedido3 extends javax.swing.JPanel {
     if (!BaseTorta1.isEmpty()) {
         
         FiguraDAO1 figuraDAO = new FiguraDAO1();
-        figura nuevaFigura = new figura(BaseTorta1, 10.0);  // Supongo que el precio adicional es 10.0, ajusta según sea necesario
+        figura nuevaFigura = new figura(BaseTorta1, 35000);  // Supongo que el precio adicional es 10.0, ajusta según sea necesario
         
         boolean figuraInsertada = figuraDAO.insertar(nuevaFigura);
         
