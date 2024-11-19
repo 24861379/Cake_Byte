@@ -27,17 +27,13 @@ public class HistorialPedidoDAO implements CrudHistorialPedido<historialPedido>{
         List<historialPedido> registros = new ArrayList();
 
         try {
-            int limite = 10; // o cualquier valor que necesites
-            int inicio = 0;
-            ps = CON.conectar().prepareStatement("SELECT hp.ID_Historial, hp.ID_Pedido, hp.Estado_Anterior, hp.Fecha_Cambio, hp.Observaciones " +
-            "FROM tb_historial_pedido hp " +
-            "INNER JOIN tb_pedido p ON hp.ID_Pedido = p.ID_Pedido " +
-            "INNER JOIN tb_cliente c ON p.ID_Cliente = c.ID_Cliente " +  // Asegúrate de hacer JOIN con la tabla tb_cliente
-            "WHERE c.Nombre LIKE ? ORDER BY hp.ID_Historial ASC LIMIT ?,?");
+//            int limite = 10; // o cualquier valor que necesites
+//            int inicio = 0;
+            ps = CON.conectar().prepareStatement("SELECT hp.ID_Historial, hp.ID_Pedido, hp.Estado_Anterior, hp.Fecha_Cambio, hp.Observaciones FROM tb_historial_pedido hp inner join tb_pedido p ON hp.ID_Pedido = p.ID_Pedido WHERE p.ID_Historial ");
             ps.setString(1, "%" + Texto + "%");
             
-            ps.setInt(2, inicio); // El valor de inicio
-            ps.setInt(3, limite);
+//            ps.setInt(2, inicio); // El valor de inicio
+//            ps.setInt(3, limite);
             
             rs = ps.executeQuery();
 
