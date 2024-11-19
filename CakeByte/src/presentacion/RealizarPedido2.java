@@ -1,6 +1,9 @@
 package presentacion;
 
+import datos.SaborDAO;
+import entidades.sabor;
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 
 public class RealizarPedido2 extends javax.swing.JPanel {
 
@@ -24,9 +27,9 @@ public class RealizarPedido2 extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtSaborVainilla = new javax.swing.JTextField();
+        txtSaborFresa = new javax.swing.JTextField();
+        txtSaborChocolate = new javax.swing.JTextField();
 
         BackSabor.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -111,17 +114,17 @@ public class RealizarPedido2 extends javax.swing.JPanel {
                     .addGroup(BackSaborLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
+                            .addComponent(txtSaborVainilla)
                             .addComponent(lblSaborVainilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(37, 37, 37)
                         .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblSaborFresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField2))))
+                            .addComponent(txtSaborFresa))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
                     .addComponent(lblSaborChocolate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField3))
+                    .addComponent(txtSaborChocolate))
                 .addGap(37, 37, 37))
         );
         BackSaborLayout.setVerticalGroup(
@@ -143,9 +146,9 @@ public class RealizarPedido2 extends javax.swing.JPanel {
                             .addComponent(lblSaborChocolate, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSaborVainilla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSaborFresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSaborChocolate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(btnAtras)
                 .addContainerGap())
@@ -175,14 +178,34 @@ public class RealizarPedido2 extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void lblSaborVainillaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSaborVainillaMouseClicked
-        RealizarPedido4 RP2 = new RealizarPedido4();
-        RP2.setSize(440,306);
-        RP2.setLocation(0,0);
+        String Sabor1 = txtSaborVainilla.getText();
+        
+        if (!Sabor1.isEmpty()){
+            
+            SaborDAO saborDao = new SaborDAO();
+            sabor nuevoSabor = new sabor(Sabor1,15000);
+            
+            boolean saborInsertado = saborDao.insertar(nuevoSabor);
+            
+            if(saborInsertado){
+                JOptionPane.showMessageDialog(null, "Sabor insertado correctamente.");
+                
+               RealizarPedido4 RP2 = new RealizarPedido4();
+               RP2.setSize(440,306);
+               RP2.setLocation(0,0);
 
-        BackSabor.removeAll();
-        BackSabor.add(RP2, BorderLayout.CENTER);
-        BackSabor.revalidate();
-        BackSabor.repaint();
+               BackSabor.removeAll();
+               BackSabor.add(RP2, BorderLayout.CENTER);
+               BackSabor.revalidate();
+               BackSabor.repaint();   
+            }else {
+            // Mostrar un mensaje de error si no se insertó la figura
+            JOptionPane.showMessageDialog(null, "Error al insertar el sabor.");
+        }
+        }else {
+        // Si el campo está vacío, mostrar un mensaje de advertencia
+        JOptionPane.showMessageDialog(null, "Por favor, la confirmacion del sabor!.");
+    }
     }//GEN-LAST:event_lblSaborVainillaMouseClicked
 
     private void lblSaborFresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSaborFresaMouseClicked
@@ -216,11 +239,11 @@ public class RealizarPedido2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblSaborChocolate;
     private javax.swing.JLabel lblSaborFresa;
     private javax.swing.JLabel lblSaborVainilla;
+    private javax.swing.JTextField txtSaborChocolate;
+    private javax.swing.JTextField txtSaborFresa;
+    private javax.swing.JTextField txtSaborVainilla;
     // End of variables declaration//GEN-END:variables
 }

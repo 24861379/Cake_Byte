@@ -49,7 +49,7 @@ public class SaborDAO implements CrudSabor<sabor>{
     public boolean insertar(sabor obj) {
        resp= false;
         try {                                                                                       
-            ps= CON.conectar().prepareStatement("INSERT INTO tb_sabor (Nombre, PrecioAdicional) VALUES (?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_sabor (Nombre, Precio_Adicional) VALUES (?,?)");
             ps.setString(1, obj.getNombre());
             ps.setDouble(2, obj.getPrecioAdicional());
 

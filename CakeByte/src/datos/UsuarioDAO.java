@@ -60,7 +60,7 @@ public class UsuarioDAO implements CrudUsuario<usuario> {
     public boolean insertar(usuario obj) {
         resp= false;
         try {                                                                              // asi está en la base de datos         
-            ps= CON.conectar().prepareStatement("INSERT INTO tb_usuario (Nombre_Usuario, Contrasena, ROl) VALUES (?,?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_usuario (Nombre_Usuario, Contrasena) VALUES (?,?)");
             
             ps.setString(1, obj.getNombre_Usuario());
             ps.setString(2, obj.getContraseña());

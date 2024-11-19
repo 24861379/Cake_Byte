@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/presentacion/Registrarse.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/datos/UsuarioDAO.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/negocio/EmpleadoControl.java</file>
@@ -13,6 +14,11 @@
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/negocio/UsuarioControl.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/usuario.java</file>
             <file>file:/C:/Users/Yodver/Documents/Cake%20Byte/CakeByte/src/entidades/empleado.java</file>
+=======
+            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/datos/ClienteDAO.java</file>
+            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/entidades/cliente.java</file>
+            <file>file:/C:/Users/junie/Desktop/Proyecto_CakeByte/Cake_Byte/CakeByte/src/database/Conexion.java</file>
+>>>>>>> b28812d0c22d98990c3df29b5b41d071a814979c
         </group>
     </open-files>
 </project-private>
