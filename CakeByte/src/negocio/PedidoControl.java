@@ -27,7 +27,7 @@ public class PedidoControl {
         List<pedido> lista = new ArrayList();
         lista.addAll(DATOS.listar(texto));
         
-        String titulos[] ={"ID_Pedido", "ID_Cliente", "sabor torta", "figura torta", "decoración torta", "Estado", "Instrucciones_Especiales", "Total"};
+        String titulos[] ={"ID_Pedido", "ID_Cliente", "Sabor", "Figura", "Decoración", "Estado", "Instrucciones Especiales", "Total"};
         this.modeltabla = new DefaultTableModel(null, titulos);
         
         String estado;
