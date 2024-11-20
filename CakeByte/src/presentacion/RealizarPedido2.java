@@ -35,7 +35,7 @@ public class RealizarPedido2 extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel1.setText("<html><h1 style='font-family: Arial, sans-serif; color: #FF6347;'>Elije el sabor</h1></html>");
+        jLabel1.setText("<html><h1 style='font-family: Arial, sans-serif; color: #FF6347;'>Selecciona el sabor</h1></html>");
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -43,8 +43,8 @@ public class RealizarPedido2 extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -80,13 +80,13 @@ public class RealizarPedido2 extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel2.setText("Sabor Vainilla");
+        jLabel2.setText("\"Sabor Vainilla\"");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel3.setText("Sabor Fresa");
+        jLabel3.setText("\"Sabor Fresa\"");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabel4.setText("Sabor Chocolate");
+        jLabel4.setText("\"Sabor Chocolate\"");
 
         btnAtras.setBackground(new java.awt.Color(204, 255, 255));
         btnAtras.setText("Atras");
@@ -104,28 +104,34 @@ public class RealizarPedido2 extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackSaborLayout.createSequentialGroup()
                 .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BackSaborLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAtras))
-                    .addGroup(BackSaborLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel2)
-                        .addGap(65, 65, 65)
-                        .addComponent(jLabel3))
-                    .addGroup(BackSaborLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtSaborVainilla)
-                            .addComponent(lblSaborVainilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(37, 37, 37)
-                        .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblSaborFresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtSaborFresa))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                            .addComponent(lblSaborVainilla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(BackSaborLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
                 .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4)
-                    .addComponent(lblSaborChocolate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtSaborChocolate))
-                .addGap(37, 37, 37))
+                    .addComponent(lblSaborFresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSaborFresa)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackSaborLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(9, 9, 9)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackSaborLayout.createSequentialGroup()
+                        .addGroup(BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblSaborChocolate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSaborChocolate))
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackSaborLayout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))))
+            .addGroup(BackSaborLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAtras)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BackSaborLayout.setVerticalGroup(
             BackSaborLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +194,7 @@ public class RealizarPedido2 extends javax.swing.JPanel {
             boolean saborInsertado = saborDao.insertar(nuevoSabor);
             
             if(saborInsertado){
-                JOptionPane.showMessageDialog(null, "Sabor insertado correctamente.");
+                JOptionPane.showMessageDialog(null, "Sabor agregado correctamente.");
                 
                RealizarPedido4 RP2 = new RealizarPedido4();
                RP2.setSize(440,306);
@@ -200,34 +206,74 @@ public class RealizarPedido2 extends javax.swing.JPanel {
                BackSabor.repaint();   
             }else {
             // Mostrar un mensaje de error si no se insertó la figura
-            JOptionPane.showMessageDialog(null, "Error al insertar el sabor.");
+            JOptionPane.showMessageDialog(null, "Error al agregar el sabor.");
         }
         }else {
         // Si el campo está vacío, mostrar un mensaje de advertencia
-        JOptionPane.showMessageDialog(null, "Por favor, la confirmacion del sabor!.");
+        JOptionPane.showMessageDialog(null, "Por favor, ingresa la confirmacion del sabor!.");
     }
     }//GEN-LAST:event_lblSaborVainillaMouseClicked
 
     private void lblSaborFresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSaborFresaMouseClicked
-        RealizarPedido4 RP2 = new RealizarPedido4();
-        RP2.setSize(440,306);
-        RP2.setLocation(0,0);
+        String Sabor2 = txtSaborFresa.getText();
+        
+        if (!Sabor2.isEmpty()){
+            
+            SaborDAO saborDao = new SaborDAO();
+            sabor nuevoSabor = new sabor(Sabor2,20000);
+            
+            boolean saborInsertado = saborDao.insertar(nuevoSabor);
+            
+            if(saborInsertado){
+                JOptionPane.showMessageDialog(null, "Sabor agregado correctamente.");
+                
+               RealizarPedido4 RP2 = new RealizarPedido4();
+               RP2.setSize(440,306);
+               RP2.setLocation(0,0);
 
-        BackSabor.removeAll();
-        BackSabor.add(RP2, BorderLayout.CENTER);
-        BackSabor.revalidate();
-        BackSabor.repaint();     
+               BackSabor.removeAll();
+               BackSabor.add(RP2, BorderLayout.CENTER);
+               BackSabor.revalidate();
+               BackSabor.repaint();   
+            }else {
+            // Mostrar un mensaje de error si no se insertó la figura
+            JOptionPane.showMessageDialog(null, "Error al agregar el sabor.");
+        }
+        }else {
+        // Si el campo está vacío, mostrar un mensaje de advertencia
+        JOptionPane.showMessageDialog(null, "Por favor, ingresa la confirmacion del sabor!.");
+    }     
     }//GEN-LAST:event_lblSaborFresaMouseClicked
 
     private void lblSaborChocolateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSaborChocolateMouseClicked
-        RealizarPedido4 RP2 = new RealizarPedido4();
-        RP2.setSize(440,306);
-        RP2.setLocation(0,0);
+        String Sabor3 = txtSaborChocolate.getText();
+        
+        if (!Sabor3.isEmpty()){
+            
+            SaborDAO saborDao = new SaborDAO();
+            sabor nuevoSabor = new sabor(Sabor3,20000);
+            
+            boolean saborInsertado = saborDao.insertar(nuevoSabor);
+            
+            if(saborInsertado){
+                JOptionPane.showMessageDialog(null, "Sabor agregado correctamente.");
+                
+               RealizarPedido4 RP2 = new RealizarPedido4();
+               RP2.setSize(440,306);
+               RP2.setLocation(0,0);
 
-        BackSabor.removeAll();
-        BackSabor.add(RP2, BorderLayout.CENTER);
-        BackSabor.revalidate();
-        BackSabor.repaint();
+               BackSabor.removeAll();
+               BackSabor.add(RP2, BorderLayout.CENTER);
+               BackSabor.revalidate();
+               BackSabor.repaint();   
+            }else {
+            // Mostrar un mensaje de error si no se insertó la figura
+            JOptionPane.showMessageDialog(null, "Error al agregar el sabor.");
+        }
+        }else {
+        // Si el campo está vacío, mostrar un mensaje de advertencia
+        JOptionPane.showMessageDialog(null, "Por favor, ingresa la confirmacion del sabor!.");
+    }
     }//GEN-LAST:event_lblSaborChocolateMouseClicked
 
 

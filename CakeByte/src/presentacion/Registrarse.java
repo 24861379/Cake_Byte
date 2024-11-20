@@ -104,8 +104,14 @@ public class Registrarse extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel7.setText("Rol");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona tu rol", "Cliente", "Empleado", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un rol", "Cliente", "Empleado" }));
+        jComboBox1.setSelectedItem("Seleccione un rol");
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel9.setText("Nombre de usuario");
@@ -236,80 +242,84 @@ public class Registrarse extends javax.swing.JPanel {
     password = lblPassword.getText();
     String rol = (String) jComboBox1.getSelectedItem(); // Selección del rol
     
-//    if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty() || correo.isEmpty() || telefono == 0 || usuario.isEmpty() || password.isEmpty() || rol.equals("Seleccione un rol")) {
-//    JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
-//    return; // Sale del método si alguna validación falla
-//    }
-    
-    // Si el rol seleccionado es "Cliente", insertar en tb_cliente y tb_usuario
-    if (rol.equals("Cliente")) {
-        ClienteDAO clienteDAO = new ClienteDAO();
-        cliente nuevoCliente = new cliente(nombre, apellido, direccion, correo, telefono);
-        
-        // Insertar cliente en la tabla tb_cliente
-        boolean clienteInsertado = clienteDAO.insertar(nuevoCliente);
-        
-        if (clienteInsertado) {
-            // Si el cliente se inserta con éxito, insertar también en tb_usuario
-            UsuarioDAO usuarioDAO = new UsuarioDAO();
-            usuario nuevoUsuario = new usuario(usuario, password, rol);  // Asegúrate de tener esta clase Usuario definida
-            boolean usuarioInsertado = usuarioDAO.insertar(nuevoUsuario);
+    // Validación de campos vacíos
+    if (nombre.isEmpty() || apellido.isEmpty() || direccion.isEmpty() || correo.isEmpty() || telefono == 0 || usuario.isEmpty() || password.isEmpty() || rol.equals("Seleccione un rol")) {
+        JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
+        return; // Sale del método si alguna validación falla
+    }
+
+    // Usamos un switch para el rol seleccionado
+    switch (rol) {
+        case "Cliente":
+            // Insertar cliente
+            ClienteDAO clienteDAO = new ClienteDAO();
+            cliente nuevoCliente = new cliente(nombre, apellido, direccion, correo, telefono);
+            boolean clienteInsertado = clienteDAO.insertar(nuevoCliente);
             
-            if (usuarioInsertado) {
-                JOptionPane.showMessageDialog(this, "¡Cliente registrado con exito!");
+            if (clienteInsertado) {
+                // Insertar usuario
+                UsuarioDAO usuarioDAO = new UsuarioDAO();
+                usuario nuevoUsuario = new usuario(usuario, password, rol);
+                boolean usuarioInsertado = usuarioDAO.insertar(nuevoUsuario);
                 
-            IniciarSeccion pl = new IniciarSeccion();
-            pl.setSize(759,430);
-            pl.setLocation(0,0);
-        
-            BackRegistrarse.removeAll();
-            BackRegistrarse.add(pl, BorderLayout.CENTER);
-            BackRegistrarse.revalidate();
-            BackRegistrarse.repaint();
-            
-            
+                if (usuarioInsertado) {
+                    JOptionPane.showMessageDialog(this, "¡Cliente registrado con éxito!");
+                    IniciarSeccion pl = new IniciarSeccion();
+                    pl.setSize(759, 430);
+                    pl.setLocation(0, 0);
+
+                    BackRegistrarse.removeAll();
+                    BackRegistrarse.add(pl, BorderLayout.CENTER);
+                    BackRegistrarse.revalidate();
+                    BackRegistrarse.repaint();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al registrar el usuario.");
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "Error al registrar el usuario.");
+                JOptionPane.showMessageDialog(this, "Error al registrar el cliente.");
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "Error al registrar el cliente.");
-        }
-    }
-    // Si el rol seleccionado es "Empleado", insertar en tb_empleado y tb_usuario
-    else if (rol.equals("Empleado")) {
-    EmpleadoDAO empleadoDAO = new EmpleadoDAO();
-    empleado nuevoEmpleado = new empleado(nombre, apellido,correo, telefono);
-    
-    // Insertar empleado en la tabla tb_empleado
-    boolean empleadoInsertado = empleadoDAO.insertar(nuevoEmpleado);
-    
-    if (empleadoInsertado) {
-        // Si el empleado se inserta con éxito, insertar también en tb_usuario
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        usuario nuevoUsuario = new usuario(usuario, password, rol);  // Asegúrate de tener esta clase Usuario definida
-        boolean usuarioInsertado = usuarioDAO.insertar(nuevoUsuario);
-        
-        if (usuarioInsertado) {
-            JOptionPane.showMessageDialog(this, "¡Empleado registrado con exito!");
+            break;
+
+        case "Empleado":
+            // Insertar empleado
+            EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+            empleado nuevoEmpleado = new empleado(nombre, apellido, correo, telefono);
+            boolean empleadoInsertado = empleadoDAO.insertar(nuevoEmpleado);
             
-        // Mostrar el siguiente formulario
-        IniciarSeccion pl = new IniciarSeccion();
-        pl.setSize(759,430);
-        pl.setLocation(0,0);
-        
-        BackRegistrarse.removeAll();
-        BackRegistrarse.add(pl, BorderLayout.CENTER);
-        BackRegistrarse.revalidate();
-        BackRegistrarse.repaint();
-        
-        } else {
-            JOptionPane.showMessageDialog(this, "Error al registrar el usuario del empleado.");
-        }
-    } else {
-        JOptionPane.showMessageDialog(this, "Error al registrar el empleado.");
-    }
+            if (empleadoInsertado) {
+                // Insertar usuario
+                UsuarioDAO usuarioDAO = new UsuarioDAO();
+                usuario nuevoUsuario = new usuario(usuario, password, rol);
+                boolean usuarioInsertado = usuarioDAO.insertar(nuevoUsuario);
+                
+                if (usuarioInsertado) {
+                    JOptionPane.showMessageDialog(this, "¡Empleado registrado con éxito!");
+                    IniciarSeccion pl = new IniciarSeccion();
+                    pl.setSize(759, 430);
+                    pl.setLocation(0, 0);
+
+                    BackRegistrarse.removeAll();
+                    BackRegistrarse.add(pl, BorderLayout.CENTER);
+                    BackRegistrarse.revalidate();
+                    BackRegistrarse.repaint();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Error al registrar el usuario del empleado.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Error al registrar el empleado.");
+            }
+            break;
+
+        default:
+            // Si no se selecciona "Cliente" ni "Empleado"
+            JOptionPane.showMessageDialog(this, "Rol no válido.");
+            break;
     }
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BackRegistrarse;

@@ -1,6 +1,7 @@
 package presentacion;
 
 import java.awt.BorderLayout;
+import java.util.Locale;
 
 public class FrmCakeByte_Main extends javax.swing.JFrame {
 
@@ -28,11 +29,14 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
 
         BackGround = new javax.swing.JPanel();
         Dashboard = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         Inicio = new javax.swing.JButton();
         IniciarSeccion = new javax.swing.JButton();
         RealizarPedido = new javax.swing.JButton();
         VerPedido = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        VerClientes = new javax.swing.JButton();
+        VerEmpleados = new javax.swing.JButton();
+        VerHistorial = new javax.swing.JButton();
         Heard = new javax.swing.JPanel();
         lblNombreHeard = new javax.swing.JLabel();
         Content = new javax.swing.JPanel();
@@ -42,6 +46,9 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         BackGround.setBackground(new java.awt.Color(255, 255, 255));
 
         Dashboard.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/Iconos/Logo1 (1).png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(37, 10));
 
         Inicio.setBorderPainted(false);
         Inicio.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pastelería
@@ -94,6 +101,11 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         RealizarPedido.setBorder(null);
         RealizarPedido.setBorderPainted(false);
         RealizarPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RealizarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RealizarPedidoActionPerformed(evt);
+            }
+        });
 
         VerPedido.setBorderPainted(false);
         VerPedido.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pastelería
@@ -101,8 +113,8 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         VerPedido.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 16)); // Fuente moderna
 
         // Quitar bordes y darle un diseño plano
-        VerPedido.setFocusPainted(false);
-        VerPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RealizarPedido.setFocusPainted(false);
+        RealizarPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         VerPedido.setForeground(new java.awt.Color(215, 125, 59));
         VerPedido.setText("Ver Pedido");
         VerPedido.setBorder(null);
@@ -114,21 +126,78 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/Iconos/Logo1 (1).png"))); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(37, 10));
+        VerClientes.setBorderPainted(false);
+        VerClientes.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pastelería
+        VerClientes.setForeground(new java.awt.Color(102, 51, 0)); // Color marrón para el texto, simulando tonos de chocolate
+        VerClientes.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 16)); // Fuente moderna
+
+        // Quitar bordes y darle un diseño plano
+        VerClientes.setFocusPainted(false);
+        VerClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VerClientes.setForeground(new java.awt.Color(215, 125, 59));
+        VerClientes.setText("Ver Clientes");
+        VerClientes.setBorder(null);
+        VerClientes.setBorderPainted(false);
+        VerClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VerClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerClientesActionPerformed(evt);
+            }
+        });
+
+        VerEmpleados .setBorderPainted(false);
+        VerEmpleados .setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pastelería
+        VerEmpleados .setForeground(new java.awt.Color(102, 51, 0)); // Color marrón para el texto, simulando tonos de chocolate
+        VerEmpleados .setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 16)); // Fuente moderna
+
+        // Quitar bordes y darle un diseño plano
+        VerEmpleados.setFocusPainted(false);
+        VerEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VerEmpleados.setForeground(new java.awt.Color(215, 125, 59));
+        VerEmpleados.setText("Ver Empleados");
+        VerEmpleados.setBorder(null);
+        VerEmpleados.setBorderPainted(false);
+        VerEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VerEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerEmpleadosActionPerformed(evt);
+            }
+        });
+
+        VerHistorial.setBorderPainted(false);
+        VerHistorial.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pastelería
+        VerHistorial.setForeground(new java.awt.Color(102, 51, 0)); // Color marrón para el texto, simulando tonos de chocolate
+        VerHistorial.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 16)); // Fuente moderna
+
+        // Quitar bordes y darle un diseño plano
+        VerHistorial.setFocusPainted(false);
+        VerHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VerHistorial.setForeground(new java.awt.Color(215, 125, 59));
+        VerHistorial.setText("Ver Historial");
+        VerHistorial.setBorder(null);
+        VerHistorial.setBorderPainted(false);
+        VerHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        VerHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerHistorialActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout DashboardLayout = new javax.swing.GroupLayout(Dashboard);
         Dashboard.setLayout(DashboardLayout);
         DashboardLayout.setHorizontalGroup(
             DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashboardLayout.createSequentialGroup()
+            .addGroup(DashboardLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Inicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(IniciarSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RealizarPedido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(VerPedido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(IniciarSeccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RealizarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VerPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VerClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VerEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(VerHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         DashboardLayout.setVerticalGroup(
@@ -144,7 +213,13 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
                 .addComponent(RealizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(VerPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(VerClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(VerEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(VerHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Heard.setBackground(new java.awt.Color(204, 255, 255));
@@ -167,7 +242,7 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
             HeardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeardLayout.createSequentialGroup()
                 .addGap(203, 203, 203)
-                .addComponent(lblNombreHeard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblNombreHeard, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                 .addGap(167, 167, 167))
         );
         HeardLayout.setVerticalGroup(
@@ -181,11 +256,11 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
         Content.setLayout(ContentLayout);
         ContentLayout.setHorizontalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 759, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         ContentLayout.setVerticalGroup(
             ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 432, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout BackGroundLayout = new javax.swing.GroupLayout(BackGround);
@@ -196,11 +271,10 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
                 .addComponent(Dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Heard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(BackGroundLayout.createSequentialGroup()
-                        .addComponent(Content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(Heard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(Content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         BackGroundLayout.setVerticalGroup(
             BackGroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,47 +324,8 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_IniciarSeccionActionPerformed
 
     private void VerPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerPedidoActionPerformed
-        // TODO add your handling code here:
-        
-//        VerPedido pedido = new VerPedido();
-//        pedido.setSize(759,430);
-//        pedido.setLocation(0, 0);
-//        
-//        Content.removeAll();
-//        Content.add(pedido, BorderLayout.CENTER);
-//        Content.revalidate();
-//        Content.repaint();
-        
-        //Panel del listado de cliente   
-//        verCliente VC = new verCliente();
-//        VC.setSize(759,430);
-//        VC.setLocation(0, 0);
-//        
-//        Content.removeAll();
-//        Content.add(VC, BorderLayout.CENTER);
-//        Content.revalidate();
-//        Content.repaint();
 
-        //Panel del listado de empleado
-//          verEmpleado VE = new verEmpleado();
-//          VE.setSize(759,430);
-//          VE.setLocation(0, 0);
-//        
-//          Content.removeAll();
-//          Content.add(VE, BorderLayout.CENTER);
-//          Content.revalidate();
-//          Content.repaint();
-
-//        verUsuario VU = new verUsuario();
-//        VU.setSize(759,430);
-//        VU.setLocation(0, 0);
-//        
-//        Content.removeAll();
-//        Content.add(VU, BorderLayout.CENTER);
-//        Content.revalidate();
-//        Content.repaint();
        verHistorial VH = new verHistorial();
-       
        VH.setSize(759,430);
        VH.setLocation(0, 0);
         
@@ -299,6 +334,43 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
        Content.revalidate();
        Content.repaint();
     }//GEN-LAST:event_VerPedidoActionPerformed
+
+    private void VerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerClientesActionPerformed
+        verCliente vc = new verCliente();
+        vc.setSize(759,430);
+        vc.setLocation(0,0);
+
+        Content.removeAll();
+        Content.add(vc, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_VerClientesActionPerformed
+
+    private void VerEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerEmpleadosActionPerformed
+        verEmpleado ve = new verEmpleado();
+        ve.setSize(759,430);
+        ve.setLocation(0,0);
+        
+        Content.removeAll();
+        Content.add(ve, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_VerEmpleadosActionPerformed
+
+    private void VerHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerHistorialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VerHistorialActionPerformed
+
+    private void RealizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarPedidoActionPerformed
+        RealizarPedido RP = new RealizarPedido();
+        RP.setSize(759,430);
+        RP.setLocation(0,0);
+
+        Content.removeAll();
+        Content.add(RP, BorderLayout.CENTER);
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_RealizarPedidoActionPerformed
 
     public static void main(String args[]) {
         
@@ -340,6 +412,9 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
     private javax.swing.JButton IniciarSeccion;
     private javax.swing.JButton Inicio;
     private javax.swing.JButton RealizarPedido;
+    private javax.swing.JButton VerClientes;
+    private javax.swing.JButton VerEmpleados;
+    private javax.swing.JButton VerHistorial;
     private javax.swing.JButton VerPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblNombreHeard;

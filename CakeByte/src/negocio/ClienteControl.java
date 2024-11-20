@@ -39,7 +39,7 @@ public class ClienteControl {
                 estado = "Inactivo";
             }
             
-//            registro[0] =Integer.toString(cli.getID_Cliente());
+//          registro[0] =Integer.toString(cli.getID_Cliente());
             registro[0] =cli.getNombre();
             registro[1] =cli.getApellido();
             registro[2] =cli.getDireccion();
