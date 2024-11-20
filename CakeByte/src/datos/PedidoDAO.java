@@ -25,8 +25,21 @@ public class PedidoDAO implements crudPedido <pedido> {
     public List<pedido> listar(String Texto) {
         List<pedido> registros = new ArrayList(); 
                                                                                         
-        try {                                                                                                                                                                                                                                         //c.ID_pedido= ID_Cliente           p                                                      
-            ps= CON.conectar().prepareStatement("SELECT p.id_pedido, p.ID_Cliente, c.Nombre, c.Apellido, c.Telefono, p.Fecha_Pedido, p.Fecha_Entrega, p.Estado, p.Instrucciones_Especiales, p.Total FROM tb_pedido  p inner join tb_cliente c  ON p.ID_Cliente = c.ID_Cliente WHERE c.Nombre LIKE ? ORDER BY p.ID_pedido ASC LIMIT ?,?");
+        try {                                                                                                                                                                                                                                                                                             
+            ps= CON.conectar().prepareStatement("SELECT " +
+            "  p.ID_Pedido, " +
+            "  p.Fecha_Pedido, " +
+            "  p.Fecha_Entrega, " +
+            "  p.Estado, " +
+            "  p.Total, " +
+            "  c.Nombre AS Cliente, " +
+            "  c.Apellido, " +
+            "  c.Telefono " +
+            "FROM tb_pedido p" +
+            "INNER JOIN tb_cliente c" +
+            "  ON p.ID_Cliente = c.ID_Cliente" +
+            "ORDER BY p.Fecha_Pedido DESC;");
+            
             ps.setString(1, "%"+ Texto+ "%");
             
             rs=ps.executeQuery();
