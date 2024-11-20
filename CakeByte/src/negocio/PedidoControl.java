@@ -15,7 +15,7 @@ public class PedidoControl {
     private DefaultTableModel modeltabla;
     public int registrosMostrados;
     //realiza un conteo de cuantos registro hay en la tabla
-    SimpleDateFormat PGC = new SimpleDateFormat("dd/MM/yyyy");
+//    SimpleDateFormat PGC = new SimpleDateFormat("dd/MM/yyyy");
 
     public PedidoControl() {
         this.DATOS = new PedidoDAO();
@@ -27,16 +27,16 @@ public class PedidoControl {
         List<pedido> lista = new ArrayList();
         lista.addAll(DATOS.listar(texto));
         
-        String titulos[] ={"ID_Pedido", "ID_Cliente", "Fecha_Pedido", "Fecha_Entrega", "Estado", "Instrucciones_Especiales", "Total"};
+        String titulos[] ={"ID_Pedido", "ID_Cliente", "sabor torta", "figura torta", "decoración torta", "Estado", "Instrucciones_Especiales", "Total"};
         this.modeltabla = new DefaultTableModel(null, titulos);
         
         String estado;
         //vector temporal
-        String registro [] = new String [7];
+        String registro [] = new String [8];
         this.registrosMostrados =0;
         
         for (pedido PDD : lista) {
-            if (PDD.getFechaPedido() == null && PDD.getFechaEntrega()== null && PDD.getEstado()[4].equals("Cancelado") && PDD.getInstruccionesEspeciales().isEmpty() && PDD.getTotal()==0) {
+            if ( PDD.getEstado()[5].equals("Cancelado") && PDD.getInstruccionesEspeciales().isEmpty() && PDD.getTotal()==0) {
                 estado = "Inactivo";
             }else{
                 estado = "Activo";
@@ -44,17 +44,12 @@ public class PedidoControl {
             
             registro[0] =Integer.toString(PDD.getId_Pedido());
             registro[1] =Integer.toString(PDD.getID_Cliente());
-            
-            if(PDD.getFechaPedido()!= null && PDD.getFechaEntrega()!= null){
-                registro[2] = PGC.format(PDD.getFechaPedido());
-                registro[3] = PGC.format(PDD.getFechaEntrega());
-            }else{
-                registro[2] = "";
-                registro[3] = "";
-            }
-            registro[4] =PDD.getEstado()[1];
-            registro[5] =PDD.getInstruccionesEspeciales();
-            registro[6] =Double.toString(PDD.getTotal());
+            registro[2] =Integer.toString(PDD.getID_Sabor());
+            registro[3] =Integer.toString(PDD.getID_Figura());
+            registro[4] =Integer.toString(PDD.getID_Decoracion());
+            registro[5] =PDD.getEstado()[0];
+            registro[6] =PDD.getInstruccionesEspeciales();
+            registro[7] =Double.toString(PDD.getTotal());
 
             //agregado el registro a default model table
             this.modeltabla.addRow(registro);
@@ -63,12 +58,11 @@ public class PedidoControl {
         return this.modeltabla;
     }
     
-    public String insertar(Date fechaPedido, Date fechaEntrega, String instruccionesEs, Double Total){
+    public String insertar( String instruccionesEs, Double Total){
         if (DATOS.existencia(Integer.toString(obj.getId_Pedido()))) {
             return "El registro ya existe";
         }else{
-            obj.setFechaPedido(fechaPedido);
-            obj.setFechaEntrega(fechaEntrega);
+
             obj.setInstruccionesEspeciales(instruccionesEs);
             obj.setTotal(Total);
             
@@ -80,35 +74,35 @@ public class PedidoControl {
         }
     }
     
-    public String actualizar(Date fechaPedido, Date fechaPedidoAnt, Date fechaEntrega, String instruccionesEs, Double Total){
-        if (fechaPedido == fechaPedidoAnt) {
-            obj.setFechaPedido(fechaPedido);
-            obj.setFechaEntrega(fechaEntrega);
-            obj.setInstruccionesEspeciales(instruccionesEs);
-            obj.setTotal(Total);
-            
-            if(DATOS.actualizar(obj)){
-                return "Información actualizada";
-            }else{
-                return "Error en la actualización";
-            } 
-        }else{
-            if (DATOS.existencia(Integer.toString(obj.getId_Pedido()))) {
-                return "El registro ya existe";
-            }else{
-                obj.setFechaPedido(fechaPedido);
-                obj.setFechaEntrega(fechaEntrega);
-                obj.setInstruccionesEspeciales(instruccionesEs);
-                obj.setTotal(Total);
-                
-                if (DATOS.actualizar(obj)) {
-                    return "ok";
-                }else{
-                    return "Error en la atualizacion";
-                }
-            }
-        }
-    }
+//    public String actualizar(Date fechaPedido, Date fechaPedidoAnt, Date fechaEntrega, String instruccionesEs, Double Total){
+//        if (fechaPedido == fechaPedidoAnt) {
+//            obj.setFechaPedido(fechaPedido);
+//            obj.setFechaEntrega(fechaEntrega);
+//            obj.setInstruccionesEspeciales(instruccionesEs);
+//            obj.setTotal(Total);
+//            
+//            if(DATOS.actualizar(obj)){
+//                return "Información actualizada";
+//            }else{
+//                return "Error en la actualización";
+//            } 
+//        }else{
+//            if (DATOS.existencia(Integer.toString(obj.getId_Pedido()))) {
+//                return "El registro ya existe";
+//            }else{
+//                obj.setFechaPedido(fechaPedido);
+//                obj.setFechaEntrega(fechaEntrega);
+//                obj.setInstruccionesEspeciales(instruccionesEs);
+//                obj.setTotal(Total);
+//                
+//                if (DATOS.actualizar(obj)) {
+//                    return "ok";
+//                }else{
+//                    return "Error en la atualizacion";
+//                }
+//            }
+//        }
+//    }
     
     public String desctivar(int id){
         if (DATOS.desactivar(id)) {

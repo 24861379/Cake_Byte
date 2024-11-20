@@ -7,8 +7,9 @@ public class pedido {
     Date fecha = new Date();
     private int id_Pedido;
     private int ID_Cliente; //FK de cliente
-    private Date fechaPedido;
-    private Date fechaEntrega;
+    private int ID_Sabor;
+    private int ID_Figura;
+    private int ID_Decoracion;
     private String[] estado = {"Pendiente", "Confirmado", "En Preparacion", "Listo", "Entregado'", "Cancelado"};
     private String InstruccionesEspeciales;
     private double total;
@@ -16,21 +17,43 @@ public class pedido {
     public pedido() {
     }
 
-    public pedido( Date fechaPedido, Date fechaEntrega, String InstruccionesEspeciales, double total) {
-        this.fechaPedido = fechaPedido;
-        this.fechaEntrega = fechaEntrega;
+    public pedido(int ID_Cliente, int ID_Sabor, int ID_Figura, int ID_Decoracion, String InstruccionesEspeciales, double total) {
+        this.ID_Cliente = ID_Cliente;
+        this.ID_Sabor = ID_Sabor;
+        this.ID_Figura = ID_Figura;
+        this.ID_Decoracion = ID_Decoracion;
         this.InstruccionesEspeciales = InstruccionesEspeciales;
         this.total = total;
     }
 
-    public Date getFecha() {
-        return fecha;
+    
+
+    public int getID_Sabor() {
+        return ID_Sabor;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setID_Sabor(int ID_Sabor) {
+        this.ID_Sabor = ID_Sabor;
     }
 
+    public int getID_Figura() {
+        return ID_Figura;
+    }
+
+    public void setID_Figura(int ID_Figura) {
+        this.ID_Figura = ID_Figura;
+    }
+
+    public int getID_Decoracion() {
+        return ID_Decoracion;
+    }
+
+    public void setID_Decoracion(int ID_Decoracion) {
+        this.ID_Decoracion = ID_Decoracion;
+    }
+
+    
+    
     public int getId_Pedido() {
         return id_Pedido;
     }
@@ -45,22 +68,6 @@ public class pedido {
 
     public void setID_Cliente(int ID_Cliente) {
         this.ID_Cliente = ID_Cliente;
-    }
-
-    public Date getFechaPedido() {
-        return fechaPedido;
-    }
-
-    public void setFechaPedido(Date fechaPedido) {
-        this.fechaPedido = fechaPedido;
-    }
-
-    public Date getFechaEntrega() {
-        return fechaEntrega;
-    }
-
-    public void setFechaEntrega(Date fechaEntrega) {
-        this.fechaEntrega = fechaEntrega;
     }
 
     public String[] getEstado() {
@@ -89,6 +96,6 @@ public class pedido {
 
     @Override
     public String toString() {
-        return "Pedido\n" + "Fecha: " + fecha + "\nFecha pedido: " + fechaPedido + "\nFecha de entrega: " + fechaEntrega + "\nEstado: " + Arrays.toString(estado)+ "\nInstrucciones especiales: " + InstruccionesEspeciales + "\nTotal: " + total;
+        return "Pedido\n" + "Fecha: " + fecha + "\nEstado: " + Arrays.toString(estado)+ "\nInstrucciones especiales: " + InstruccionesEspeciales + "\nTotal: " + total;
     }  
 }

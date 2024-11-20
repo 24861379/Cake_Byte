@@ -26,7 +26,9 @@ public class ClienteDAO implements CrudCliente<cliente> {
 
         List<cliente> registros = new ArrayList();
         try {
-            ps = CON.conectar().prepareStatement("SELECT * FROM tb_cliente WHERE Nombre LIKE ?");
+            ps = CON.conectar().prepareStatement("SELECT Nombre, Apellido, Direccion, Correo, Telefono " +
+            "FROM tb_cliente " +
+            "WHERE Nombre LIKE ?");
             ps.setString(1, "%" + Texto + "%");
 
             rs = ps.executeQuery();

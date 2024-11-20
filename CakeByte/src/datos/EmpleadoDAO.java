@@ -27,7 +27,9 @@ public class EmpleadoDAO implements CrudEmpleado<empleado> {
         List<empleado> registros = new ArrayList<>();
 
         try {                                       
-            ps = CON.conectar().prepareStatement("SELECT * FROM tb_empleado WHERE Nombre LIKE ?");
+            ps = CON.conectar().prepareStatement("SELECT Nombre, Apellido, Correo, Telefono, Puesto " +
+            "FROM tb_empleado " +
+            "WHERE Nombre LIKE ?");
             ps.setString(1, "%" + Texto + "%");
             rs = ps.executeQuery();
 

@@ -325,12 +325,12 @@ public class FrmCakeByte_Main extends javax.swing.JFrame {
 
     private void VerPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerPedidoActionPerformed
 
-       verHistorial VH = new verHistorial();
-       VH.setSize(759,430);
-       VH.setLocation(0, 0);
+       VerPedido VP = new VerPedido();
+       VP.setSize(759,430);
+       VP.setLocation(0, 0);
         
        Content.removeAll();
-       Content.add(VH, BorderLayout.CENTER);
+       Content.add(VP, BorderLayout.CENTER);
        Content.revalidate();
        Content.repaint();
     }//GEN-LAST:event_VerPedidoActionPerformed

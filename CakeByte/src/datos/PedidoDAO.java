@@ -27,24 +27,33 @@ public class PedidoDAO implements crudPedido <pedido> {
                                                                                         
         try {                                                                                                                                                                                                                                                                                             
             ps= CON.conectar().prepareStatement("SELECT " +
-            "  p.ID_Pedido, " +
-            "  p.Fecha_Pedido, " +
-            "  p.Fecha_Entrega, " +
-            "  p.Estado, " +
-            "  p.Total, " +
-            "  c.Nombre AS Cliente, " +
-            "  c.Apellido, " +
-            "  c.Telefono " +
-            "FROM tb_pedido p" +
-            "INNER JOIN tb_cliente c" +
-            "  ON p.ID_Cliente = c.ID_Cliente" +
-            "ORDER BY p.Fecha_Pedido DESC;");
+    "    p.ID_Pedido, " +
+    "    c.Nombre AS Cliente, " +
+    "    s.Nombre AS Sabor, " +
+    "    f.Nombre AS Figura, " +
+    "    d.Nombre AS Decoracion, " +
+    "    p.Estado, " +
+    "    p.Instrucciones_Especiales, " +
+    "    p.Total " + // Espacio añadido aquí
+    "FROM " +
+    "    db_cake_byte.tb_pedido p " + // Espacio añadido aquí
+    "INNER JOIN " +
+    "    db_cake_byte.tb_cliente c ON p.ID_Cliente = c.ID_Cliente " +
+    "INNER JOIN " +
+    "    db_cake_byte.tb_sabor s ON p.ID_Sabor = s.ID_Sabor " +
+    "INNER JOIN " +
+    "    db_cake_byte.tb_figura f ON p.ID_Figura = f.ID_Figura " +
+    "INNER JOIN " +
+    "    db_cake_byte.tb_decoracion d ON p.ID_Decoracion = d.ID_Decoracion " +
+    "WHERE " +
+    "    p.Estado = 'Pendiente' AND " +
+    "    c.Nombre LIKE ?");
             
             ps.setString(1, "%"+ Texto+ "%");
             
             rs=ps.executeQuery();
             while(rs.next()){
-                registros.add(new pedido( rs.getDate(1),rs.getDate(2),rs.getString(3),rs.getDouble(4)));
+                registros.add(new pedido( rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getString(5), rs.getDouble(6)));
             }
             ps.close();
             rs.close();
@@ -62,13 +71,12 @@ public class PedidoDAO implements crudPedido <pedido> {
     public boolean insertar(pedido obj) {
         resp= false;
         try {
-            ps= CON.conectar().prepareStatement("INSERT INTO tb_pedido (Fecha_Pedido, Fecha_Entrega, Estado, Instrucciones_Especiales, Total) VALUES (?,?,?,?,?)");
+            ps= CON.conectar().prepareStatement("INSERT INTO tb_pedido ( Estado, Instrucciones_Especiales, Total) VALUES (?,?,?)");
             
-            ps.setDate(1, new java.sql.Date(obj.getFechaPedido().getTime()));// Convertir a java.sql.Date
-            ps.setDate(2, new java.sql.Date(obj.getFechaEntrega().getTime()));
-            ps.setString(3, obj.getEstado()[estadoIndex]);// estadoIndex es el índice del estado actual
-            ps.setString(4, obj.getInstruccionesEspeciales());
-            ps.setDouble(5, obj.getTotal());
+            
+            ps.setString(1, obj.getEstado()[estadoIndex]);// estadoIndex es el índice del estado actual
+            ps.setString(2, obj.getInstruccionesEspeciales());
+            ps.setDouble(3, obj.getTotal());
             
             if (ps.executeUpdate() > 0) {
                 resp= true;
@@ -89,10 +97,10 @@ public class PedidoDAO implements crudPedido <pedido> {
     public boolean actualizar(pedido obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE tb_pedido SET Fecha_Entrega=?, Estado=?, Instrucciones_Especiales=?  WHERE ID_Pedido=?");
-            ps.setDate(1, new java.sql.Date(obj.getFechaEntrega().getTime()));
-            ps.setString(2, obj.getEstado()[estadoIndex]);
-            ps.setInt(3, obj.getId_Pedido());
+            ps = CON.conectar().prepareStatement("UPDATE tb_pedido SET  Estado=?, Instrucciones_Especiales=?  WHERE ID_Pedido=?");
+            
+            ps.setString(1, obj.getEstado()[estadoIndex]);
+            ps.setInt(2, obj.getId_Pedido());
             if (ps.executeUpdate() > 0) {
                 resp = true;
             }
