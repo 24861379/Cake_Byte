@@ -103,10 +103,10 @@ CREATE TABLE IF NOT EXISTS `db_cake_byte`.`tb_pedido` (
   `Instrucciones_Especiales` TEXT NULL DEFAULT NULL,
   `Total` DECIMAL(11,2) NOT NULL DEFAULT 0.00,
   PRIMARY KEY (`ID_Pedido`),
-  INDEX `FK_ClientePedido_idx` (`ID_Cliente` ASC) VISIBLE,
-  INDEX `FK_Sabor_Pedido_idx` (`ID_Sabor` ASC) VISIBLE,
-  INDEX `FK_Figura_Pedido_idx` (`ID_Figura` ASC) VISIBLE,
-  INDEX `FK_Decoracion_Pedido_idx` (`ID_Decoracion` ASC) VISIBLE,
+  INDEX `FK_ClientePedido_idx` (`ID_Cliente` ASC) ,
+  INDEX `FK_Sabor_Pedido_idx` (`ID_Sabor` ASC) ,
+  INDEX `FK_Figura_Pedido_idx` (`ID_Figura` ASC) ,
+  INDEX `FK_Decoracion_Pedido_idx` (`ID_Decoracion` ASC) ,
   CONSTRAINT `FK_Cliente_Pedido`
     FOREIGN KEY (`ID_Cliente`)
     REFERENCES `db_cake_byte`.`tb_cliente` (`ID_Cliente`)
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `db_cake_byte`.`tb_historial_pedido` (
   `Estado_Anterior` ENUM('Pendiente', 'Confirmado', 'En Preparacion', 'Listo', 'Entregado', 'Cancelado') NOT NULL,
   `Observaciones` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`ID_Historial`),
-  INDEX `FK_PedidoHistorial_idx` (`ID_Pedido` ASC) VISIBLE,
+  INDEX `FK_PedidoHistorial_idx` (`ID_Pedido` ASC) ,
   CONSTRAINT `FK_Pedido_Historial`
     FOREIGN KEY (`ID_Pedido`)
     REFERENCES `db_cake_byte`.`tb_pedido` (`ID_Pedido`)
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `db_cake_byte`.`tb_pago` (
   `Monto` DECIMAL(11,2) NOT NULL,
   `Fecha_Pago` DATETIME NOT NULL,
   PRIMARY KEY (`ID_Pago`),
-  INDEX `FK_PedidoPago_idx` (`ID_Pedido` ASC) VISIBLE,
+  INDEX `FK_PedidoPago_idx` (`ID_Pedido` ASC) ,
   CONSTRAINT `FK_Pedido_Pago`
     FOREIGN KEY (`ID_Pedido`)
     REFERENCES `db_cake_byte`.`tb_pedido` (`ID_Pedido`)
@@ -169,7 +169,6 @@ CREATE TABLE IF NOT EXISTS `db_cake_byte`.`tb_pago` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
-
 
 -- -----------------------------------------------------
 -- Table `db_cake_byte`.`tb_usuario`
@@ -182,9 +181,9 @@ CREATE TABLE IF NOT EXISTS `db_cake_byte`.`tb_usuario` (
   `Contrasena` VARCHAR(128) NOT NULL,
   `Rol` ENUM('Cliente', 'Empleado', 'Administrador') NOT NULL,
   PRIMARY KEY (`ID_Usuario`),
-  UNIQUE INDEX `Nombre_Usuario` (`Nombre_Usuario` ASC) VISIBLE,
-  INDEX `FK_Cliente_Usuario_idx` (`ID_Cliente` ASC) VISIBLE,
-  INDEX `FK_Empleado_Usuario_idx` (`ID_Empleado` ASC) VISIBLE,
+  UNIQUE INDEX `Nombre_Usuario` (`Nombre_Usuario` ASC) ,
+  INDEX `FK_Cliente_Usuario_idx` (`ID_Cliente` ASC) ,
+  INDEX `FK_Empleado_Usuario_idx` (`ID_Empleado` ASC) ,
   CONSTRAINT `FK_Cliente_Usuario`
     FOREIGN KEY (`ID_Cliente`)
     REFERENCES `db_cake_byte`.`tb_cliente` (`ID_Cliente`)

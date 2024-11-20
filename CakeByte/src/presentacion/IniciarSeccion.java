@@ -156,7 +156,7 @@ public class IniciarSeccion extends javax.swing.JPanel {
         Principal RP = new Principal();
         RP.setSize(759,430);
         RP.setLocation(0,0);
-        
+
         BackInicio.removeAll();
         BackInicio.add(RP, BorderLayout.CENTER);
         BackInicio.revalidate();

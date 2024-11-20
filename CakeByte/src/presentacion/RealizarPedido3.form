@@ -38,22 +38,27 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="txtTortaRedonda" max="32767" attributes="0"/>
                       <Component id="lblTortaRedonda" max="32767" attributes="0"/>
+                      <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabel3" max="32767" attributes="0"/>
                       <Component id="lblTortaCuadrada" max="32767" attributes="0"/>
                       <Component id="txtTortaCuadrada" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="lblTortaRectangular" max="32767" attributes="0"/>
-                      <Component id="txtTortaRectangular" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="lblTortaRectangular" max="32767" attributes="0"/>
+                          <Component id="txtTortaRectangular" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -61,18 +66,17 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="lblTortaRedonda" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTortaRectangular" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTortaCuadrada" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="lblTortaRedonda" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTortaRectangular" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTortaCuadrada" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -80,7 +84,7 @@
                       <Component id="txtTortaCuadrada" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTortaRectangular" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -97,9 +101,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="213" max="-2" attributes="0"/>
-                      <EmptySpace pref="119" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" pref="287" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -117,7 +121,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JLabel()"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel1.setText(&quot;&lt;html&gt;&lt;h1 style=&apos;font-family: Arial, sans-serif; color: #FF6347;&apos;&gt;Elije la base&lt;/h1&gt;&lt;/html&gt;&quot;);&#xa;jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jLabel1.setText(&quot;&lt;html&gt;&lt;h1 style=&apos;font-family: Arial, sans-serif; color: #FF6347;&apos;&gt;Selecciona la base&lt;/h1&gt;&lt;/html&gt;&quot;);&#xa;jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -166,6 +170,30 @@
         <Component class="javax.swing.JTextField" name="txtTortaCuadrada">
         </Component>
         <Component class="javax.swing.JTextField" name="txtTortaRectangular">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="13" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&apos;&apos;Base Circular&apos;&apos;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="13" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&apos;&apos;Base Cuadrada&apos;&apos;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="13" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&apos;&apos;Base Rectangular&apos;&apos;"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

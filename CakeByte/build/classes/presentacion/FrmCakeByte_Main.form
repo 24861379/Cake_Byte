@@ -47,13 +47,12 @@
                   <Component id="Dashboard" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="Heard" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="Content" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="Heard" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
+                      <Component id="Content" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -80,14 +79,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
                           <Component id="Inicio" alignment="0" max="32767" attributes="0"/>
                           <Component id="IniciarSeccion" alignment="1" max="32767" attributes="0"/>
                           <Component id="RealizarPedido" alignment="0" max="32767" attributes="0"/>
                           <Component id="VerPedido" alignment="0" max="32767" attributes="0"/>
+                          <Component id="VerClientes" alignment="0" max="32767" attributes="0"/>
+                          <Component id="VerEmpleados" alignment="0" max="32767" attributes="0"/>
+                          <Component id="VerHistorial" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -106,16 +108,32 @@
                       <Component id="RealizarPedido" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="VerPedido" min="-2" pref="45" max="-2" attributes="0"/>
-                      <EmptySpace pref="186" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="VerClientes" min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="VerEmpleados" min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="VerHistorial" min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/presentacion/Iconos/Logo1 (1).png"/>
+                </Property>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[37, 10]"/>
+                </Property>
+              </Properties>
+            </Component>
             <Component class="javax.swing.JButton" name="Inicio">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="3b" green="7d" red="d7" type="rgb"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new java.awt.Color(215, 125, 59)" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="&quot;Inicio&quot;" type="code"/>
@@ -176,6 +194,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RealizarPedidoActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()"/>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="RealizarPedido.setBorderPainted(false);&#xa;RealizarPedido.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pasteler&#xed;a&#xa;RealizarPedido.setForeground(new java.awt.Color(102, 51, 0)); // Color marr&#xf3;n para el texto, simulando tonos de chocolate&#xa;RealizarPedido.setFont(new java.awt.Font(&quot;Segoe UI&quot;, java.awt.Font.BOLD, 16)); // Fuente moderna&#xa;&#xa;// Quitar bordes y darle un dise&#xf1;o plano&#xa;RealizarPedido.setFocusPainted(false);&#xa;RealizarPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
@@ -183,8 +204,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="VerPedido">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="3b" green="7d" red="d7" type="rgb"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new java.awt.Color(215, 125, 59)" type="code"/>
                 </Property>
                 <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="&quot;Ver Pedido&quot;" type="code"/>
@@ -202,18 +223,80 @@
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="VerPedido.setBorderPainted(false);&#xa;VerPedido.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pasteler&#xed;a&#xa;VerPedido.setForeground(new java.awt.Color(102, 51, 0)); // Color marr&#xf3;n para el texto, simulando tonos de chocolate&#xa;VerPedido.setFont(new java.awt.Font(&quot;Segoe UI&quot;, java.awt.Font.BOLD, 16)); // Fuente moderna&#xa;&#xa;// Quitar bordes y darle un dise&#xf1;o plano&#xa;VerPedido.setFocusPainted(false);&#xa;VerPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="VerPedido.setBorderPainted(false);&#xa;VerPedido.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pasteler&#xed;a&#xa;VerPedido.setForeground(new java.awt.Color(102, 51, 0)); // Color marr&#xf3;n para el texto, simulando tonos de chocolate&#xa;VerPedido.setFont(new java.awt.Font(&quot;Segoe UI&quot;, java.awt.Font.BOLD, 16)); // Fuente moderna&#xa;&#xa;// Quitar bordes y darle un dise&#xf1;o plano&#xa;RealizarPedido.setFocusPainted(false);&#xa;RealizarPedido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JButton" name="VerClientes">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/presentacion/Iconos/Logo1 (1).png"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new java.awt.Color(215, 125, 59)" type="code"/>
                 </Property>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[37, 10]"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;Ver Clientes&quot;" type="code"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerClientesActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="VerClientes.setBorderPainted(false);&#xa;VerClientes.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pasteler&#xed;a&#xa;VerClientes.setForeground(new java.awt.Color(102, 51, 0)); // Color marr&#xf3;n para el texto, simulando tonos de chocolate&#xa;VerClientes.setFont(new java.awt.Font(&quot;Segoe UI&quot;, java.awt.Font.BOLD, 16)); // Fuente moderna&#xa;&#xa;// Quitar bordes y darle un dise&#xf1;o plano&#xa;VerClientes.setFocusPainted(false);&#xa;VerClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="VerEmpleados">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new java.awt.Color(215, 125, 59)" type="code"/>
+                </Property>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;Ver Empleados&quot;" type="code"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerEmpleadosActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="VerEmpleados .setBorderPainted(false);&#xa;VerEmpleados .setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pasteler&#xed;a&#xa;VerEmpleados .setForeground(new java.awt.Color(102, 51, 0)); // Color marr&#xf3;n para el texto, simulando tonos de chocolate&#xa;VerEmpleados .setFont(new java.awt.Font(&quot;Segoe UI&quot;, java.awt.Font.BOLD, 16)); // Fuente moderna&#xa;&#xa;// Quitar bordes y darle un dise&#xf1;o plano&#xa;VerEmpleados.setFocusPainted(false);&#xa;VerEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="VerHistorial">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="3b" green="7d" red="d7" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="&quot;Ver Historial&quot;" type="code"/>
+                </Property>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+                <Property name="borderPainted" type="boolean" value="false"/>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Hand Cursor"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VerHistorialActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="VerHistorial.setBorderPainted(false);&#xa;VerHistorial.setBackground(new java.awt.Color(255, 182, 193)); // Color pastel para adaptarse al tema de pasteler&#xed;a&#xa;VerHistorial.setForeground(new java.awt.Color(102, 51, 0)); // Color marr&#xf3;n para el texto, simulando tonos de chocolate&#xa;VerHistorial.setFont(new java.awt.Font(&quot;Segoe UI&quot;, java.awt.Font.BOLD, 16)); // Fuente moderna&#xa;&#xa;// Quitar bordes y darle un dise&#xf1;o plano&#xa;VerHistorial.setFocusPainted(false);&#xa;VerHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -229,7 +312,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
-                      <Component id="lblNombreHeard" max="32767" attributes="0"/>
+                      <Component id="lblNombreHeard" pref="389" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -264,12 +347,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="759" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="432" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
