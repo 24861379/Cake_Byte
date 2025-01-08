@@ -18,7 +18,7 @@ El propósito de **Cake Byte** es ofrecer una herramienta práctica para gestion
 4. **Interfaz gráfica interactiva**: Diseñada para facilitar el uso y aprendizaje de estudiantes.
 5. **Gestión de pedidos**: Los clientes pueden monitorear el estado de su pedido con actualizaciones como: *Confirmado*, *En preparación*, *Listo*, *Entregado* y *Cancelado*.
 
-##Tecnologías utilizadas
+## Tecnologías utilizadas
 - **Java**: Lenguaje principal para la lógica de la aplicación.
 - **MySQL**: Base de datos para almacenar información de productos, clientes y pedidos.
 - **Swing**: Para la creación de la interfaz gráfica.
